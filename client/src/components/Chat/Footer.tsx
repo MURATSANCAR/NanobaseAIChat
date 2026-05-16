@@ -27,7 +27,8 @@ function Footer({ className }: { className?: string }) {
   const mainContentParts = (
     typeof config?.customFooter === 'string'
       ? config.customFooter
-      : `[${DEFAULT_APP_TITLE} ${Constants.VERSION}](#) - ` + localize('com_ui_latest_footer')
+      : `[${DEFAULT_APP_TITLE} ${Constants.VERSION}](https://www.nanobase.ai) - ` +
+        localize('com_ui_latest_footer')
   ).split('|');
 
   useEffect(() => {
