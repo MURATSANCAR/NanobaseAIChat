@@ -1,12 +1,12 @@
 <!-- Last synced with README.md: 2026-03-28 (cae3888) -->
 
 <p align="center">
-  <a href="https://librechat.ai">
-    <img src="client/public/assets/logo.svg" height="256">
-  </a>
-  <h1 align="center">
-    <a href="https://librechat.ai">LibreChat</a>
-  </h1>
+  <img src="client/public/assets/logo.svg" height="256" alt="NanobaseAI">
+  <h1 align="center">NanobaseAI</h1>
+</p>
+
+<p align="center">
+  <em>基于 <a href="https://github.com/danny-avila/LibreChat">LibreChat</a></em>
 </p>
 
 <p align="center">
@@ -60,7 +60,7 @@
 
 - 🤖 **AI 模型选择**：  
   - Anthropic (Claude), AWS Bedrock, OpenAI, Azure OpenAI, Google, Vertex AI, OpenAI Responses API (包含 Azure)
-  - [自定义端点 (Custom Endpoints)](https://www.librechat.ai/docs/quick_start/custom_endpoints)：LibreChat 支持任何兼容 OpenAI 规范的 API，无需代理。
+  - [自定义端点 (Custom Endpoints)](https://www.librechat.ai/docs/quick_start/custom_endpoints)：NanobaseAI 支持任何兼容 OpenAI 规范的 API，无需代理。
   - 兼容[本地与远程 AI 服务商](https://www.librechat.ai/docs/configuration/librechat_yaml/ai_endpoints)：
     - Ollama, groq, Cohere, Mistral AI, Apple MLX, koboldcpp, together.ai,
     - OpenRouter, Helicone, Perplexity, ShuttleAI, Deepseek, Qwen 等。
@@ -71,7 +71,7 @@
   - 隐私无忧：完全隔离且安全的执行环境。
 
 - 🔦 **智能体与工具集成**：  
-  - **[LibreChat 智能体 (Agents)](https://www.librechat.ai/docs/features/agents)**：
+  - **[NanobaseAI 智能体 (Agents)](https://www.librechat.ai/docs/features/agents)**：
     - 无代码定制助手：无需编程即可构建专业化的 AI 驱动助手。
     - 智能体市场：发现并部署社区构建的智能体。
     - 协作共享：与特定用户和群组共享智能体。
@@ -127,7 +127,7 @@
   - 支持 OpenAI, Azure OpenAI 和 Elevenlabs。
 
 - 📥 **导入与导出对话**：  
-  - 从 LibreChat, ChatGPT, Chatbot UI 导入对话。  
+  - 从 NanobaseAI、ChatGPT、Chatbot UI 导入对话。  
   - 将对话导出为截图、Markdown、文本、JSON。
 
 - 🔍 **搜索与发现**：  
@@ -147,11 +147,11 @@
 
 [查看我们的文档了解更多功能详情](https://docs.librechat.ai/) 📚
 
-## 🪶 LibreChat：全方位的 AI 对话平台
+## 🪶 NanobaseAI：全方位的 AI 对话平台
 
-LibreChat 是一个自托管的 AI 对话平台，在一个注重隐私的统一界面中整合了所有主流 AI 服务商。
+NanobaseAI 是一个自托管的 AI 对话平台，在一个注重隐私的统一界面中整合了所有主流 AI 服务商。
 
-除了对话功能外，LibreChat 还提供 AI 智能体、模型上下文协议 (MCP) 支持、Artifacts、代码解释器、自定义操作、对话搜索，以及企业级多用户认证。
+除了对话功能外，NanobaseAI 还提供 AI 智能体、模型上下文协议 (MCP) 支持、Artifacts、代码解释器、自定义操作、对话搜索，以及企业级多用户认证。
 
 开源、活跃开发中，专为重视 AI 基础设施自主可控的用户而构建。
 
@@ -204,7 +204,7 @@ LibreChat 是一个自托管的 AI 对话平台，在一个注重隐私的统一
 
 对于新功能、组件或扩展，请在发送 PR 前开启 issue 进行讨论。
 
-如果您想帮助我们将 LibreChat 翻译成您的母语，我们非常欢迎！改进翻译不仅能让全球用户更轻松地使用 LibreChat，还能提升整体用户体验。请查看我们的[翻译指南](https://www.librechat.ai/docs/translation)。
+如果您想帮助我们将 NanobaseAI 翻译成您的母语，我们非常欢迎！改进翻译不仅能让全球用户更轻松地使用 NanobaseAI，还能提升整体用户体验。请查看上游项目的[翻译指南](https://www.librechat.ai/docs/translation)。
 
 ---
 
@@ -218,7 +218,7 @@ LibreChat 是一个自托管的 AI 对话平台，在一个注重隐私的统一
 
 ## 🎉 特别鸣谢
 
-感谢 [Locize](https://locize.com) 提供的翻译管理工具，支持 LibreChat 的多语言功能。
+感谢 [Locize](https://locize.com) 提供的翻译管理工具，支持上游 LibreChat 项目的多语言功能。
 
 <p align="center">
   <a href="https://locize.com" target="_blank" rel="noopener noreferrer">

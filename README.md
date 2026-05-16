@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://librechat.ai">
-    <img src="client/public/assets/logo.svg" height="256">
-  </a>
-  <h1 align="center">
-    <a href="https://librechat.ai">LibreChat</a>
-  </h1>
+  <img src="client/public/assets/logo.svg" height="256" alt="NanobaseAI">
+  <h1 align="center">NanobaseAI</h1>
+</p>
+
+<p align="center">
+  <em>Based on <a href="https://github.com/danny-avila/LibreChat">LibreChat</a></em>
 </p>
 
 <p align="center">
@@ -127,7 +127,7 @@
   - Supports OpenAI, Azure OpenAI, and Elevenlabs
 
 - 📥 **Import & Export Conversations**:  
-  - Import Conversations from LibreChat, ChatGPT, Chatbot UI  
+  - Import Conversations from NanobaseAI, ChatGPT, Chatbot UI  
   - Export conversations as screenshots, markdown, text, json
 
 - 🔍 **Search & Discovery**:  
@@ -148,11 +148,11 @@
 
 [For a thorough review of our features, see our docs here](https://docs.librechat.ai/) 📚
 
-## 🪶 All-In-One AI Conversations with LibreChat
+## 🪶 All-In-One AI Conversations with NanobaseAI
 
-LibreChat is a self-hosted AI chat platform that unifies all major AI providers in a single, privacy-focused interface.
+NanobaseAI is a self-hosted AI chat platform that unifies all major AI providers in a single, privacy-focused interface.
 
-Beyond chat, LibreChat provides AI Agents, Model Context Protocol (MCP) support, Artifacts, Code Interpreter, custom actions, conversation search, and enterprise-ready multi-user authentication.
+Beyond chat, NanobaseAI provides AI Agents, Model Context Protocol (MCP) support, Artifacts, Code Interpreter, custom actions, conversation search, and enterprise-ready multi-user authentication.
 
 Open source, actively developed, and built for anyone who values control over their AI infrastructure.
 
@@ -205,7 +205,7 @@ Contributions, suggestions, bug reports and fixes are welcome!
 
 For new features, components, or extensions, please open an issue and discuss before sending a PR.
 
-If you'd like to help translate LibreChat into your language, we'd love your contribution! Improving our translations not only makes LibreChat more accessible to users around the world but also enhances the overall user experience. Please check out our [Translation Guide](https://www.librechat.ai/docs/translation).
+If you'd like to help translate NanobaseAI into your language, we'd love your contribution! Improving our translations not only makes NanobaseAI more accessible to users around the world but also enhances the overall user experience. Please check out the upstream [Translation Guide](https://www.librechat.ai/docs/translation).
 
 ---
 
@@ -219,7 +219,7 @@ If you'd like to help translate LibreChat into your language, we'd love your con
 
 ## 🎉 Special Thanks
 
-We thank [Locize](https://locize.com) for their translation management tools that support multiple languages in LibreChat.
+We thank [Locize](https://locize.com) for their translation management tools that support multiple languages in the upstream LibreChat project.
 
 <p align="center">
   <a href="https://locize.com" target="_blank" rel="noopener noreferrer">

@@ -2129,6 +2129,9 @@ export enum TTSProviders {
   LOCALAI = 'localai',
 }
 
+/** Default application title when APP_TITLE is unset */
+export const DEFAULT_APP_TITLE = 'NanobaseAI' as const;
+
 /** Enum for app-wide constants */
 export enum Constants {
   /** Key for the app's version. */

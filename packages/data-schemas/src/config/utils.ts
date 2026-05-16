@@ -28,7 +28,7 @@ export const getLogDirectory = (): string => {
 
   // For LibreChat project structure, use api/logs
   // For external consumers, they should set LIBRECHAT_LOG_DIR
-  if (cwd.includes('LibreChat')) {
+  if (cwd.includes('LibreChat') || cwd.includes('NanobaseAIChat')) {
     return apiLogsPath;
   }
 
