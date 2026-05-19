@@ -1,6 +1,7 @@
 import { DEFAULT_APP_TITLE } from 'librechat-data-provider';
 import { useLocalize } from '~/hooks';
 import NeuralBackground from './background';
+import AuthInceptionBadge from './inception';
 import { AuthHeroPartners } from './partners';
 
 function AuthHero() {
@@ -16,7 +17,8 @@ function AuthHero() {
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
           {DEFAULT_APP_TITLE}
         </p>
-        <h2 className="mt-4 text-4xl font-bold leading-tight text-white">
+        <AuthInceptionBadge large className="my-8" />
+        <h2 className="text-4xl font-bold leading-tight text-white">
           {localize('com_auth_welcome')}
         </h2>
       </div>

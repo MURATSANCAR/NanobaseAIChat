@@ -9,6 +9,7 @@ import Footer from './Footer';
 import AuthHero from './hero';
 import NeuralBackground from './background';
 import { authCardClass, authLinkClass, authPanelClass } from './styles';
+import AuthInceptionBadge from './inception';
 import { AuthPartnerBanner } from './partners';
 
 function AuthLayout({
@@ -30,6 +31,7 @@ function AuthLayout({
 }) {
   const localize = useLocalize();
   const appTitle = startupConfig?.appTitle ?? DEFAULT_APP_TITLE;
+  const isLoginPage = pathname.includes('login') && !pathname.includes('2fa');
 
   const hasStartupConfigError = startupConfigError !== null && startupConfigError !== undefined;
   const DisplayError = () => {
@@ -90,6 +92,8 @@ function AuthLayout({
                 </span>
               </div>
             </BlinkAnimation>
+
+            {isLoginPage && <AuthInceptionBadge className="mb-6" />}
 
             <DisplayError />
 

@@ -105,11 +105,7 @@ export function GoogleLogo({ className, title = 'Google', variant = 'brand' }: L
   );
 }
 
-const logoRowHeights = {
-  nvidia: '',
-  microsoft: 'h-4 w-4 sm:h-[17px] sm:w-[17px]',
-  google: 'h-4 w-4 sm:h-[17px] sm:w-[17px]',
-} as const;
+const logoSlotClass = 'flex h-6 shrink-0 items-center justify-center sm:h-7';
 
 export function PartnerLogoRow({
   className,
@@ -123,14 +119,20 @@ export function PartnerLogoRow({
   return (
     <div
       className={cn(
-        'flex flex-wrap items-center justify-center gap-6 sm:gap-8',
+        'flex flex-wrap items-center justify-center gap-x-10 gap-y-4 sm:gap-x-12',
         mono && 'text-white/55',
         className,
       )}
     >
-      <NvidiaLogo className={logoRowHeights.nvidia} title="NVIDIA" />
-      <MicrosoftLogo variant={variant} className={logoRowHeights.microsoft} title="Microsoft" />
-      <GoogleLogo variant={variant} className={logoRowHeights.google} title="Google" />
+      <div className={cn(logoSlotClass, 'min-w-[72px] sm:min-w-[88px]')}>
+        <NvidiaLogo title="NVIDIA" className="!h-5 !max-w-none sm:!h-6" />
+      </div>
+      <div className={cn(logoSlotClass, 'w-6 sm:w-7')}>
+        <MicrosoftLogo variant={variant} className="h-5 w-5 sm:h-6 sm:w-6" title="Microsoft" />
+      </div>
+      <div className={cn(logoSlotClass, 'w-6 sm:w-7')}>
+        <GoogleLogo variant={variant} className="h-5 w-5 sm:h-6 sm:w-6" title="Google" />
+      </div>
     </div>
   );
 }

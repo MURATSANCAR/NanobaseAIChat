@@ -19,7 +19,7 @@ function PartnerTrustBlock({
       <p className="text-center text-[11px] font-medium leading-snug tracking-wide text-slate-500 dark:text-slate-400">
         {localize('com_ui_partner_silicon_valley')}
       </p>
-      <p className="mt-1.5 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+      <p className="mt-1.5 text-center text-[10px] font-medium tracking-wide text-slate-400 dark:text-slate-500 sm:text-xs">
         {localize('com_ui_partner_supported_by')}
       </p>
       <PartnerLogoRow variant={logoVariant} className="mt-5" />
