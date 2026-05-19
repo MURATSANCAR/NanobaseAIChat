@@ -160,6 +160,30 @@ Open source, actively developed, and built for anyone who values control over th
 
 Operation Mode routes prompts through the NanobaseAI Operation Center (job orchestration, artifacts, audit) via a backend proxy. Set `NANOBASE_OPERATION_BASE_URL` in `.env` to your Operation Center API base URL (server-side only; not exposed to the frontend).
 
+### Local development (Mac)
+
+**Prerequisites:** Node.js 20+, MongoDB running locally (or `docker compose up -d mongodb`).
+
+```bash
+# One-time setup: .env, librechat.yaml, build packages
+npm run setup:local
+
+# Option A — one terminal (backend + frontend)
+npm run dev:local
+
+# Option B — two terminals
+npm run backend:dev    # http://localhost:3080
+npm run frontend:dev   # http://localhost:3090  ← open in browser
+```
+
+| Check | URL |
+|-------|-----|
+| UI | http://localhost:3090 |
+| API health | http://localhost:3080/health |
+| Operation proxy health (after login) | http://localhost:3080/api/nanobase/operation/health |
+
+Set `NANOBASE_OPERATION_BASE_URL` in `.env` before using Operation Mode, then restart the backend.
+
 ---
 
 ## 🌐 Resources
