@@ -116,7 +116,7 @@ interface:
 
       By using the Website, you acknowledge that you have read these Terms of Service and agree to be bound by them.
 
-  modelSelect: true
+  modelSelect: false
   parameters: true
   presets: true
   prompts:
@@ -559,6 +559,17 @@ endpoints:
   #     # - "disabled": No trace information (default)
   #     # Trace output is logged to application log files for compliance auditing
   #     trace: "enabled"
+modelSpecs:
+  prioritize: true
+  list:
+    - name: nanobaseai
+      label: NanobaseAI
+      default: true
+      preset:
+        endpoint: openAI
+        model: gpt-4o-mini
+        modelLabel: NanobaseAI
+
 # Example modelSpecs configuration showing grouping options
 # The 'group' field organizes model specs in the UI selector:
 # - If 'group' matches an endpoint name (e.g., "openAI", "groq"), the spec appears nested under that endpoint

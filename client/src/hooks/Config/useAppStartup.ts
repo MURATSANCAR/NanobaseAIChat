@@ -9,7 +9,9 @@ import {
   Permissions,
 } from 'librechat-data-provider';
 import type { TStartupConfig, TUser } from 'librechat-data-provider';
-import { useMCPToolsQuery, useMCPServersQuery } from '~/data-provider';
+import { useGetModelsQuery } from 'librechat-data-provider/react-query';
+import { useMCPToolsQuery, useMCPServersQuery, useGetEndpointsQuery } from '~/data-provider';
+import { getModelSpecPreset, resolveNanobaseDefaultModelSpec } from '~/utils';
 import { cleanupTimestampedStorage } from '~/utils/timestamps';
 import useSpeechSettingsInit from './useSpeechSettingsInit';
 import { useHasAccess } from '~/hooks';
@@ -23,6 +25,8 @@ export default function useAppStartup({
   user?: TUser;
 }) {
   const [defaultPreset, setDefaultPreset] = useRecoilState(store.defaultPreset);
+  const { data: endpointsConfig } = useGetEndpointsQuery({ enabled: !!user });
+  const { data: modelsConfig } = useGetModelsQuery({ enabled: !!user });
   const canUseMcp = useHasAccess({
     permissionType: PermissionTypes.MCP_SERVERS,
     permission: Permissions.USE,
@@ -57,30 +61,39 @@ export default function useAppStartup({
     localStorage.setItem(LocalStorageKeys.APP_TITLE, appTitle);
   }, [startupConfig]);
 
-  /** Set the default spec's preset as default */
+  /** Set NanobaseAI as the default model preset */
   useEffect(() => {
-    if (defaultPreset && defaultPreset.spec != null) {
+    if (defaultPreset?.spec != null) {
       return;
     }
 
-    const modelSpecs = startupConfig?.modelSpecs?.list;
-
-    if (!modelSpecs || !modelSpecs.length) {
+    if (!endpointsConfig) {
       return;
     }
 
-    const defaultSpec = modelSpecs.find((spec) => spec.default);
+    const defaultSpec = resolveNanobaseDefaultModelSpec(
+      startupConfig,
+      endpointsConfig,
+      modelsConfig,
+    );
 
     if (!defaultSpec) {
       return;
     }
 
-    setDefaultPreset({
-      ...defaultSpec.preset,
-      iconURL: defaultSpec.iconURL,
-      spec: defaultSpec.name,
-    });
-  }, [defaultPreset, setDefaultPreset, startupConfig?.modelSpecs?.list]);
+    const preset = getModelSpecPreset(defaultSpec);
+    if (!preset) {
+      return;
+    }
+
+    setDefaultPreset(preset);
+  }, [
+    defaultPreset?.spec,
+    endpointsConfig,
+    modelsConfig,
+    setDefaultPreset,
+    startupConfig,
+  ]);
 
   useEffect(() => {
     return installCloudFrontImageRetry(startupConfig, { getAuthorizationHeader: getTokenHeader });

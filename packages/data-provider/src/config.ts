@@ -975,7 +975,7 @@ export const interfaceSchema = z
       .optional(),
   })
   .default({
-    modelSelect: true,
+    modelSelect: false,
     parameters: true,
     presets: true,
     multiConvo: true,

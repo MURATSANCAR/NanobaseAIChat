@@ -299,16 +299,9 @@ const useNewConvo = (index = 0) => {
       };
 
       let preset = _preset;
-      const result = getDefaultModelSpec(startupConfig);
+      const result = getDefaultModelSpec(startupConfig, endpointsConfig, modelsQuery.data);
       const defaultModelSpec = result?.default ?? result?.last;
-      if (
-        !preset &&
-        startupConfig &&
-        (startupConfig.modelSpecs?.prioritize === true ||
-          (startupConfig.interface?.modelSelect ?? true) !== true ||
-          (result?.last != null && Object.keys(_template).length === 0)) &&
-        defaultModelSpec
-      ) {
+      if (!preset && defaultModelSpec) {
         preset = getModelSpecPreset(defaultModelSpec);
       }
 

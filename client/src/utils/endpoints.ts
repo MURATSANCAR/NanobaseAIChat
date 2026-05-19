@@ -12,6 +12,10 @@ import {
 import type * as t from 'librechat-data-provider';
 import type { LocalizeFunction, IconsRecord } from '~/common';
 import { getTimestampedValue } from './timestamps';
+import {
+  findConfiguredNanobaseSpec,
+  resolveNanobaseDefaultModelSpec,
+} from './nanobase';
 
 /**
  * Clears model for non-ephemeral agent conversations.
@@ -269,15 +273,34 @@ export function applyModelSpecEphemeralAgent({
 
 /**
  * Gets default model spec from config and user preferences.
- * Priority: admin default → last selected → first spec (when prioritize=true or modelSelect disabled).
- * Otherwise: admin default or last conversation spec.
+ * NanobaseAI: always resolves to the NanobaseAI model spec when endpoints are available.
  */
-export function getDefaultModelSpec(startupConfig?: t.TStartupConfig):
+export function getDefaultModelSpec(
+  startupConfig?: t.TStartupConfig,
+  endpointsConfig?: t.TEndpointsConfig,
+  modelsConfig?: t.TModelsConfig,
+):
   | {
       default?: t.TModelSpec;
       last?: t.TModelSpec;
     }
   | undefined {
+  if (endpointsConfig && Object.keys(endpointsConfig).length > 0) {
+    const nanobaseSpec = resolveNanobaseDefaultModelSpec(
+      startupConfig,
+      endpointsConfig,
+      modelsConfig,
+    );
+    if (nanobaseSpec) {
+      return { default: nanobaseSpec, last: nanobaseSpec };
+    }
+  }
+
+  const configuredNanobase = findConfiguredNanobaseSpec(startupConfig);
+  if (configuredNanobase) {
+    return { default: configuredNanobase, last: configuredNanobase };
+  }
+
   const { modelSpecs, interface: interfaceConfig } = startupConfig ?? {};
   const { list, prioritize } = modelSpecs ?? {};
   if (!list) {
@@ -288,7 +311,8 @@ export function getDefaultModelSpec(startupConfig?: t.TStartupConfig):
     const lastSelectedSpecName = localStorage.getItem(LocalStorageKeys.LAST_SPEC);
     const lastSelectedSpec = list?.find((spec) => spec.name === lastSelectedSpecName);
     return { default: defaultSpec || lastSelectedSpec || list?.[0] };
-  } else if (defaultSpec) {
+  }
+  if (defaultSpec) {
     return { default: defaultSpec };
   }
   const lastConversationSetup = JSON.parse(
