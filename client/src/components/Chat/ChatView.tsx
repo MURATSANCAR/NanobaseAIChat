@@ -14,7 +14,6 @@ import MessagesView from './Messages/MessagesView';
 import Presentation from './Presentation';
 import ChatForm from './Input/ChatForm';
 import Landing from './Landing';
-import CornerAiVisual from './CornerAiVisual';
 import Header from './Header';
 import Footer from './Footer';
 import { cn } from '~/utils';
