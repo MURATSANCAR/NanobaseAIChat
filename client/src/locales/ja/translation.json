@@ -1486,5 +1486,9 @@
   "com_ui_zoom_in": "ズームイン",
   "com_ui_zoom_level": "ズームレベル",
   "com_ui_zoom_out": "ズームアウト",
-  "com_user_message": "あなた"
+  "com_user_message": "あなた",
+  "com_ui_partner_footer_aria": "Technology partners",
+  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
+  "com_ui_partner_supported_by": "Supported by"
 }

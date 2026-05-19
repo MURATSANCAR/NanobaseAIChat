@@ -1,5 +1,6 @@
 import { useLocalize } from '~/hooks';
 import { TStartupConfig } from 'librechat-data-provider';
+import { PartnerSupportFooter } from '~/components/Branding';
 import { authLinkClass } from './styles';
 
 function Footer({ startupConfig }: { startupConfig: TStartupConfig | null | undefined }) {
@@ -14,8 +15,6 @@ function Footer({ startupConfig }: { startupConfig: TStartupConfig | null | unde
     <a
       className={`text-sm ${authLinkClass}`}
       href={privacyPolicy.externalUrl}
-      // Removed for WCAG compliance
-      // target={privacyPolicy.openNewTab ? '_blank' : undefined}
       rel="noreferrer"
     >
       {localize('com_ui_privacy_policy')}
@@ -26,8 +25,6 @@ function Footer({ startupConfig }: { startupConfig: TStartupConfig | null | unde
     <a
       className={`text-sm ${authLinkClass}`}
       href={termsOfService.externalUrl}
-      // Removed for WCAG compliance
-      // target={termsOfService.openNewTab ? '_blank' : undefined}
       rel="noreferrer"
     >
       {localize('com_ui_terms_of_service')}
@@ -35,12 +32,15 @@ function Footer({ startupConfig }: { startupConfig: TStartupConfig | null | unde
   );
 
   return (
-    <div className="align-end m-4 flex justify-center gap-2" role="contentinfo">
-      {privacyPolicyRender}
-      {privacyPolicyRender && termsOfServiceRender && (
-        <div className="border-r-[1px] border-gray-300 dark:border-gray-600" />
-      )}
-      {termsOfServiceRender}
+    <div className="m-4 flex flex-col items-center gap-3">
+      <PartnerSupportFooter className="border-white/10" />
+      <div className="flex flex-wrap justify-center gap-2" role="contentinfo">
+        {privacyPolicyRender}
+        {privacyPolicyRender && termsOfServiceRender && (
+          <div className="border-r-[1px] border-gray-300 dark:border-gray-600" />
+        )}
+        {termsOfServiceRender}
+      </div>
     </div>
   );
 }

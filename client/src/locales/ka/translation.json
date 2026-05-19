@@ -59,5 +59,9 @@
   "com_nav_lang_traditional_chinese": "ჩინური ტრადიციული",
   "com_nav_lang_turkish": "თურქული",
   "com_nav_lang_vietnamese": "ვიეტნამური",
-  "com_nav_language": "ენა"
+  "com_nav_language": "ენა",
+  "com_ui_partner_footer_aria": "Technology partners",
+  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
+  "com_ui_partner_supported_by": "Supported by"
 }

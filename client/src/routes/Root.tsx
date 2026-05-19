@@ -22,6 +22,7 @@ import { UnifiedSidebar } from '~/components/UnifiedSidebar';
 import { TermsAndConditionsModal } from '~/components/ui';
 import { useHealthCheck } from '~/data-provider';
 import { Banner } from '~/components/Banners';
+import { PartnerCornerBadge } from '~/components/Branding';
 import { ColorfulShell } from '~/components/Theme';
 
 export default function Root() {
@@ -75,6 +76,7 @@ export default function Root() {
                 <div className="relative z-0 flex h-full w-full overflow-hidden">
                   <UnifiedSidebar />
                   <ColorfulShell>
+                    <PartnerCornerBadge className="max-md:left-11" />
                     <div
                       className="relative flex h-full max-w-full flex-1 flex-col overflow-hidden"
                       style={{

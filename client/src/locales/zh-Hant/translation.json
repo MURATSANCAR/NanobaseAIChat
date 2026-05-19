@@ -876,5 +876,9 @@
   "com_ui_weekend_morning": "週末愉快",
   "com_ui_yes": "是",
   "com_ui_zoom": "縮放",
-  "com_user_message": "您"
+  "com_user_message": "您",
+  "com_ui_partner_footer_aria": "Technology partners",
+  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
+  "com_ui_partner_supported_by": "Supported by"
 }

@@ -405,5 +405,9 @@
   "com_ui_x_selected": "{{0}} đã chọn",
   "com_ui_yes": "Đồng ý",
   "com_ui_zoom": "Phóng",
-  "com_warning_resubmit_unsupported": "Điểm cuối này không hỗ trợ việc gửi lại tin nhắn AI."
+  "com_warning_resubmit_unsupported": "Điểm cuối này không hỗ trợ việc gửi lại tin nhắn AI.",
+  "com_ui_partner_footer_aria": "Technology partners",
+  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
+  "com_ui_partner_supported_by": "Supported by"
 }

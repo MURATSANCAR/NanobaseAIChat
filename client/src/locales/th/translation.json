@@ -826,5 +826,9 @@
   "com_ui_zoom_in": "ซูมเข้า",
   "com_ui_zoom_level": "ระดับการซูม",
   "com_ui_zoom_out": "ซูมออก",
-  "com_user_message": "คุณ"
+  "com_user_message": "คุณ",
+  "com_ui_partner_footer_aria": "Technology partners",
+  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
+  "com_ui_partner_supported_by": "Supported by"
 }

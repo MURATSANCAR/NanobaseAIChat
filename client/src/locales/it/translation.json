@@ -1487,5 +1487,9 @@
   "com_ui_zoom_in": "Ingrandisci",
   "com_ui_zoom_level": "Livello di zoom",
   "com_ui_zoom_out": "Zoom out",
-  "com_user_message": "Mostra nome utente nei messaggi"
+  "com_user_message": "Mostra nome utente nei messaggi",
+  "com_ui_partner_footer_aria": "Technology partners",
+  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
+  "com_ui_partner_supported_by": "Supported by"
 }

@@ -1,0 +1,25 @@
+import { useLocalize } from '~/hooks';
+import { cn } from '~/utils';
+import { NvidiaLogo } from './logos';
+
+function PartnerCornerBadge({ className }: { className?: string }) {
+  const localize = useLocalize();
+
+  return (
+    <div
+      className={cn(
+        'pointer-events-none absolute left-2 top-2 z-[15] flex max-w-[min(100%,220px)] items-center gap-2 rounded-xl border border-white/10 bg-[rgba(12,10,20,0.72)] px-2.5 py-1.5 shadow-lg backdrop-blur-md sm:left-3 sm:top-3',
+        className,
+      )}
+      role="note"
+      aria-label={localize('com_ui_partner_nvidia_corner')}
+    >
+      <NvidiaLogo className="h-4 w-auto shrink-0 sm:h-5" />
+      <span className="text-[10px] font-medium leading-tight text-text-secondary sm:text-xs">
+        {localize('com_ui_partner_nvidia_corner')}
+      </span>
+    </div>
+  );
+}
+
+export default PartnerCornerBadge;

@@ -186,5 +186,9 @@
   "com_ui_upload_type": "Ընտրեք ներբեռնելու տիպը",
   "com_ui_write": "Գրում է",
   "com_ui_yes": "Այո",
-  "com_user_message": "Դու"
+  "com_user_message": "Դու",
+  "com_ui_partner_footer_aria": "Technology partners",
+  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
+  "com_ui_partner_supported_by": "Supported by"
 }
