@@ -2976,6 +2976,25 @@ html {
   }
 }
 
+@keyframes auth-partner-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.auth-partner-shine {
+  animation: auth-partner-shine 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-partner-shine {
+    animation: none;
+  }
+}
+
 /* NanobaseAI colorful post-login theme */
 .dark .nb-colorful-app {
   --presentation: #0c0a14;

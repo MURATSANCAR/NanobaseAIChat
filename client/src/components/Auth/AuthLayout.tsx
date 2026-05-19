@@ -8,8 +8,8 @@ import { Banner } from '../Banners';
 import Footer from './Footer';
 import AuthHero from './hero';
 import NeuralBackground from './background';
-import { PartnerCornerBadge } from '~/components/Branding';
 import { authCardClass, authLinkClass, authPanelClass } from './styles';
+import { AuthPartnerBanner } from './partners';
 
 function AuthLayout({
   children,
@@ -69,7 +69,6 @@ function AuthLayout({
       <AuthHero />
 
       <div className={authPanelClass}>
-        <PartnerCornerBadge className="left-3 top-3" />
         <div className="absolute inset-0 overflow-hidden opacity-40 lg:hidden">
           <NeuralBackground />
         </div>
@@ -109,6 +108,8 @@ function AuthLayout({
               (pathname.includes('login') || pathname.includes('register')) && (
                 <SocialLoginRender startupConfig={startupConfig} />
               )}
+
+            <AuthPartnerBanner />
           </div>
         </main>
 
