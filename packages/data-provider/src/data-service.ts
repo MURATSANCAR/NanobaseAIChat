@@ -13,6 +13,7 @@ import request from './request';
 import * as s from './schemas';
 import * as r from './roles';
 import * as permissions from './accessPermissions';
+import type * as op from './types/operation';
 
 export function revokeUserKey(name: string): Promise<unknown> {
   return request.delete(endpoints.revokeUserKey(name));
@@ -1280,4 +1281,33 @@ export interface ActiveJobsResponse {
 
 export const getActiveJobs = (): Promise<ActiveJobsResponse> => {
   return request.get(endpoints.activeJobs());
+};
+
+/* NanobaseAI Operation Center */
+export const getOperationHealth = (): Promise<op.OperationHealthResponse> => {
+  return request.get(endpoints.operationHealth());
+};
+
+export const sendOperationMessage = (
+  payload: op.OperationMessageRequest,
+): Promise<op.OperationMessageResponse> => {
+  return request.post(endpoints.operationMessage(), payload);
+};
+
+export const getOperationJob = (jobId: string): Promise<op.OperationJob> => {
+  return request.get(endpoints.operationJob(jobId));
+};
+
+export const getOperationAudit = (executionId: string): Promise<op.OperationAuditResponse> => {
+  return request.get(endpoints.operationAudit(executionId));
+};
+
+export const getOperationArtifactMetadata = (
+  artifactId: string,
+): Promise<op.OperationArtifactMetadata> => {
+  return request.get(endpoints.operationArtifactMetadata(artifactId));
+};
+
+export const getOperationArtifactDownloadUrl = (artifactId: string): string => {
+  return endpoints.operationArtifactDownload(artifactId);
 };

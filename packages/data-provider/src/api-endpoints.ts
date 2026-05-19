@@ -491,3 +491,17 @@ export const getAllEffectivePermissions = (resourceType: ResourceType) =>
 // SharePoint Graph API Token
 export const graphToken = (scopes: string) =>
   `${BASE_URL}/api/auth/graph-token?scopes=${encodeURIComponent(scopes)}`;
+
+/* NanobaseAI Operation Center (proxy) */
+const operationBase = () => `${BASE_URL}/api/nanobase/operation`;
+
+export const operationHealth = () => `${operationBase()}/health`;
+export const operationMessage = () => `${operationBase()}/message`;
+export const operationJob = (jobId: string) =>
+  `${operationBase()}/jobs/${encodeURIComponent(jobId)}`;
+export const operationAudit = (executionId: string) =>
+  `${operationBase()}/audit/${encodeURIComponent(executionId)}`;
+export const operationArtifactMetadata = (artifactId: string) =>
+  `${operationBase()}/artifacts/${encodeURIComponent(artifactId)}/metadata`;
+export const operationArtifactDownload = (artifactId: string) =>
+  `${operationBase()}/artifacts/${encodeURIComponent(artifactId)}`;

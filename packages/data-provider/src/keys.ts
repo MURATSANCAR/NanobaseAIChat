@@ -80,6 +80,11 @@ export enum QueryKeys {
   skillStates = 'skillStates',
   /* General user favorites */
   favorites = 'favorites',
+  /* NanobaseAI Operation Center */
+  operationHealth = 'operationHealth',
+  operationJob = 'operationJob',
+  operationAudit = 'operationAudit',
+  operationArtifact = 'operationArtifact',
 }
 
 // Dynamic query keys that require parameters
