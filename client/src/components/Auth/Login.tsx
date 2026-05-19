@@ -114,7 +114,7 @@ function Login() {
       )}
       <SocialLoginRender startupConfig={startupConfig} />
       {startupConfig?.registrationEnabled === true && (
-        <p className="my-4 text-center text-sm font-light text-gray-700 dark:text-white">
+        <p className="mb-2 mt-4 text-center text-sm font-light text-gray-700 dark:text-white">
           {' '}
           {localize('com_auth_no_account')}{' '}
           <a
@@ -126,7 +126,7 @@ function Login() {
         </p>
       )}
       <AuthPartnerCard
-        className={startupConfig?.registrationEnabled ? 'mt-2' : 'mt-6'}
+        className={startupConfig?.registrationEnabled ? '-mt-1' : 'mt-4'}
       />
     </>
   );

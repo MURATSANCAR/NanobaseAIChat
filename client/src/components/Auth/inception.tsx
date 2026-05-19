@@ -1,6 +1,6 @@
 import { NvidiaLogo } from '~/components/Branding/logos';
 import { cn } from '~/utils';
-import useAuthBrandLocalize from './brand';
+import useBrandLocalize from '~/components/Branding/brand';
 
 function AuthInceptionBadge({
   className,
@@ -11,13 +11,13 @@ function AuthInceptionBadge({
   large?: boolean;
   onDarkBackground?: boolean;
 }) {
-  const localize = useAuthBrandLocalize();
+  const brandLocalize = useBrandLocalize();
 
   return (
     <div
       className={cn('flex flex-col items-center gap-3', className)}
       role="note"
-      aria-label={localize('com_auth_nvidia_inception')}
+      aria-label={brandLocalize('com_auth_nvidia_inception')}
     >
       <p
         className={cn(
@@ -25,7 +25,7 @@ function AuthInceptionBadge({
           large ? 'text-xs sm:text-sm' : 'text-[10px] sm:text-xs',
         )}
       >
-        {localize('com_auth_nvidia_inception')}
+        {brandLocalize('com_auth_nvidia_inception')}
       </p>
       <NvidiaLogo
         onPlate={!onDarkBackground}

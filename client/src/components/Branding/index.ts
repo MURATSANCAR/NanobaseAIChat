@@ -1,3 +1,4 @@
+export { default as useBrandLocalize } from './brand';
 export { default as NanobaseLogo } from './nanobase';
 export { default as PartnerCornerBadge } from './corner';
 export { default as PartnerSupportFooter } from './footer';

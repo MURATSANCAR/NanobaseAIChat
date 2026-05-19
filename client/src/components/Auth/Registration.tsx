@@ -222,7 +222,7 @@ const Registration: React.FC = () => {
 
           <SocialLoginRender startupConfig={startupConfig} />
 
-          <p className="my-4 text-center text-sm font-light text-gray-700 dark:text-white">
+          <p className="mb-2 mt-4 text-center text-sm font-light text-gray-700 dark:text-white">
             {localize('com_auth_already_have_account')}{' '}
             <a
               href={loginPage()}
@@ -232,7 +232,7 @@ const Registration: React.FC = () => {
               {localize('com_auth_login')}
             </a>
           </p>
-          <AuthPartnerCard className="mt-2" />
+          <AuthPartnerCard className="-mt-1" />
         </>
       )}
     </>
