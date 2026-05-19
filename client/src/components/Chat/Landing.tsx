@@ -138,7 +138,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
             </div>
           )}
 
-          <div className="flex min-w-0 flex-1 flex-col items-start pr-[5.75rem] sm:pr-28">
+          <motion.div className="flex min-w-0 flex-1 flex-col items-start">
             {name ? (
               <SplitText
                 key={`split-text-${name}`}
@@ -170,7 +170,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
         </div>
 
         {description && (
-          <p className="animate-fadeIn mt-2 max-w-md pr-[5.75rem] text-left text-xs font-normal leading-snug text-text-secondary sm:pr-28 sm:text-sm">
+          <p className="animate-fadeIn mt-2 max-w-md text-left text-xs font-normal leading-snug text-text-secondary sm:text-sm">
             {description}
           </p>
         )}
