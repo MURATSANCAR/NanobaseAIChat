@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useLocalize } from '~/hooks';
+import { StandaloneThemeShell } from '~/components/Theme';
+import { nbGlassCard, nbStandaloneCenter } from '~/components/Theme/styles';
 
 export default function OAuthSuccess() {
   const localize = useLocalize();
@@ -24,24 +26,26 @@ export default function OAuthSuccess() {
   }, []);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 p-8">
-      <div className="w-full max-w-md rounded-xl bg-white p-8 text-center shadow-lg">
-        <h1 className="mb-4 text-3xl font-bold text-gray-900">
-          {localize('com_ui_oauth_success_title') || 'Authentication Successful'}
-        </h1>
-        <p className="mb-2 text-sm text-gray-600">
-          {localize('com_ui_oauth_success_description') ||
-            'Your authentication was successful. This window will close in'}{' '}
-          <span className="font-medium text-indigo-500">{secondsLeft}</span>{' '}
-          {localize('com_ui_seconds') || 'seconds'}.
-        </p>
-        {serverName && (
-          <p className="mt-4 text-xs text-gray-500">
-            {localize('com_ui_oauth_connected_to') || 'Connected to'}:{' '}
-            <span className="font-medium">{serverName}</span>
+    <StandaloneThemeShell>
+      <div className={nbStandaloneCenter}>
+        <div className={`w-full max-w-md ${nbGlassCard}`}>
+          <h1 className="mb-4 text-3xl font-bold text-text-primary">
+            {localize('com_ui_oauth_success_title') || 'Authentication Successful'}
+          </h1>
+          <p className="mb-2 text-sm text-text-secondary">
+            {localize('com_ui_oauth_success_description') ||
+              'Your authentication was successful. This window will close in'}{' '}
+            <span className="font-medium text-sky-400">{secondsLeft}</span>{' '}
+            {localize('com_ui_seconds') || 'seconds'}.
           </p>
-        )}
+          {serverName && (
+            <p className="mt-4 text-xs text-text-secondary">
+              {localize('com_ui_oauth_connected_to') || 'Connected to'}:{' '}
+              <span className="font-medium text-text-primary">{serverName}</span>
+            </p>
+          )}
+        </div>
       </div>
-    </div>
+    </StandaloneThemeShell>
   );
 }

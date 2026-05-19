@@ -219,7 +219,7 @@ const AgentMarketplace: React.FC<AgentMarketplaceProps> = ({ className = '' }) =
               </div>
             )}
             {/* Sticky wrapper for search bar and categories */}
-            <motion className="sticky top-0 z-10 mt-4 bg-[rgba(12,10,20,0.85)] pb-4 backdrop-blur-md md:mt-0">
+            <div className="sticky top-0 z-10 mt-4 bg-[rgba(12,10,20,0.85)] pb-4 backdrop-blur-md md:mt-0">
               <div className="container mx-auto max-w-4xl px-4">
                 <div className="mx-auto mb-3 flex max-w-2xl items-center justify-between gap-2 md:hidden">
                   <OpenSidebar />

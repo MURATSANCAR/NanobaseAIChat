@@ -96,7 +96,7 @@ export default function Search() {
       </div>
       {(messages && messages.length === 0) || messages == null ? (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="rounded-lg bg-white p-6 text-lg text-gray-500 dark:border-gray-800/50 dark:bg-gray-800 dark:text-gray-300">
+          <div className="rounded-lg border border-border-light bg-surface-primary/90 p-6 text-lg text-text-secondary backdrop-blur-md">
             {localize('com_ui_nothing_found')}
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function Search() {
           )}
         </>
       )}
-      <div className="absolute bottom-0 left-0 right-0 h-[5%] bg-gradient-to-t from-gray-50 to-transparent dark:from-gray-800" />
+      <div className="absolute bottom-0 left-0 right-0 h-[5%] bg-gradient-to-t from-[var(--presentation)] to-transparent" />
     </MinimalMessagesWrapper>
   );
 }

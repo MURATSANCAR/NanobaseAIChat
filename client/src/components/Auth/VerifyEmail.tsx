@@ -3,8 +3,11 @@ import { Spinner, ThemeSelector } from '@librechat/client';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useVerifyEmailMutation, useResendVerificationEmail } from '~/data-provider';
 import { useLocalize } from '~/hooks';
+import { StandaloneThemeShell } from '~/components/Theme';
+import { nbGlassCard, nbStandaloneCenter } from '~/components/Theme/styles';
+import { authLinkClass } from './styles';
 
-function RequestPasswordReset() {
+function VerifyEmail() {
   const navigate = useNavigate();
   const localize = useLocalize();
   const [params] = useSearchParams();
@@ -78,19 +81,19 @@ function RequestPasswordReset() {
 
   const VerificationSuccess = () => (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="mb-4 text-center text-3xl font-semibold text-black dark:text-white">
+      <h1 className="mb-4 text-center text-3xl font-semibold text-text-primary">
         {headerText}
       </h1>
       {countdown > 0 && (
-        <p className="text-center text-lg text-gray-600 dark:text-gray-400">
+        <p className="text-center text-lg text-text-secondary">
           {localize('com_auth_email_verification_redirecting', { 0: countdown.toString() })}
         </p>
       )}
       {showResendLink && countdown === 0 && (
-        <p className="text-center text-lg text-gray-600 dark:text-gray-400">
+        <p className="text-center text-lg text-text-secondary">
           {localize('com_auth_email_verification_resend_prompt')}
           <button
-            className="ml-2 text-blue-600 hover:underline"
+            className={`ml-2 font-semibold ${authLinkClass}`}
             onClick={handleResendEmail}
             disabled={resendEmailMutation.isLoading}
           >
@@ -103,7 +106,7 @@ function RequestPasswordReset() {
 
   const VerificationInProgress = () => (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="mb-4 text-center text-3xl font-semibold text-black dark:text-white">
+      <h1 className="mb-4 text-center text-3xl font-semibold text-text-primary">
         {localize('com_auth_email_verification_in_progress')}
       </h1>
       <div className="mt-4 flex justify-center">
@@ -113,13 +116,17 @@ function RequestPasswordReset() {
   );
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-white pt-6 dark:bg-gray-900 sm:pt-0">
-      <div className="absolute bottom-0 left-0 m-4">
+    <StandaloneThemeShell>
+      <div className="absolute bottom-0 left-0 z-10 m-4">
         <ThemeSelector />
       </div>
-      {verificationStatus ? <VerificationSuccess /> : <VerificationInProgress />}
-    </div>
+      <div className={nbStandaloneCenter}>
+        <div className={`w-full max-w-lg ${nbGlassCard}`}>
+          {verificationStatus ? <VerificationSuccess /> : <VerificationInProgress />}
+        </div>
+      </div>
+    </StandaloneThemeShell>
   );
 }
 
-export default RequestPasswordReset;
+export default VerifyEmail;

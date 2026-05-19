@@ -3208,6 +3208,48 @@ html {
   background: rgba(14, 165, 233, 0.12) !important;
 }
 
+/* Themed surfaces for panels, modals, and legacy gray utilities */
+.dark .nb-colorful-app .dark\:bg-gray-900 {
+  background-color: #0c0a14 !important;
+}
+
+.dark .nb-colorful-app .dark\:bg-gray-850 {
+  background-color: rgba(20, 16, 36, 0.94) !important;
+}
+
+.dark .nb-colorful-app .dark\:bg-gray-800 {
+  background-color: rgba(20, 16, 36, 0.75) !important;
+}
+
+.dark .nb-colorful-app .dark\:bg-gray-700 {
+  background-color: rgba(30, 24, 50, 0.85) !important;
+}
+
+.dark .nb-colorful-app .dark\:bg-gray-600 {
+  background-color: rgba(40, 32, 64, 0.9) !important;
+}
+
+.dark .nb-colorful-app .dark\:hover\:bg-gray-800:hover,
+.dark .nb-colorful-app .dark\:hover\:bg-gray-700:hover,
+.dark .nb-colorful-app .dark\:hover\:bg-gray-850\/25:hover {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+.dark .nb-colorful-app .dark\:border-gray-800,
+.dark .nb-colorful-app .dark\:border-gray-800\/50,
+.dark .nb-colorful-app .dark\:border-gray-700 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark .nb-colorful-app .dark\:bg-surface-secondary {
+  background-color: transparent !important;
+}
+
+.nb-colorful-app [role='dialog'],
+.nb-colorful-app [data-radix-popper-content-wrapper] > div {
+  backdrop-filter: blur(12px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nb-colorful-particle,
   .nb-colorful-aurora,

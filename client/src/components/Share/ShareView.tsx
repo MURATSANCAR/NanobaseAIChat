@@ -93,7 +93,7 @@ function SharedView() {
   let content: JSX.Element;
   if (isLoading) {
     content = (
-      <div className="flex h-screen items-center justify-center">
+      <div className="flex min-h-[60vh] flex-1 items-center justify-center">
         <Spinner className="" />
       </div>
     );
@@ -116,7 +116,7 @@ function SharedView() {
     );
   } else {
     content = (
-      <div className="flex h-screen items-center justify-center">
+      <div className="flex min-h-[60vh] flex-1 items-center justify-center text-text-secondary">
         {localize('com_ui_shared_link_not_found')}
       </div>
     );
@@ -129,7 +129,7 @@ function SharedView() {
   );
 
   const mainContent = (
-    <div className="transition-width relative flex h-full w-full flex-1 flex-col items-stretch overflow-hidden pt-0 dark:bg-surface-secondary">
+    <div className="transition-width relative flex h-full w-full flex-1 flex-col items-stretch overflow-hidden bg-transparent pt-0">
       <div className="relative flex h-full min-h-0 flex-col text-text-primary" role="presentation">
         {content}
         {footer}
@@ -150,8 +150,8 @@ function SharedView() {
 
   return (
     <ShareContext.Provider value={{ isSharedConvo: true }}>
-      <div className="relative flex h-screen w-full overflow-hidden dark:bg-surface-secondary">
-        <main className="relative flex w-full grow overflow-hidden dark:bg-surface-secondary">
+      <div className="relative flex min-h-0 flex-1 w-full overflow-hidden bg-transparent">
+        <main className="relative flex w-full grow overflow-hidden bg-transparent">
           {artifactsContainer}
         </main>
       </div>
