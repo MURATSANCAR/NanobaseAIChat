@@ -3813,6 +3813,18 @@ html {
     0 0 24px rgba(249, 115, 22, 0.15);
 }
 
+.nb-send-agent--ready .nb-corner-ai-orbit {
+  animation-duration: 7s;
+}
+
+.nb-send-agent--ready:hover {
+  transform: scale(1.04);
+}
+
+.nb-send-agent--ready .nb-corner-ai-glow {
+  animation-duration: 1.8s;
+}
+
 .nb-forge-landing.nb-landing-panel {
   background-color: rgba(15, 29, 50, 0.82);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);

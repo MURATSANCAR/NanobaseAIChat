@@ -51,7 +51,7 @@ function ComposerAgentOrb({ active = true, className }: ComposerAgentOrbProps) {
           stroke="#38bdf8"
           strokeWidth="0.6"
           strokeOpacity="0.3"
-          className={cn('nb-corner-ai-scan', active && 'nb-send-agent-orb--active')}
+          className="nb-corner-ai-scan"
         />
 
         <g className="nb-corner-ai-orbit" style={{ transformOrigin: '44px 44px' }}>

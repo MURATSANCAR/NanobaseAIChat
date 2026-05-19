@@ -138,7 +138,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
             </div>
           )}
 
-          <motion.div className="flex min-w-0 flex-1 flex-col items-start">
+          <div className="flex min-w-0 flex-1 flex-col items-start">
             {name ? (
               <SplitText
                 key={`split-text-${name}`}
