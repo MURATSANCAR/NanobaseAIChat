@@ -75,7 +75,7 @@ interface:
 
   # Terms of service
   termsOfService:
-    externalUrl: 'https://librechat.ai/tos'
+    externalUrl: 'https://www.nanobase.ai'
     openNewTab: true
     modalAcceptance: true
     modalTitle: 'Terms of Service for NanobaseAI'
@@ -86,9 +86,9 @@ interface:
 
       Welcome to NanobaseAI, your AI chat platform. These Terms of Service ("Terms") govern your use of our website and the services we offer. By accessing or using the Website, you agree to be bound by these Terms and our Privacy Policy.
 
-      ## 1. Ownership
+      ## 1. Service
 
-      Upon purchasing a package from NanobaseAI, you are granted the right to download and use the code for accessing an admin panel for NanobaseAI. While you own the downloaded code, you are expressly prohibited from reselling, redistributing, or otherwise transferring the code to third parties without explicit permission from NanobaseAI.
+      NanobaseAI provides an AI chat and agent platform. Your organization may configure models, connectors, and access policies through your administrator.
 
       ## 2. User Data
 
@@ -112,7 +112,7 @@ interface:
 
       ## 7. Contact Information
 
-      If you have any questions about these Terms, please contact us at contact@librechat.ai.
+      If you have any questions about these Terms, please visit https://www.nanobase.ai.
 
       By using the Website, you acknowledge that you have read these Terms of Service and agree to be bound by them.
 

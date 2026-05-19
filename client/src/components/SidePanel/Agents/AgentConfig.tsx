@@ -10,7 +10,7 @@ import {
 } from 'librechat-data-provider';
 import type { AgentForm, IconComponentTypes } from '~/common';
 import { processAgentOption, validateEmail, getIconKey, cn } from '~/utils';
-import { nbForgeInput, nbForgeLabel, nbForgeRequired } from '~/components/Theme';
+import { nbForgeCombobox, nbForgeInput, nbForgeLabel, nbForgeRequired } from '~/components/Theme';
 import { ToolSelectDialog, MCPToolSelectDialog } from '~/components/Tools';
 import { SkillSelectDialog } from '~/components/Skills/dialogs';
 import useAgentCapabilities from '~/hooks/Agents/useAgentCapabilities';
@@ -281,7 +281,7 @@ export default function AgentConfig() {
           <label className={labelClass} htmlFor="category-selector">
             {localize('com_ui_category')} <span className={nbForgeRequired}>*</span>
           </label>
-          <AgentCategorySelector className="w-full" />
+          <AgentCategorySelector className={cn('w-full', nbForgeCombobox)} />
         </div>
         {/* Instructions */}
         <Instructions />

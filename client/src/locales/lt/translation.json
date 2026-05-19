@@ -1,6 +1,12 @@
 {
+  "com_agents_missing_provider_model": "Choose a provider and model for this agent in agent settings before saving.",
   "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
   "com_auth_hero_title": "Intelligence, connected.",
+  "com_error_illegal_model_request": "The model \"{{0}}\" is not available for {{1}}. Contact your NanobaseAI administrator if this continues.",
+  "com_error_insufficient_quota": "The shared API quota has been reached. Add your own API key in account settings or try again later.",
+  "com_error_invalid_api_key": "Invalid API key. Verify your API configuration in account settings or contact your NanobaseAI administrator.",
+  "com_error_missing_model": "NanobaseAI could not resolve a model for {{0}}. Contact your administrator or check the server configuration.",
+  "com_error_no_user_key": "No API key configured. Add one in account settings or contact your NanobaseAI administrator.",
   "com_ui_partner_footer_aria": "Strateginiai technologijų partneriai",
   "com_ui_partner_nvidia_corner": "Pagreitinta naudojant NVIDIA AI",
   "com_ui_partner_silicon_valley": "Įmonių DI — sukurta Silicio slėnyje, Jungtinės Amerikos Valstijos",
