@@ -23,7 +23,7 @@ import { TermsAndConditionsModal } from '~/components/ui';
 import { useHealthCheck } from '~/data-provider';
 import { Banner } from '~/components/Banners';
 import { PartnerCornerBadge } from '~/components/Branding';
-import { ColorfulShell } from '~/components/Theme';
+import { AppChromeFooter, ColorfulShell } from '~/components/Theme';
 
 export default function Root() {
   const [showTerms, setShowTerms] = useState(false);
@@ -88,7 +88,10 @@ export default function Root() {
                       }}
                       inert={isSmallScreen && sidebarExpanded ? '' : undefined}
                     >
-                      <Outlet />
+                      <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
+                        <Outlet />
+                      </div>
+                      <AppChromeFooter />
                     </div>
                   </ColorfulShell>
                 </div>

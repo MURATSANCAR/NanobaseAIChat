@@ -65,7 +65,7 @@ export default function SkillFileEditor({ skillId, nodeId, fileName }: SkillFile
 
   if (isLoading) {
     return (
-      <div className="flex h-full items-center justify-center bg-presentation">
+      <div className="flex h-full items-center justify-center bg-transparent">
         <Spinner className="text-text-tertiary" />
       </div>
     );
@@ -74,7 +74,7 @@ export default function SkillFileEditor({ skillId, nodeId, fileName }: SkillFile
   const lineCount = displayContent.split('\n').length;
 
   return (
-    <div className="flex h-full flex-col bg-presentation" onKeyDown={handleKeyDown}>
+    <div className="flex h-full flex-col bg-transparent" onKeyDown={handleKeyDown}>
       <div className="flex items-center gap-2 border-b border-border-light px-4 py-2">
         <div className="flex min-w-0 flex-1 items-center gap-2">
           <FileText className="size-4 shrink-0 text-text-secondary" aria-hidden="true" />

@@ -4,8 +4,6 @@ import ReactMarkdown from 'react-markdown';
 import { Constants, DEFAULT_APP_TITLE } from 'librechat-data-provider';
 import { useGetStartupConfig } from '~/data-provider';
 import { useLocalize } from '~/hooks';
-import { PartnerSupportFooter } from '~/components/Branding';
-
 function Footer({ className }: { className?: string }) {
   const { data: config } = useGetStartupConfig();
   const localize = useLocalize();
@@ -79,7 +77,6 @@ function Footer({ className }: { className?: string }) {
         }
         role="contentinfo"
       >
-        <PartnerSupportFooter className="border-none py-1" />
         <div className="flex flex-wrap items-center justify-center gap-2">
           {footerElements.map((contentRender, index) => {
             const isLastElement = index === footerElements.length - 1;
