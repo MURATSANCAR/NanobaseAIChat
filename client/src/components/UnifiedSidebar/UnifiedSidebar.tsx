@@ -137,7 +137,7 @@ function UnifiedSidebar() {
       <>
         <div
           className={cn(
-            'fixed left-0 top-0 z-[110] flex h-full bg-surface-primary-alt',
+            'nb-colorful-sidebar fixed left-0 top-0 z-[110] flex h-full bg-[rgba(20,16,36,0.94)] backdrop-blur-xl',
             expanded ? 'translate-x-0' : '-translate-x-full',
           )}
           style={{
@@ -149,7 +149,7 @@ function UnifiedSidebar() {
           <SidebarChatProvider>
             <ActivePanelProvider>
               <ExpandedPanel links={links} onCollapse={handleCollapse} />
-              <nav className="min-h-0 flex-1 overflow-hidden bg-surface-primary-alt">
+              <nav className="nb-colorful-sidebar min-h-0 flex-1 overflow-hidden bg-[rgba(20,16,36,0.94)] backdrop-blur-xl">
                 <SidePanelNav links={links} />
               </nav>
             </ActivePanelProvider>

@@ -2975,3 +2975,228 @@ html {
     animation: none;
   }
 }
+
+/* NanobaseAI colorful post-login theme */
+.dark .nb-colorful-app {
+  --presentation: #0c0a14;
+  --surface-primary: #14101f;
+  --surface-primary-alt: rgba(20, 16, 36, 0.94);
+  --surface-secondary: rgba(30, 24, 50, 0.85);
+  --surface-chat: rgba(20, 16, 36, 0.75);
+  --surface-submit: #0ea5e9;
+  --surface-submit-hover: #6366f1;
+  --brand-purple: #a855f7;
+  --border-light: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes nb-colorful-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(10px, -18px) scale(1.25);
+    opacity: 0.95;
+  }
+}
+
+@keyframes nb-colorful-aurora {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes nb-colorful-scan {
+  0% {
+    top: -25%;
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    top: 125%;
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes nb-rainbow-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes nb-composer-pulse {
+  0%,
+  100% {
+    border-color: rgba(14, 165, 233, 0.25);
+  }
+  50% {
+    border-color: rgba(168, 85, 247, 0.55);
+  }
+}
+
+@keyframes nb-landing-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nb-msg-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.nb-colorful-aurora {
+  position: absolute;
+  inset: 0;
+  animation: nb-colorful-aurora 5s ease-in-out infinite;
+}
+
+.nb-colorful-aurora-a {
+  background: radial-gradient(ellipse at 20% 25%, rgba(14, 165, 233, 0.28), transparent 55%);
+}
+
+.nb-colorful-aurora-b {
+  background: radial-gradient(ellipse at 78% 72%, rgba(236, 72, 153, 0.22), transparent 50%);
+  animation-delay: 1.2s;
+}
+
+.nb-colorful-aurora-c {
+  background: radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.15), transparent 45%);
+  animation-delay: 2.4s;
+}
+
+.nb-colorful-particle {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+  animation: nb-colorful-float var(--nb-dur, 4s) ease-in-out infinite;
+  animation-delay: var(--nb-delay, 0s);
+}
+
+.nb-colorful-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(168, 85, 247, 0.1),
+    rgba(14, 165, 233, 0.08),
+    transparent
+  );
+  animation: nb-colorful-scan 6s linear infinite;
+}
+
+.nb-rainbow-text {
+  background-size: 300% 100%;
+  animation: nb-rainbow-shift 4s ease infinite;
+}
+
+.nb-rainbow-btn {
+  background: linear-gradient(
+    90deg,
+    #0ea5e9,
+    #6366f1,
+    #a855f7,
+    #ec4899,
+    #10b981,
+    #0ea5e9
+  );
+  background-size: 300% 100%;
+  animation: nb-rainbow-shift 2.5s linear infinite;
+  border: none;
+}
+
+.nb-rainbow-btn:hover {
+  filter: brightness(1.08);
+}
+
+.nb-colorful-sidebar {
+  border-right-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.nb-colorful-composer:focus-within {
+  animation: nb-composer-pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 24px rgba(14, 165, 233, 0.12);
+}
+
+.nb-landing-orb {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(from 0deg, #0ea5e9, #a855f7, #ec4899, #f59e0b, #10b981, #0ea5e9);
+  animation: nb-landing-spin 8s linear infinite;
+}
+
+.nb-landing-orb-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #0c0a14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nb-colorful-app .agent-turn > div:first-of-type {
+  border-left: 3px solid #6366f1;
+  padding-left: 0.75rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.nb-colorful-app .user-turn .message-render {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.nb-colorful-app #send-button:not(:disabled) {
+  background: linear-gradient(135deg, #0ea5e9, #6366f1) !important;
+  color: white !important;
+  opacity: 1 !important;
+}
+
+.nb-colorful-app #send-button:not(:disabled):hover {
+  background: linear-gradient(135deg, #38bdf8, #818cf8) !important;
+}
+
+.nb-colorful-app [data-testid='convo-item'].bg-surface-active-alt::before {
+  width: 3px !important;
+  background: linear-gradient(180deg, #0ea5e9, #a855f7, #ec4899) !important;
+}
+
+.nb-colorful-app [data-testid='convo-item'].bg-surface-active-alt {
+  background: rgba(14, 165, 233, 0.12) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nb-colorful-particle,
+  .nb-colorful-aurora,
+  .nb-colorful-scan,
+  .nb-rainbow-text,
+  .nb-rainbow-btn,
+  .nb-landing-orb,
+  .nb-colorful-composer:focus-within {
+    animation: none !important;
+  }
+}

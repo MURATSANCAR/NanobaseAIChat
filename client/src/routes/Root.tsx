@@ -22,6 +22,7 @@ import { UnifiedSidebar } from '~/components/UnifiedSidebar';
 import { TermsAndConditionsModal } from '~/components/ui';
 import { useHealthCheck } from '~/data-provider';
 import { Banner } from '~/components/Banners';
+import { ColorfulShell } from '~/components/Theme';
 
 export default function Root() {
   const [showTerms, setShowTerms] = useState(false);
@@ -73,17 +74,21 @@ export default function Root() {
               <div className="flex" style={{ height: `calc(100dvh - ${bannerHeight}px)` }}>
                 <div className="relative z-0 flex h-full w-full overflow-hidden">
                   <UnifiedSidebar />
-                  <div
-                    className="relative flex h-full max-w-full flex-1 flex-col overflow-hidden"
-                    style={{
-                      transform:
-                        isSmallScreen && sidebarExpanded ? 'translateX(min(85vw, 380px))' : 'none',
-                      transition: 'transform 300ms cubic-bezier(0.2, 0, 0, 1)',
-                    }}
-                    inert={isSmallScreen && sidebarExpanded ? '' : undefined}
-                  >
-                    <Outlet />
-                  </div>
+                  <ColorfulShell>
+                    <div
+                      className="relative flex h-full max-w-full flex-1 flex-col overflow-hidden"
+                      style={{
+                        transform:
+                          isSmallScreen && sidebarExpanded
+                            ? 'translateX(min(85vw, 380px))'
+                            : 'none',
+                        transition: 'transform 300ms cubic-bezier(0.2, 0, 0, 1)',
+                      }}
+                      inert={isSmallScreen && sidebarExpanded ? '' : undefined}
+                    >
+                      <Outlet />
+                    </div>
+                  </ColorfulShell>
                 </div>
               </div>
             </PromptGroupsProvider>

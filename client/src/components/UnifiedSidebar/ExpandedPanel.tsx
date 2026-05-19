@@ -9,6 +9,7 @@ import { CLOSE_SIDEBAR_ID } from '~/components/Chat/Menus/OpenSidebar';
 import { useActivePanel, resolveActivePanel, DEFAULT_PANEL } from '~/Providers';
 import { useLocalize, useNewConvo } from '~/hooks';
 import { clearMessagesCache, cn } from '~/utils';
+import { nbSidebarPanel } from '~/components/Theme/styles';
 import store from '~/store';
 
 const AccountSettings = lazy(() => import('~/components/Nav/AccountSettings'));
@@ -48,10 +49,10 @@ const NewChatButton = memo(function NewChatButton({
           href="/c/new"
           data-testid="new-chat-button"
           aria-label={localize('com_ui_new_chat')}
-          className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors hover:bg-surface-hover"
+          className="nb-rainbow-btn flex h-9 w-9 items-center justify-center rounded-lg shadow-md transition-opacity hover:opacity-90"
           onClick={handleClick}
         >
-          <SquarePen className="h-5 w-5 text-text-primary" />
+          <SquarePen className="h-5 w-5 text-white" />
         </a>
       }
     />
@@ -137,7 +138,7 @@ function ExpandedPanel({
   const toggleClick = expanded ? onCollapse : onExpand;
 
   return (
-    <div className="flex h-full flex-shrink-0 flex-col gap-2 border-r border-border-light bg-surface-primary-alt px-2 py-2">
+    <div className={cn('flex h-full flex-shrink-0 flex-col gap-2 px-2 py-2', nbSidebarPanel)}>
       <TooltipAnchor
         side="right"
         description={localize(toggleLabel)}

@@ -39,6 +39,7 @@ import EditBadges from './EditBadges';
 import BadgeRow from './BadgeRow';
 import Mention from './Mention';
 import store from '~/store';
+import { nbComposer } from '~/components/Theme/styles';
 
 interface ChatFormProps {
   index: number;
@@ -276,7 +277,7 @@ const ChatForm = memo(function ChatForm({
               isTextAreaFocused ? 'shadow-lg' : 'shadow-md',
               isTemporary
                 ? 'border-violet-800/60 bg-violet-950/10'
-                : 'border-border-light bg-surface-chat',
+                : cn(nbComposer, 'nb-colorful-composer'),
             )}
           >
             <TextareaHeader addedConvo={addedConvo} setAddedConvo={setAddedConvo} />
