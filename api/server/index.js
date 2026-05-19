@@ -209,6 +209,7 @@ const startServer = async () => {
 
   app.use('/api/tags', routes.tags);
   app.use('/api/mcp', routes.mcp);
+  app.use('/api/nanobase/operation', routes.nanobaseOperation);
 
   app.use('/metrics', metricsRouter);
 

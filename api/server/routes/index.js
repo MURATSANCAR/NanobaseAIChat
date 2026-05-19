@@ -32,8 +32,10 @@ const auth = require('./auth');
 const keys = require('./keys');
 const user = require('./user');
 const mcp = require('./mcp');
+const nanobaseOperation = require('./nanobase/operation');
 
 module.exports = {
+  nanobaseOperation,
   mcp,
   auth,
   adminAuth,

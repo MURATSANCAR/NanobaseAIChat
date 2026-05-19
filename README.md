@@ -156,6 +156,10 @@ Beyond chat, NanobaseAI provides AI Agents, Model Context Protocol (MCP) support
 
 Open source, actively developed, and built for anyone who values control over their AI infrastructure.
 
+### NanobaseAI Operation Center
+
+Operation Mode routes prompts through the NanobaseAI Operation Center (job orchestration, artifacts, audit) via a backend proxy. Set `NANOBASE_OPERATION_BASE_URL` in `.env` to your Operation Center API base URL (server-side only; not exposed to the frontend).
+
 ---
 
 ## 🌐 Resources
