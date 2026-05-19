@@ -14,10 +14,10 @@ function PartnerSupportFooter({ className }: { className?: string }) {
       role="complementary"
       aria-label={brandLocalize('com_ui_partner_footer_aria')}
     >
-      <p className="text-[11px] font-medium leading-snug text-text-secondary sm:text-xs">
+      <p className="text-[11px] font-medium leading-snug text-slate-200 sm:text-xs">
         {brandLocalize('com_ui_partner_silicon_valley')}
       </p>
-      <p className="text-[10px] font-medium tracking-wide text-text-tertiary sm:text-xs">
+      <p className="text-[10px] font-medium tracking-wide text-slate-400 sm:text-xs">
         {brandLocalize('com_ui_partner_supported_by')}
       </p>
       <PartnerLogoRow variant="mono" className="mt-2" />

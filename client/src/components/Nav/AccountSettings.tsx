@@ -75,7 +75,11 @@ function AccountSettings({ collapsed = false }: { collapsed?: boolean }) {
         </Menu.MenuItem>
         {startupConfig?.helpAndFaqURL !== '/' && (
           <Menu.MenuItem
-            onClick={() => window.open(startupConfig?.helpAndFaqURL, '_blank')}
+            onClick={() => {
+              const url = startupConfig?.helpAndFaqURL ?? '';
+              const helpUrl = url.includes('librechat.ai') ? 'https://www.nanobase.ai' : url;
+              window.open(helpUrl, '_blank', 'noopener,noreferrer');
+            }}
             className="select-item text-sm"
           >
             <LinkIcon aria-hidden="true" />

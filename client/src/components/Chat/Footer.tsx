@@ -1,10 +1,17 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
+import TagManager from 'react-gtm-module';
 import { useGetStartupConfig } from '~/data-provider';
 import { useLocalize } from '~/hooks';
 
 function Footer({ className }: { className?: string }) {
   const { data: config } = useGetStartupConfig();
   const localize = useLocalize();
+
+  useEffect(() => {
+    if (config?.analyticsGtmId != null && typeof window.google_tag_manager === 'undefined') {
+      TagManager.initialize({ gtmId: config.analyticsGtmId });
+    }
+  }, [config?.analyticsGtmId]);
 
   const privacyPolicy = config?.interface?.privacyPolicy;
   const termsOfService = config?.interface?.termsOfService;

@@ -15,7 +15,7 @@ function PartnerCornerBadge({ className }: { className?: string }) {
       aria-label={brandLocalize('com_ui_partner_nvidia_corner')}
     >
       <NvidiaLogo className="h-4 w-auto shrink-0 sm:h-5" />
-      <span className="text-[10px] font-medium leading-tight text-text-secondary sm:text-xs">
+      <span className="text-[10px] font-medium leading-tight text-slate-200 sm:text-xs">
         {brandLocalize('com_ui_partner_nvidia_corner')}
       </span>
     </div>
