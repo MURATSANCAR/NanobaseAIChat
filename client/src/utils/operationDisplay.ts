@@ -1,5 +1,4 @@
 import type {
-  OperationAuditEvent,
   OperationJobStatus,
   OperationMessageResponse,
   OperationToolState,
@@ -310,14 +309,4 @@ export function getOperationSummaryMessage(
   ];
 
   return lines.join('\n');
-}
-
-export function getAuditEventFromEvent(event: OperationAuditEvent): {
-  label: string;
-  timestamp: string;
-} {
-  return {
-    label: event.event_type,
-    timestamp: event.ts,
-  };
 }

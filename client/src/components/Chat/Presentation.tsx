@@ -8,6 +8,7 @@ import { EditorProvider, ArtifactsProvider } from '~/Providers';
 import { useDeleteFilesMutation } from '~/data-provider';
 import Artifacts from '~/components/Artifacts/Artifacts';
 import { SidePanelGroup } from '~/components/SidePanel';
+import { NanobaseOperationPanel } from '~/components/SidePanel/NanobaseOperation';
 import { useSetFilesToDelete } from '~/hooks';
 import store from '~/store';
 
@@ -22,6 +23,8 @@ export default function Presentation({ children }: { children: React.ReactNode }
   // arriving via SSE auto-focus through `ToolArtifactCard`'s mount effect
   // (gated on `isSubmitting`), restoring the legacy streaming UX.
   const currentArtifactId = useRecoilValue(store.currentArtifactId);
+  const operationPanelOpen = useRecoilValue(store.operationPanelOpen);
+  const activeOperationJobId = useRecoilValue(store.activeOperationJobId);
 
   useResetArtifactsOnConversationChange();
 
@@ -60,6 +63,12 @@ export default function Presentation({ children }: { children: React.ReactNode }
 
   const artifactsElement = useMemo(() => {
     if (
+      operationPanelOpen &&
+      activeOperationJobId != null
+    ) {
+      return null;
+    }
+    if (
       artifactsVisibility === true &&
       currentArtifactId != null &&
       Object.keys(artifacts ?? {}).length > 0
@@ -73,11 +82,24 @@ export default function Presentation({ children }: { children: React.ReactNode }
       );
     }
     return null;
-  }, [artifactsVisibility, artifacts, currentArtifactId]);
+  }, [
+    artifactsVisibility,
+    artifacts,
+    currentArtifactId,
+    operationPanelOpen,
+    activeOperationJobId,
+  ]);
+
+  const operationPanelElement = useMemo(() => {
+    if (operationPanelOpen && activeOperationJobId != null) {
+      return <NanobaseOperationPanel />;
+    }
+    return null;
+  }, [operationPanelOpen, activeOperationJobId]);
 
   return (
     <DragDropWrapper className="relative flex w-full grow overflow-hidden bg-transparent">
-      <SidePanelGroup artifacts={artifactsElement}>
+      <SidePanelGroup artifacts={artifactsElement} operationPanel={operationPanelElement}>
         <main className="flex h-full flex-col overflow-y-auto" role="main">
           {children}
         </main>

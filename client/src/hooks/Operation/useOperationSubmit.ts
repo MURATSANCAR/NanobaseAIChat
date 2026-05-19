@@ -89,10 +89,11 @@ export default function useOperationSubmit() {
           setOperationPanelOpen(true);
         }
       } catch (error) {
-        const errorMessage =
-          error instanceof Error
-            ? mapProxyErrorToUserMessage(error.message, localize)
-            : mapProxyErrorToUserMessage(undefined, localize);
+        const axiosData = error as { response?: { data?: { error?: string } } };
+        const rawError =
+          axiosData.response?.data?.error ??
+          (error instanceof Error ? error.message : undefined);
+        const errorMessage = mapProxyErrorToUserMessage(rawError, localize);
 
         const assistantMessage: TMessage = {
           ...placeholderAssistant,

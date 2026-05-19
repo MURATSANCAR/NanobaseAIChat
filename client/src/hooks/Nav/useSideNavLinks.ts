@@ -8,6 +8,7 @@ import {
   ScrollText,
   ArrowRightToLine,
   SlidersHorizontal,
+  Workflow,
 } from 'lucide-react';
 import {
   Permissions,
@@ -32,6 +33,7 @@ import PanelSwitch from '~/components/SidePanel/Builder/PanelSwitch';
 import Parameters from '~/components/SidePanel/Parameters/Panel';
 import { MemoryPanel } from '~/components/SidePanel/Memories';
 import FilesPanel from '~/components/SidePanel/Files/Panel';
+import OperationNavPanel from '~/components/SidePanel/NanobaseOperation/OperationNavPanel';
 import { PromptsAccordion } from '~/components/Prompts';
 import { SkillsAccordion } from '~/components/Skills';
 
@@ -169,6 +171,14 @@ export default function useSideNavLinks({
         Component: BookmarkPanel,
       });
     }
+
+    links.push({
+      title: 'com_nanobase_operation_nav_title',
+      label: '',
+      icon: Workflow,
+      id: 'nanobase-operation',
+      Component: OperationNavPanel,
+    });
 
     links.push({
       title: 'com_sidepanel_attach_files',

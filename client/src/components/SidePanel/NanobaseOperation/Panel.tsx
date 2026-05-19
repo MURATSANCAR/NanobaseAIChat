@@ -27,8 +27,8 @@ export default function NanobaseOperationPanel() {
   const executionId = useRecoilValue(store.activeOperationExecutionId);
   const panelOpen = useRecoilValue(store.operationPanelOpen);
   const setPanelOpen = useSetRecoilState(store.operationPanelOpen);
-  const [, setActiveJobId] = useRecoilState(store.activeOperationJobId);
-  const [, setActiveExecutionId] = useRecoilState(store.activeOperationExecutionId);
+  const setActiveJobId = useSetRecoilState(store.activeOperationJobId);
+  const setActiveExecutionId = useSetRecoilState(store.activeOperationExecutionId);
   const [showTechnical, setShowTechnical] = useState(false);
 
   const healthQuery = useOperationHealthQuery(panelOpen);

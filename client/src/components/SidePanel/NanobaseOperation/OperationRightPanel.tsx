@@ -48,7 +48,7 @@ const OperationRightPanel = memo(function OperationRightPanel({
         panelRef={panelRef}
         id="operation-panel"
       >
-        <div className="h-full min-w-[380px] overflow-hidden">{operationPanel}</motion.div>
+        <div className="h-full min-w-[380px] overflow-hidden">{operationPanel}</div>
       </ResizablePanel>
     </>
   );

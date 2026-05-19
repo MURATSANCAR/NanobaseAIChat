@@ -51,10 +51,10 @@ export async function proxyOperationArtifactStream(
     const contentType = upstream.headers['content-type'];
     const contentDisposition = upstream.headers['content-disposition'];
 
-    if (contentType) {
+    if (typeof contentType === 'string') {
       res.setHeader('Content-Type', contentType);
     }
-    if (contentDisposition) {
+    if (typeof contentDisposition === 'string') {
       res.setHeader('Content-Disposition', contentDisposition);
     }
 

@@ -2,26 +2,37 @@ import { useState, memo } from 'react';
 import { useDefaultLayout } from 'react-resizable-panels';
 import { ResizablePanel, ResizablePanelGroup, useMediaQuery } from '@librechat/client';
 import ArtifactsPanel from './ArtifactsPanel';
+import { OperationRightPanel } from './NanobaseOperation';
 
 const PANEL_IDS_SINGLE = ['messages-view'];
-const PANEL_IDS_SPLIT = ['messages-view', 'artifacts-panel'];
+const PANEL_IDS_ARTIFACTS = ['messages-view', 'artifacts-panel'];
+const PANEL_IDS_OPERATION = ['messages-view', 'operation-panel'];
 
 interface SidePanelProps {
   artifacts?: React.ReactNode;
+  operationPanel?: React.ReactNode;
   children: React.ReactNode;
 }
 
-const SidePanelGroup = memo(({ artifacts, children }: SidePanelProps) => {
-  const [shouldRenderArtifacts, setShouldRenderArtifacts] = useState(artifacts != null);
+const SidePanelGroup = memo(({ artifacts, operationPanel, children }: SidePanelProps) => {
+  const rightPanel = operationPanel ?? artifacts;
+  const [shouldRenderRight, setShouldRenderRight] = useState(rightPanel != null);
   const isSmallScreen = useMediaQuery('(max-width: 767px)');
+
+  const panelIds =
+    operationPanel != null
+      ? PANEL_IDS_OPERATION
+      : artifacts != null
+        ? PANEL_IDS_ARTIFACTS
+        : PANEL_IDS_SINGLE;
 
   const { defaultLayout, onLayoutChanged } = useDefaultLayout({
     id: 'side-panel-layout',
-    panelIds: artifacts != null ? PANEL_IDS_SPLIT : PANEL_IDS_SINGLE,
+    panelIds,
     storage: localStorage,
   });
 
-  const minSizeMain = artifacts != null ? '15' : '30';
+  const minSizeMain = rightPanel != null ? '15' : '30';
 
   return (
     <>
@@ -35,17 +46,26 @@ const SidePanelGroup = memo(({ artifacts, children }: SidePanelProps) => {
           {children}
         </ResizablePanel>
 
-        {!isSmallScreen && (
+        {!isSmallScreen && operationPanel != null && (
+          <OperationRightPanel
+            operationPanel={operationPanel}
+            minSizeMain={minSizeMain}
+            shouldRender={shouldRenderRight}
+            onRenderChange={setShouldRenderRight}
+          />
+        )}
+
+        {!isSmallScreen && operationPanel == null && (
           <ArtifactsPanel
             artifacts={artifacts}
             minSizeMain={minSizeMain}
-            shouldRender={shouldRenderArtifacts}
-            onRenderChange={setShouldRenderArtifacts}
+            shouldRender={shouldRenderRight}
+            onRenderChange={setShouldRenderRight}
           />
         )}
       </ResizablePanelGroup>
-      {artifacts != null && isSmallScreen && (
-        <div className="fixed inset-0 z-[100]">{artifacts}</div>
+      {rightPanel != null && isSmallScreen && (
+        <div className="fixed inset-0 z-[100]">{rightPanel}</div>
       )}
     </>
   );
