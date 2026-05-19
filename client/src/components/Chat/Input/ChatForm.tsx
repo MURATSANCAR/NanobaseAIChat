@@ -348,7 +348,7 @@ const ChatForm = memo(function ChatForm({
             )}
             <div
               className={cn(
-                '@container items-between flex gap-2 pb-2',
+                '@container items-between flex gap-1.5 pb-2 sm:gap-2',
                 isRTL ? 'flex-row-reverse' : 'flex-row',
               )}
             >

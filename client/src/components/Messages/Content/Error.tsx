@@ -84,10 +84,8 @@ const errorMessages = {
     const provider = (alternateName[endpoint ?? ''] as string | undefined) ?? endpoint ?? 'unknown';
     return localize('com_error_illegal_model_request', { 0: model, 1: provider });
   },
-  invalid_api_key:
-    'Invalid API key. Please check your API key and try again. You can do this by clicking on the model logo in the left corner of the textbox and selecting "Set Token" for the current selected endpoint. Thank you for your understanding.',
-  insufficient_quota:
-    'We apologize for any inconvenience caused. The default API key has reached its limit. To continue using this service, please set up your own API key. You can do this by clicking on the model logo in the left corner of the textbox and selecting "Set Token" for the current selected endpoint. Thank you for your understanding.',
+  invalid_api_key: 'com_error_invalid_api_key',
+  insufficient_quota: 'com_error_insufficient_quota',
   concurrent: (json: TConcurrent) => {
     const { limit } = json;
     const plural = limit > 1 ? 's' : '';

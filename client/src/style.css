@@ -3825,6 +3825,46 @@ html {
   animation-duration: 1.8s;
 }
 
+.nb-stop-agent--active .nb-corner-ai-orbit {
+  animation-duration: 5s;
+}
+
+.nb-stop-agent--active .nb-corner-ai-orbit-reverse {
+  animation-duration: 3.5s;
+}
+
+.nb-stop-agent--active:hover {
+  transform: scale(1.04);
+}
+
+.nb-colorful-app .nb-forge-panel .btn.btn-neutral,
+.nb-colorful-app .model-panel .btn.btn-neutral {
+  border-color: rgba(249, 115, 22, 0.22) !important;
+  background-color: rgba(15, 29, 50, 0.88) !important;
+  color: #e2e8f0 !important;
+}
+
+.nb-colorful-app .nb-forge-panel .btn.btn-neutral:hover,
+.nb-colorful-app .model-panel .btn.btn-neutral:hover {
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  background-color: rgba(21, 34, 56, 0.95) !important;
+}
+
+.nb-colorful-app .nb-forge-panel [class*='Select'],
+.nb-colorful-app .model-panel [class*='Select'] {
+  border-color: rgba(249, 115, 22, 0.2) !important;
+  background-color: rgba(15, 29, 50, 0.92) !important;
+  color: #f1f5f9 !important;
+}
+
+.nb-colorful-app .model-panel-label {
+  color: #e2e8f0;
+}
+
+.nb-colorful-app .nb-forge-panel .switch-root[data-state='checked'] {
+  background-color: #f97316 !important;
+}
+
 .nb-forge-landing.nb-landing-panel {
   background-color: rgba(15, 29, 50, 0.82);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
@@ -3854,16 +3894,6 @@ html {
   background: rgba(249, 115, 22, 0.08);
   border-radius: 1rem;
   padding: 0.25rem 0.5rem;
-}
-
-.nb-colorful-app #send-button:not(:disabled) {
-  background: linear-gradient(135deg, #f97316, #ea580c) !important;
-  color: white !important;
-  opacity: 1 !important;
-}
-
-.nb-colorful-app #send-button:not(:disabled):hover {
-  background: linear-gradient(135deg, #fb923c, #f97316) !important;
 }
 
 .nb-colorful-app [data-testid='convo-item'].bg-surface-active-alt::before {

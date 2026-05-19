@@ -10,9 +10,11 @@ const DATA_LINKS: ReadonlyArray<{ x1: number; y1: number; x2: number; y2: number
 type ComposerAgentOrbProps = {
   active?: boolean;
   className?: string;
+  variant?: 'send' | 'stop';
 };
 
-function ComposerAgentOrb({ active = true, className }: ComposerAgentOrbProps) {
+function ComposerAgentOrb({ active = true, className, variant = 'send' }: ComposerAgentOrbProps) {
+  const isStop = variant === 'stop';
   const uid = useId().replace(/:/g, '');
   const ringGradId = `composerAiRing-${uid}`;
   const coreGradId = `composerAiCore-${uid}`;
@@ -20,7 +22,8 @@ function ComposerAgentOrb({ active = true, className }: ComposerAgentOrbProps) {
   return (
     <div
       className={cn(
-        'nb-send-agent-orb pointer-events-none absolute inset-0 flex items-center justify-center',
+        'pointer-events-none absolute inset-0 flex items-center justify-center',
+        isStop ? 'nb-stop-agent-orb' : 'nb-send-agent-orb',
         !active && 'opacity-40',
         className,
       )}
@@ -33,13 +36,32 @@ function ComposerAgentOrb({ active = true, className }: ComposerAgentOrbProps) {
       >
         <defs>
           <linearGradient id={ringGradId} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f97316" stopOpacity="0.95" />
-            <stop offset="50%" stopColor="#fdba74" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.9" />
+            {isStop ? (
+              <>
+                <stop offset="0%" stopColor="#f87171" stopOpacity="0.95" />
+                <stop offset="50%" stopColor="#fb923c" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#f97316" stopOpacity="0.9" />
+              </>
+            ) : (
+              <>
+                <stop offset="0%" stopColor="#f97316" stopOpacity="0.95" />
+                <stop offset="50%" stopColor="#fdba74" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.9" />
+              </>
+            )}
           </linearGradient>
           <linearGradient id={coreGradId} x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#fb923c" />
-            <stop offset="100%" stopColor="#38bdf8" />
+            {isStop ? (
+              <>
+                <stop offset="0%" stopColor="#fca5a5" />
+                <stop offset="100%" stopColor="#f97316" />
+              </>
+            ) : (
+              <>
+                <stop offset="0%" stopColor="#fb923c" />
+                <stop offset="100%" stopColor="#38bdf8" />
+              </>
+            )}
           </linearGradient>
         </defs>
 
@@ -145,8 +167,15 @@ function ComposerAgentOrb({ active = true, className }: ComposerAgentOrbProps) {
         />
       </svg>
 
-      <div className="nb-corner-ai-glow absolute inset-[16%] rounded-full bg-orange-400/30 blur-md" />
-      <span className="nb-corner-ai-status absolute bottom-[6%] right-[6%] size-2 rounded-full border border-[#0a1628] bg-emerald-400" />
+      <div
+        className={cn(
+          'nb-corner-ai-glow absolute inset-[16%] rounded-full blur-md',
+          isStop ? 'bg-red-400/35' : 'bg-orange-400/30',
+        )}
+      />
+      {!isStop && (
+        <span className="nb-corner-ai-status absolute bottom-[6%] right-[6%] size-2 rounded-full border border-[#0a1628] bg-emerald-400" />
+      )}
     </div>
   );
 }

@@ -27,3 +27,14 @@ export const nbForgeInput =
 export const nbForgeRequired = 'text-orange-400';
 
 export const nbForgePanel = 'nb-forge-panel';
+
+export const nbForgeCombobox =
+  'border-orange-500/20 bg-[rgba(15,29,50,0.92)] text-slate-100 hover:border-orange-400/35';
+
+export const nbForgeBtnSecondary =
+  'rounded-lg border border-orange-500/20 bg-[rgba(15,29,50,0.85)] text-slate-200 hover:border-sky-400/40 hover:bg-[rgba(21,34,56,0.95)]';
+
+export const nbForgeError = 'text-sm text-orange-300';
+
+export const nbStarterChip =
+  'border-orange-500/20 bg-[rgba(15,29,50,0.65)] text-slate-200 shadow-md backdrop-blur-sm hover:border-orange-400/35 hover:bg-[rgba(21,34,56,0.85)]';

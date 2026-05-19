@@ -19,7 +19,7 @@ import { useLiveAnnouncer } from '~/Providers';
 import { useLocalize } from '~/hooks';
 import { Panel } from '~/common';
 import { cn } from '~/utils';
-import { nbForgeLabel, nbForgeRequired } from '~/components/Theme';
+import { nbForgeBtnSecondary, nbForgeCombobox, nbForgeError, nbForgeLabel, nbForgeRequired } from '~/components/Theme';
 
 export default function ModelPanel({
   providers,
@@ -103,7 +103,7 @@ export default function ModelPanel({
         <div className="absolute left-0 top-4">
           <button
             type="button"
-            className="btn btn-neutral relative"
+            className={cn('btn btn-neutral relative', nbForgeBtnSecondary)}
             onClick={() => {
               setActivePanel(Panel.builder);
             }}
@@ -115,7 +115,9 @@ export default function ModelPanel({
           </button>
         </div>
 
-        <div className="mb-2 mt-2 text-xl font-medium">{localize('com_ui_model_parameters')}</div>
+        <div className={cn(nbForgeLabel, 'mb-2 mt-2 text-xl font-medium')}>
+          {localize('com_ui_model_parameters')}
+        </div>
       </div>
       <div>
         {/* Endpoint aka Provider for Agents */}
@@ -153,13 +155,13 @@ export default function ModelPanel({
                       label: typeof provider === 'string' ? provider : provider.label,
                       value: typeof provider === 'string' ? provider : provider.value,
                     }))}
-                    className={cn(error ? 'border-2 border-red-500' : '')}
+                    className={cn(nbForgeCombobox, error ? 'border-2 border-red-500' : '')}
                     ariaLabel={localize('com_ui_provider')}
                     isCollapsed={false}
                     showCarat={true}
                   />
                   {error && (
-                    <span className="model-panel-error text-sm text-red-500 transition duration-300 ease-in-out">
+                    <span className={cn('model-panel-error', nbForgeError)}>
                       {localize('com_ui_field_required')}
                     </span>
                   )}
@@ -198,15 +200,13 @@ export default function ModelPanel({
                       value: model,
                     }))}
                     disabled={!provider}
-                    className={cn('disabled:opacity-50', error ? 'border-2 border-red-500' : '')}
+                    className={cn(nbForgeCombobox, 'disabled:opacity-50', error ? 'border-2 border-red-500' : '')}
                     ariaLabel={localize('com_ui_model')}
                     isCollapsed={false}
                     showCarat={true}
                   />
                   {provider && error && (
-                    <span className="text-sm text-red-500 transition duration-300 ease-in-out">
-                      {localize('com_ui_field_required')}
-                    </span>
+                    <span className={nbForgeError}>{localize('com_ui_field_required')}</span>
                   )}
                 </>
               );
@@ -249,7 +249,10 @@ export default function ModelPanel({
       <button
         type="button"
         onClick={handleResetParameters}
-        className="btn btn-neutral my-1 flex w-full items-center justify-center gap-2 px-4 py-2 text-sm"
+        className={cn(
+          'btn btn-neutral my-1 flex w-full items-center justify-center gap-2 px-4 py-2 text-sm',
+          nbForgeBtnSecondary,
+        )}
       >
         <RotateCcw className="h-4 w-4" aria-hidden="true" />
         {localize('com_ui_reset_var', { 0: localize('com_ui_model_parameters') })}

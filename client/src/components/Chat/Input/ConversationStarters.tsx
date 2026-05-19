@@ -2,8 +2,9 @@ import { useMemo, useCallback } from 'react';
 import { EModelEndpoint, Constants } from 'librechat-data-provider';
 import { useChatContext, useAgentsMapContext, useAssistantsMapContext } from '~/Providers';
 import { useGetAssistantDocsQuery, useGetEndpointsQuery } from '~/data-provider';
-import { getIconEndpoint, getEntity } from '~/utils';
+import { getIconEndpoint, getEntity, cn } from '~/utils';
 import { useSubmitMessage } from '~/hooks';
+import { nbStarterChip } from '~/components/Theme';
 
 const ConversationStarters = () => {
   const { conversation } = useChatContext();
@@ -58,16 +59,19 @@ const ConversationStarters = () => {
   }
 
   return (
-    <div className="mt-8 flex flex-wrap justify-center gap-3 px-4">
+    <div className="mt-4 flex flex-wrap justify-center gap-2 px-2 sm:mt-6 sm:gap-3 sm:px-4">
       {conversation_starters
         .slice(0, Constants.MAX_CONVO_STARTERS)
         .map((text: string, index: number) => (
           <button
             key={index}
             onClick={() => sendConversationStarter(text)}
-            className="relative flex w-40 cursor-pointer flex-col gap-2 rounded-2xl border border-border-medium px-3 pb-4 pt-3 text-start align-top text-[15px] shadow-[0_0_2px_0_rgba(0,0,0,0.05),0_4px_6px_0_rgba(0,0,0,0.02)] transition-colors duration-300 ease-in-out fade-in hover:bg-surface-tertiary"
+            className={cn(
+              'relative flex w-[calc(50%-0.25rem)] min-w-[9rem] max-w-[10rem] cursor-pointer flex-col gap-1 rounded-xl border px-3 py-2.5 text-start text-sm transition-colors duration-200 fade-in sm:w-40 sm:max-w-none sm:py-3',
+              nbStarterChip,
+            )}
           >
-            <p className="break-word line-clamp-3 overflow-hidden text-balance break-all text-text-secondary">
+            <p className="line-clamp-3 overflow-hidden text-balance text-slate-300">
               {text}
             </p>
           </button>
