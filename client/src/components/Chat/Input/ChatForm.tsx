@@ -34,6 +34,7 @@ import AudioRecorder from './AudioRecorder';
 import CollapseChat from './CollapseChat';
 import StreamAudio from './StreamAudio';
 import StopButton from './StopButton';
+import OperationModeToggle from './OperationModeToggle';
 import SendButton from './SendButton';
 import EditBadges from './EditBadges';
 import BadgeRow from './BadgeRow';
@@ -352,7 +353,8 @@ const ChatForm = memo(function ChatForm({
                 isRTL ? 'flex-row-reverse' : 'flex-row',
               )}
             >
-              <div className={`${isRTL ? 'mr-2' : 'ml-2'}`}>
+              <div className={`${isRTL ? 'mr-2' : 'ml-2'} flex items-center gap-1.5`}>
+                <OperationModeToggle />
                 <AttachFileChat
                   conversation={conversation}
                   disableInputs={disableInputs}
