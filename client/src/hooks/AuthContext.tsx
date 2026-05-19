@@ -28,6 +28,7 @@ import {
 } from '~/data-provider';
 import { TAuthConfig, TUserContext, TAuthContext, TResError } from '~/common';
 import { SESSION_KEY, isSafeRedirect, getPostLoginRedirect } from '~/utils';
+import { DEV_MOCK_TOKEN, DEV_MOCK_USER, isDevMockAuthEnabled } from '~/utils/devMockAuth';
 import useTimeout from './useTimeout';
 import store from '~/store';
 
@@ -47,9 +48,10 @@ const AuthContextProvider = ({
   const isExternalRedirectRef = useRef(false);
   const [user, setUser] = useRecoilState(store.user);
   const logoutRedirectRef = useRef<string | undefined>(undefined);
-  const [token, setToken] = useState<string | undefined>(undefined);
+  const [token, setToken] = useState<string | undefined>(devMockAuth ? DEV_MOCK_TOKEN : undefined);
   const [error, setError] = useState<string | undefined>(undefined);
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const devMockAuth = isDevMockAuthEnabled();
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(devMockAuth);
   const setQueriesEnabled = useSetRecoilState<boolean>(store.queriesEnabled);
 
   const userRoleName = user?.role ?? '';
@@ -165,13 +167,31 @@ const AuthContextProvider = ({
     [logoutUser],
   );
 
-  const userQuery = useGetUserQuery({ enabled: !!(token ?? '') });
+  const userQuery = useGetUserQuery({ enabled: !!(token ?? '') && !devMockAuth });
+
+  useEffect(() => {
+    if (!devMockAuth) {
+      return;
+    }
+    setUser(DEV_MOCK_USER);
+    setToken(DEV_MOCK_TOKEN);
+    setTokenHeader(DEV_MOCK_TOKEN);
+    setIsAuthenticated(true);
+    setQueriesEnabled(true);
+    const path = window.location.pathname;
+    if (path === '/login' || path === '/' || path.endsWith('/login')) {
+      navigate('/c/new', { replace: true });
+    }
+  }, [devMockAuth, navigate, setQueriesEnabled, setUser]);
 
   const login = (data: t.TLoginUser) => {
     loginUser.mutate(data);
   };
 
   const silentRefresh = useCallback(() => {
+    if (devMockAuth) {
+      return;
+    }
     if (authConfig?.test === true) {
       console.log('Test mode. Skipping silent refresh.');
       return;
@@ -227,7 +247,7 @@ const AuthContextProvider = ({
     }
     if (userQuery.data) {
       setUser(userQuery.data);
-    } else if (userQuery.isError) {
+    } else if (userQuery.isError && !devMockAuth) {
       doSetError((userQuery.error as Error).message);
       navigate(buildLoginRedirectUrl(), { replace: true });
     }
