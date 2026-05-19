@@ -3280,54 +3280,66 @@ html {
   }
 }
 
-/* NanobaseAI colorful post-login theme — always dark tokens inside shell (mockup parity) */
+/* NanobaseAI Silicon Forge — post-login + standalone shell */
 .nb-colorful-app {
   color-scheme: dark;
-  --presentation: #0c0a14;
-  --text-primary: #f1f5f9;
+  --presentation: #0a1628;
+  --text-primary: #f8fafc;
   --text-secondary: #e2e8f0;
   --text-secondary-alt: #cbd5e1;
   --text-tertiary: #94a3b8;
-  --header-primary: rgba(12, 10, 20, 0.92);
-  --header-hover: rgba(255, 255, 255, 0.06);
-  --header-button-hover: rgba(255, 255, 255, 0.1);
-  --surface-active: rgba(255, 255, 255, 0.06);
-  --surface-active-alt: rgba(99, 102, 241, 0.22);
-  --surface-hover: rgba(255, 255, 255, 0.08);
-  --surface-hover-alt: rgba(255, 255, 255, 0.1);
-  --surface-primary: rgba(22, 18, 38, 0.96);
-  --surface-primary-alt: rgba(28, 22, 48, 0.94);
-  --surface-primary-contrast: rgba(32, 26, 52, 0.95);
-  --surface-secondary: rgba(18, 14, 32, 0.9);
-  --surface-secondary-alt: rgba(24, 20, 42, 0.92);
-  --surface-tertiary: rgba(32, 26, 52, 0.92);
-  --surface-tertiary-alt: rgba(28, 22, 48, 0.94);
-  --surface-dialog: rgba(22, 18, 38, 0.98);
-  --surface-chat: rgba(20, 16, 36, 0.92);
-  --surface-submit: #0ea5e9;
-  --surface-submit-hover: #38bdf8;
+  --header-primary: rgba(10, 22, 40, 0.95);
+  --header-hover: rgba(249, 115, 22, 0.08);
+  --header-button-hover: rgba(56, 189, 248, 0.12);
+  --surface-active: rgba(249, 115, 22, 0.1);
+  --surface-active-alt: rgba(56, 189, 248, 0.18);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+  --surface-hover-alt: rgba(249, 115, 22, 0.12);
+  --surface-primary: rgba(21, 34, 56, 0.96);
+  --surface-primary-alt: rgba(15, 29, 50, 0.94);
+  --surface-primary-contrast: rgba(21, 34, 56, 0.98);
+  --surface-secondary: rgba(15, 29, 50, 0.92);
+  --surface-secondary-alt: rgba(21, 34, 56, 0.9);
+  --surface-tertiary: rgba(21, 34, 56, 0.92);
+  --surface-tertiary-alt: rgba(15, 29, 50, 0.94);
+  --surface-dialog: rgba(15, 29, 50, 0.98);
+  --surface-chat: rgba(21, 34, 56, 0.92);
+  --surface-submit: #f97316;
+  --surface-submit-hover: #fb923c;
   --surface-destructive: #dc2626;
   --surface-destructive-hover: #ef4444;
-  --border-light: rgba(255, 255, 255, 0.12);
-  --border-medium: rgba(255, 255, 255, 0.16);
-  --border-medium-alt: rgba(255, 255, 255, 0.14);
-  --border-heavy: rgba(255, 255, 255, 0.22);
-  --brand-purple: #a855f7;
-  --ring-primary: rgba(148, 163, 184, 0.5);
+  --border-light: rgba(249, 115, 22, 0.18);
+  --border-medium: rgba(249, 115, 22, 0.24);
+  --border-medium-alt: rgba(56, 189, 248, 0.2);
+  --border-heavy: rgba(249, 115, 22, 0.35);
+  --brand-purple: #38bdf8;
+  --ring-primary: rgba(56, 189, 248, 0.45);
   color: var(--text-primary);
   background-color: var(--presentation);
 }
 
+.nb-forge-sidebar {
+  background-color: rgba(15, 29, 50, 0.98);
+}
+
+.nb-forge-glass {
+  background-color: rgba(21, 34, 56, 0.94);
+}
+
+.nb-forge-landing {
+  background-color: rgba(21, 34, 56, 0.65);
+}
+
 .nb-colorful-bg {
-  background-color: #0c0a14;
+  background-color: #0a1628;
 }
 
 .nb-colorful-scrim {
   background: linear-gradient(
     180deg,
-    rgba(12, 10, 20, 0.62) 0%,
-    rgba(12, 10, 20, 0.88) 40%,
-    rgba(12, 10, 20, 0.94) 100%
+    rgba(10, 22, 40, 0.55) 0%,
+    rgba(10, 22, 40, 0.85) 45%,
+    rgba(10, 22, 40, 0.94) 100%
   );
 }
 
@@ -3379,10 +3391,10 @@ html {
 @keyframes nb-composer-pulse {
   0%,
   100% {
-    border-color: rgba(14, 165, 233, 0.25);
+    border-color: rgba(249, 115, 22, 0.28);
   }
   50% {
-    border-color: rgba(168, 85, 247, 0.55);
+    border-color: rgba(56, 189, 248, 0.45);
   }
 }
 
@@ -3412,16 +3424,16 @@ html {
 }
 
 .nb-colorful-aurora-a {
-  background: radial-gradient(ellipse at 20% 25%, rgba(14, 165, 233, 0.28), transparent 55%);
+  background: radial-gradient(ellipse at 22% 28%, rgba(249, 115, 22, 0.16), transparent 55%);
 }
 
 .nb-colorful-aurora-b {
-  background: radial-gradient(ellipse at 78% 72%, rgba(236, 72, 153, 0.22), transparent 50%);
+  background: radial-gradient(ellipse at 76% 68%, rgba(56, 189, 248, 0.12), transparent 50%);
   animation-delay: 1.2s;
 }
 
 .nb-colorful-aurora-c {
-  background: radial-gradient(ellipse at 50% 50%, rgba(16, 185, 129, 0.15), transparent 45%);
+  background: radial-gradient(ellipse at 50% 45%, rgba(251, 146, 60, 0.08), transparent 48%);
   animation-delay: 2.4s;
 }
 
@@ -3433,38 +3445,15 @@ html {
   animation-delay: var(--nb-delay, 0s);
 }
 
-.nb-colorful-scan {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(
-    180deg,
-    transparent,
-    rgba(168, 85, 247, 0.1),
-    rgba(14, 165, 233, 0.08),
-    transparent
-  );
-  animation: nb-colorful-scan 6s linear infinite;
-}
-
 .nb-rainbow-text {
   background-size: 300% 100%;
   animation: nb-rainbow-shift 4s ease infinite;
 }
 
 .nb-rainbow-btn {
-  background: linear-gradient(
-    90deg,
-    #0ea5e9,
-    #6366f1,
-    #a855f7,
-    #ec4899,
-    #10b981,
-    #0ea5e9
-  );
-  background-size: 300% 100%;
-  animation: nb-rainbow-shift 2.5s linear infinite;
+  background: linear-gradient(90deg, #ea580c, #f97316, #fb923c, #f97316, #ea580c);
+  background-size: 200% 100%;
+  animation: nb-rainbow-shift 3s ease infinite;
   border: none;
 }
 

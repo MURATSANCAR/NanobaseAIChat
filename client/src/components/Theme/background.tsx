@@ -1,15 +1,15 @@
 import { NB_PALETTE } from './palette';
 
-const PARTICLE_COUNT = 48;
+const PARTICLE_COUNT = 28;
 
 const particles = Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
   id: i,
   left: `${(i * 13 + 4) % 97}%`,
   top: `${(i * 19 + 6) % 94}%`,
-  size: 2 + (i % 4),
+  size: 2 + (i % 3),
   color: NB_PALETTE[i % NB_PALETTE.length],
   delay: `${(i % 14) * 0.12}s`,
-  duration: `${2.2 + (i % 6) * 0.35}s`,
+  duration: `${2.8 + (i % 6) * 0.4}s`,
 }));
 
 function ColorfulBackground() {
@@ -18,7 +18,6 @@ function ColorfulBackground() {
       <div className="nb-colorful-aurora nb-colorful-aurora-a" />
       <div className="nb-colorful-aurora nb-colorful-aurora-b" />
       <div className="nb-colorful-aurora nb-colorful-aurora-c" />
-      <div className="nb-colorful-scan" />
       {particles.map((p) => (
         <span
           key={p.id}
