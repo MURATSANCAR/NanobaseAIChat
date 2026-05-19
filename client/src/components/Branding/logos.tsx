@@ -1,30 +1,56 @@
+import { cn } from '~/utils';
+
 type LogoProps = {
   className?: string;
   title?: string;
+  variant?: 'brand' | 'mono';
 };
 
-export function NvidiaLogo({ className, title = 'NVIDIA' }: LogoProps) {
+export function NvidiaLogo({ className, title = 'NVIDIA', variant = 'brand' }: LogoProps) {
+  const fill = variant === 'mono' ? 'currentColor' : '#76B900';
+
   return (
     <svg
       className={className}
-      viewBox="0 0 96 24"
+      viewBox="0 0 120 24"
       role="img"
       aria-label={title}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill="#76B900"
-        d="M8.2 4.1 0 7v10l8.2 2.9 8.2-2.9V7L8.2 4.1zm0 12.6L3.4 14.2V9.8l4.8 1.8 4.8-1.8v4.4l-4.8 2.5z"
+        fill={fill}
+        d="M8.4 3.8 1.2 6v12l7.2 2.5 7.2-2.5V6L8.4 3.8Zm0 13.8L3.8 15.4V8.6l4.6 1.7 4.6-1.7v6.8l-4.6 2.3Z"
       />
       <path
-        fill="#76B900"
-        d="M24.5 6.2h3.4v11.6h-3.4V6.2zm7.8 0c3.4 0 5.6 2.2 5.6 5.8s-2.2 5.8-5.6 5.8-5.6-2.2-5.6-5.8 2.2-5.8 5.6-5.8zm0 2.8c-1.7 0-2.2 1.6-2.2 3s.5 3 2.2 3 2.2-1.6 2.2-3-.5-3-2.2-3zm13.2-2.8 4.5 11.6h-3.3l-.8-2.4h-4.5l-.8 2.4h-3.3l4.5-11.6h3.7zm-.5 7.1-1.4-4.1-1.4 4.1h2.8zm10.5-7.1h3.4v9.2h6.2v2.4H55.5V6.2zm15.2 0c3.6 0 5.8 1.9 5.8 5.2 0 2.5-1.4 3.9-3.3 4.5l3.9 3.6h-4.1l-3.6-3.3h-2.2v3.3h-3.4V6.2zm3.1 2.7v2.8h2.2c1.1 0 1.9-.5 1.9-1.4s-.8-1.4-1.9-1.4h-2.2z"
+        fill={fill}
+        d="M23.2 5.5h2.9v13h-2.9V5.5Zm6.4 0c2.9 0 4.8 1.9 4.8 5.1s-1.9 5.1-4.8 5.1-4.8-1.9-4.8-5.1 1.9-5.1 4.8-5.1Zm0 2.4c-1.4 0-1.9 1.3-1.9 2.7s.5 2.7 1.9 2.7 1.9-1.3 1.9-2.7-.5-2.7-1.9-2.7Zm11.2-2.4h3.6l3.7 9.8h-2.8l-.7-1.9H33l-.7 1.9h-2.8l3.7-9.8Zm2.1 6.1-1.2-3.3-1.2 3.3h2.4Zm8.8-6.1h2.9v9.4h5.2v2.4H52.1V5.5Zm13.8 0c3.1 0 5 1.6 5 4.5 0 2.2-1.1 3.4-2.8 3.9l3.4 3.2h-3.5l-3-2.8h-1.9v2.8h-2.9V5.5Zm2.7 2.3v2.4h1.9c.9 0 1.6-.4 1.6-1.2s-.7-1.2-1.6-1.2h-1.9Z"
       />
     </svg>
   );
 }
 
-export function MicrosoftLogo({ className, title = 'Microsoft' }: LogoProps) {
+export function MicrosoftLogo({ className, title = 'Microsoft', variant = 'brand' }: LogoProps) {
+  if (variant === 'mono') {
+    return (
+      <svg
+        className={className}
+        viewBox="0 0 108 24"
+        role="img"
+        aria-label={title}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect x="0" y="0" width="11" height="11" fill="currentColor" opacity="0.9" />
+        <rect x="13" y="0" width="11" height="11" fill="currentColor" opacity="0.7" />
+        <rect x="0" y="13" width="11" height="11" fill="currentColor" opacity="0.7" />
+        <rect x="13" y="13" width="11" height="11" fill="currentColor" opacity="0.5" />
+        <path
+          fill="currentColor"
+          d="M32 6.2h2.2c2.4 0 3.9 1.3 3.9 3.4 0 1.5-.8 2.5-2 3l2.3 4.2h-2.4l-2.1-3.8h-1.7v3.8H30V6.2Zm2.1 1.8v2.8h1.5c1 0 1.6-.5 1.6-1.4 0-.9-.6-1.4-1.6-1.4h-1.5Zm8.1-1.8h2.1v9.4h3.7v1.8H42.2V6.2Zm9.5 0h2.1l3.4 9h-2.3l-.6-1.7h-3.4l-.6 1.7h-2.3l3.3-9Zm.4 5.5-1.1-3.1-1.1 3.1h2.2Zm7.5-5.5h3.6c2.8 0 4.5 1.4 4.5 3.7 0 2.3-1.7 3.7-4.5 3.7h-1.4v2h-2.2V6.2Zm3.4 1.8c1.2 0 1.9.6 1.9 1.5s-.7 1.5-1.9 1.5h-1.2V8Zm9.1 7.6c-2.5 0-4.1-1.9-4.1-4.7 0-2.8 1.6-4.7 4.1-4.7s4.1 1.9 4.1 4.7c0 2.8-1.6 4.7-4.1 4.7Zm0-1.8c1.3 0 2-1.2 2-2.9s-.7-2.9-2-2.9-2 1.2-2 2.9.7 2.9 2 2.9Z"
+        />
+      </svg>
+    );
+  }
+
   return (
     <svg
       className={className}
@@ -41,7 +67,24 @@ export function MicrosoftLogo({ className, title = 'Microsoft' }: LogoProps) {
   );
 }
 
-export function GoogleLogo({ className, title = 'Google' }: LogoProps) {
+export function GoogleLogo({ className, title = 'Google', variant = 'brand' }: LogoProps) {
+  if (variant === 'mono') {
+    return (
+      <svg
+        className={className}
+        viewBox="0 0 74 24"
+        role="img"
+        aria-label={title}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="currentColor"
+          d="M11.6 12c0-3.2 2.5-5.5 5.8-5.5 1.8 0 3.1.6 4 1.5l-1.6 1.6c-.7-.7-1.6-1.1-2.4-1.1-2 0-3.4 1.5-3.4 3.5s1.4 3.5 3.4 3.5c1.3 0 2-.5 2.5-1h-2.5V12h6.2c.1.4.1.7.1 1.1 0 3.4-2.3 5.7-5.8 5.7-3.4 0-6.3-2.8-6.3-6.3Zm14.2 0c0-3.2 2.5-5.5 5.8-5.5 1.8 0 3.1.6 4 1.5l-1.6 1.6c-.7-.7-1.6-1.1-2.4-1.1-2 0-3.4 1.5-3.4 3.5s1.4 3.5 3.4 3.5c1.3 0 2-.5 2.5-1h-2.5V12h6.2c.1.4.1.7.1 1.1 0 3.4-2.3 5.7-5.8 5.7-3.3 0-6.3-2.8-6.3-6.3Zm14.3 5.3V6.7h2v11.6h-2Zm9.1-5.9c0-3.4 2.5-5.9 5.9-5.9s5.9 2.5 5.9 5.9-2.5 5.9-5.9 5.9-5.9-2.5-5.9-5.9Zm9.6 0c0-2.2-1.6-3.7-3.7-3.7s-3.7 1.5-3.7 3.7 1.6 3.7 3.7 3.7 3.7-1.5 3.7-3.7Z"
+        />
+      </svg>
+    );
+  }
+
   return (
     <svg
       className={className}
@@ -67,5 +110,39 @@ export function GoogleLogo({ className, title = 'Google' }: LogoProps) {
         d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
       />
     </svg>
+  );
+}
+
+const logoRowHeights = {
+  nvidia: 'h-[15px] w-auto sm:h-4',
+  microsoft: 'h-4 w-4 sm:h-[17px] sm:w-[17px]',
+  google: 'h-4 w-4 sm:h-[17px] sm:w-[17px]',
+} as const;
+
+export function PartnerLogoRow({
+  className,
+  variant = 'brand',
+}: {
+  className?: string;
+  variant?: 'brand' | 'mono';
+}) {
+  const mono = variant === 'mono';
+
+  return (
+    <div
+      className={cn(
+        'flex flex-wrap items-center justify-center gap-6 sm:gap-8',
+        mono && 'text-white/55',
+        className,
+      )}
+    >
+      <NvidiaLogo
+        variant={variant}
+        className={cn(logoRowHeights.nvidia, mono && 'text-white/60')}
+        title="NVIDIA"
+      />
+      <MicrosoftLogo variant={variant} className={logoRowHeights.microsoft} title="Microsoft" />
+      <GoogleLogo variant={variant} className={logoRowHeights.google} title="Google" />
+    </div>
   );
 }

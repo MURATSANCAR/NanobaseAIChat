@@ -10,7 +10,7 @@ import { getIconEndpoint, getEntity, cn } from '~/utils';
 import { nbRainbowText } from '~/components/Theme/styles';
 
 const containerClassName =
-  'shadow-stroke relative flex h-full items-center justify-center rounded-full bg-white dark:bg-presentation dark:text-white text-black dark:after:shadow-none ';
+  'shadow-stroke relative flex h-full items-center justify-center rounded-full bg-surface-primary text-text-primary dark:after:shadow-none';
 
 function getTextSizeClass(text: string | undefined | null) {
   if (!text) {
@@ -149,7 +149,10 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
     <div
       className={`flex h-full transform-gpu flex-col items-center justify-center pb-16 transition-all duration-200 ${centerFormOnLanding ? 'max-h-full sm:max-h-0' : 'max-h-full'} ${getDynamicMargin}`}
     >
-      <div ref={contentRef} className="flex flex-col items-center gap-0 p-2">
+      <div
+        ref={contentRef}
+        className="nb-landing-panel flex flex-col items-center gap-0 rounded-3xl border border-white/10 bg-[rgba(12,10,20,0.65)] p-6 backdrop-blur-md sm:p-8"
+      >
         <div
           className={`flex ${textHasMultipleLines ? 'flex-col' : 'flex-col md:flex-row'} items-center justify-center gap-2`}
         >
@@ -165,7 +168,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
                   endpointsConfig={endpointsConfig}
                   containerClassName={containerClassName}
                   context="landing"
-                  className="h-2/3 w-2/3 text-black dark:text-white"
+                  className="h-2/3 w-2/3 text-text-primary"
                   size={28}
                 />
               </div>
@@ -179,7 +182,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
                 endpointsConfig={endpointsConfig}
                 containerClassName={containerClassName}
                 context="landing"
-                className="h-2/3 w-2/3 text-black dark:text-white"
+                className="h-2/3 w-2/3 text-text-primary"
                 size={41}
               />
               {startupConfig?.showBirthdayIcon && (

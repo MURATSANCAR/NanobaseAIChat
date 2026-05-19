@@ -4,7 +4,7 @@ export const nbRainbowText =
 export const nbRainbowBtn = 'nb-rainbow-btn text-white';
 
 export const nbComposer =
-  'nb-colorful-composer border-border-light bg-surface-chat/80 backdrop-blur-md';
+  'nb-colorful-composer border-border-light bg-surface-chat backdrop-blur-xl shadow-lg';
 
 export const nbSidebarPanel = 'nb-colorful-sidebar border-r border-white/10 bg-[rgba(20,16,36,0.94)] backdrop-blur-xl';
 
