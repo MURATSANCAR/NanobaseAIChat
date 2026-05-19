@@ -6,26 +6,18 @@ type LogoProps = {
   variant?: 'brand' | 'mono';
 };
 
-export function NvidiaLogo({ className, title = 'NVIDIA', variant = 'brand' }: LogoProps) {
-  const fill = variant === 'mono' ? 'currentColor' : '#76B900';
+const NVIDIA_LOGO = 'assets/partners/nvidia.svg';
 
+/** Official NVIDIA wordmark + eye symbol (green #76B900, wordmark for dark backgrounds). */
+export function NvidiaLogo({ className, title = 'NVIDIA' }: LogoProps) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 120 24"
-      role="img"
-      aria-label={title}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fill={fill}
-        d="M8.4 3.8 1.2 6v12l7.2 2.5 7.2-2.5V6L8.4 3.8Zm0 13.8L3.8 15.4V8.6l4.6 1.7 4.6-1.7v6.8l-4.6 2.3Z"
-      />
-      <path
-        fill={fill}
-        d="M23.2 5.5h2.9v13h-2.9V5.5Zm6.4 0c2.9 0 4.8 1.9 4.8 5.1s-1.9 5.1-4.8 5.1-4.8-1.9-4.8-5.1 1.9-5.1 4.8-5.1Zm0 2.4c-1.4 0-1.9 1.3-1.9 2.7s.5 2.7 1.9 2.7 1.9-1.3 1.9-2.7-.5-2.7-1.9-2.7Zm11.2-2.4h3.6l3.7 9.8h-2.8l-.7-1.9H33l-.7 1.9h-2.8l3.7-9.8Zm2.1 6.1-1.2-3.3-1.2 3.3h2.4Zm8.8-6.1h2.9v9.4h5.2v2.4H52.1V5.5Zm13.8 0c3.1 0 5 1.6 5 4.5 0 2.2-1.1 3.4-2.8 3.9l3.4 3.2h-3.5l-3-2.8h-1.9v2.8h-2.9V5.5Zm2.7 2.3v2.4h1.9c.9 0 1.6-.4 1.6-1.2s-.7-1.2-1.6-1.2h-1.9Z"
-      />
-    </svg>
+    <img
+      src={NVIDIA_LOGO}
+      alt={title}
+      className={cn('h-[18px] w-auto max-w-[88px] object-contain object-center sm:h-5 sm:max-w-[100px]', className)}
+      loading="lazy"
+      decoding="async"
+    />
   );
 }
 
@@ -114,7 +106,7 @@ export function GoogleLogo({ className, title = 'Google', variant = 'brand' }: L
 }
 
 const logoRowHeights = {
-  nvidia: 'h-[15px] w-auto sm:h-4',
+  nvidia: '',
   microsoft: 'h-4 w-4 sm:h-[17px] sm:w-[17px]',
   google: 'h-4 w-4 sm:h-[17px] sm:w-[17px]',
 } as const;
@@ -136,11 +128,7 @@ export function PartnerLogoRow({
         className,
       )}
     >
-      <NvidiaLogo
-        variant={variant}
-        className={cn(logoRowHeights.nvidia, mono && 'text-white/60')}
-        title="NVIDIA"
-      />
+      <NvidiaLogo className={logoRowHeights.nvidia} title="NVIDIA" />
       <MicrosoftLogo variant={variant} className={logoRowHeights.microsoft} title="Microsoft" />
       <GoogleLogo variant={variant} className={logoRowHeights.google} title="Google" />
     </div>
