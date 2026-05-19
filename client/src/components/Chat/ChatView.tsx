@@ -102,8 +102,7 @@ function ChatView({ index = 0 }: { index?: number }) {
                     <ChatForm index={index} />
                     {isLandingPage ? <ConversationStarters /> : <Footer />}
                   </div>
-                </div>
-                {isLandingPage && <Footer />}
+                </motion>
               </>
             </div>
           </Presentation>
