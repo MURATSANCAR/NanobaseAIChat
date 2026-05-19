@@ -157,6 +157,8 @@
   "com_auth_github_login": "使用 GitHub 登入",
   "com_auth_google_login": "使用 Google 登入",
   "com_auth_here": "這裡",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "登入",
   "com_auth_login_with_new_password": "您現在可以使用新密碼登入。",
   "com_auth_name_max_length": "名稱長度長度必須少於 80 個字元",

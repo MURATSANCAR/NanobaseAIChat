@@ -78,6 +78,8 @@
   "com_auth_github_login": "Pokračovat přes Github",
   "com_auth_google_login": "Pokračovat přes Google",
   "com_auth_here": "ZDE",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "Přihlášení",
   "com_auth_login_with_new_password": "Nyní se můžete přihlásit s novým heslem.",
   "com_auth_name_max_length": "Jméno musí mít méně než 80 znaků",

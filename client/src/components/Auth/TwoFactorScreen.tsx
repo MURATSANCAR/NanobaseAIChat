@@ -6,6 +6,7 @@ import { REGEXP_ONLY_DIGITS, REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot, Label } from '@librechat/client';
 import { useVerifyTwoFactorTempMutation } from '~/data-provider';
 import { useLocalize } from '~/hooks';
+import { authLinkClass, authSubmitClass } from './styles';
 
 interface VerifyPayload {
   tempToken: string;
@@ -144,7 +145,7 @@ const TwoFactorScreen: React.FC = React.memo(() => {
             aria-label={localize('com_auth_continue')}
             data-testid="login-button"
             disabled={isLoading}
-            className="w-full rounded-2xl bg-green-600 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-green-700 disabled:opacity-80 dark:bg-green-600 dark:hover:bg-green-700"
+            className={`${authSubmitClass} disabled:opacity-80`}
           >
             {isLoading ? localize('com_auth_email_verifying_ellipsis') : localize('com_ui_verify')}
           </button>
@@ -154,7 +155,7 @@ const TwoFactorScreen: React.FC = React.memo(() => {
             <button
               type="button"
               onClick={toggleBackupOn}
-              className="inline-flex p-1 text-sm font-medium text-green-600 transition-colors hover:text-green-700 dark:text-green-400 dark:hover:text-green-300"
+              className={authLinkClass}
             >
               {localize('com_ui_use_backup_code')}
             </button>
@@ -162,7 +163,7 @@ const TwoFactorScreen: React.FC = React.memo(() => {
             <button
               type="button"
               onClick={toggleBackupOff}
-              className="inline-flex p-1 text-sm font-medium text-green-600 transition-colors hover:text-green-700 dark:text-green-400 dark:hover:text-green-300"
+              className={authLinkClass}
             >
               {localize('com_ui_use_2fa_code')}
             </button>

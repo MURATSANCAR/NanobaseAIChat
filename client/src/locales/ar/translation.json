@@ -96,6 +96,8 @@
   "com_auth_github_login": "تسجيل الدخول بواسطة Github",
   "com_auth_google_login": "تسجيل الدخول بواسطة Google",
   "com_auth_here": "هنا",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "تسجيل الدخول",
   "com_auth_login_with_new_password": "يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة الخاصة بك.",
   "com_auth_name_max_length": "يجب أن يكون الاسم أقل من 80 حرفًا",

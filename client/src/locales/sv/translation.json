@@ -161,6 +161,8 @@
   "com_auth_github_login": "Logga in med Github",
   "com_auth_google_login": "Logga in med Google",
   "com_auth_here": "HÄR",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "Logga in",
   "com_auth_login_with_new_password": "Du kan nu logga in med ditt nya lösenord.",
   "com_auth_name_max_length": "Namnet får inte vara längre än 80 tecken",

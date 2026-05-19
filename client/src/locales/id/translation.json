@@ -27,6 +27,8 @@
   "com_auth_github_login": "Masuk dengan Github",
   "com_auth_google_login": "Masuk dengan Google",
   "com_auth_here": "DI SINI",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "Masuk",
   "com_auth_login_with_new_password": "Anda sekarang dapat masuk dengan kata sandi baru Anda.",
   "com_auth_name_max_length": "Nama harus kurang dari 80 karakter",

@@ -92,6 +92,8 @@
   "com_auth_github_login": "Đăng nhập bằng Github",
   "com_auth_google_login": "Đăng nhập bằng Google",
   "com_auth_here": "VÀO ĐÂY",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "Đăng nhập",
   "com_auth_login_with_new_password": "Bây giờ bạn có thể đăng nhập bằng mật khẩu mới của mình.",
   "com_auth_name_max_length": "Tên phải ít hơn 80 ký tự",

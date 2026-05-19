@@ -107,6 +107,8 @@
   "com_auth_github_login": "ดำเนินการต่อด้วย Github",
   "com_auth_google_login": "ดำเนินการต่อด้วย Google",
   "com_auth_here": "ที่นี่",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "ล็อกอิน",
   "com_auth_login_with_new_password": "ตอนนี้คุณสามารถเข้าสู่ระบบด้วยรหัสผ่านใหม่ของคุณได้แล้ว",
   "com_auth_name_max_length": "ชื่อต้องมีความยาวน้อยกว่า 80 ตัวอักษร",

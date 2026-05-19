@@ -178,6 +178,8 @@
   "com_auth_github_login": "با Github ادامه دهید",
   "com_auth_google_login": "با گوگل ادامه دهید",
   "com_auth_here": "اینجا",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "وارد شوید",
   "com_auth_login_with_new_password": "اکنون می توانید با رمز عبور جدید خود وارد شوید.",
   "com_auth_name_max_length": "نام باید کمتر از 80 کاراکتر باشد",

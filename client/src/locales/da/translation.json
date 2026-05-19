@@ -96,6 +96,8 @@
   "com_auth_github_login": "Fortsæt med Github",
   "com_auth_google_login": "Fortsæt med Google",
   "com_auth_here": "HER",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "Log ind",
   "com_auth_login_with_new_password": "Du kan nu logge ind med din nye adgangskode.",
   "com_auth_name_max_length": "Navnet skal være mindre end 80 tegn",

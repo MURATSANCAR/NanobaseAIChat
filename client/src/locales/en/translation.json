@@ -214,6 +214,8 @@
   "com_auth_username_max_length": "Username must be less than 20 characters",
   "com_auth_username_min_length": "Username must be at least 2 characters",
   "com_auth_verify_your_identity": "Verify Your Identity",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_welcome_back": "Welcome back",
   "com_citation_more_details": "More details about {{label}}",
   "com_citation_source": "Source",

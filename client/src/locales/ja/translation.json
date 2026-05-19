@@ -178,6 +178,8 @@
   "com_auth_github_login": "Githubでログイン",
   "com_auth_google_login": "Googleでログイン",
   "com_auth_here": "こちら",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "ログイン",
   "com_auth_login_with_new_password": "新しいパスワードでログインをお試しください。",
   "com_auth_name_max_length": "フルネームは最大80文字で入力してください",

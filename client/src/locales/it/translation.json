@@ -174,6 +174,8 @@
   "com_auth_github_login": "Continua con Github",
   "com_auth_google_login": "Continua con Google",
   "com_auth_here": "QUI",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "Accedi",
   "com_auth_login_with_new_password": "Ora puoi accedere con la tua nuova password.",
   "com_auth_name_max_length": "Il nome deve essere inferiore a 80 caratteri",

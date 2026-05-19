@@ -167,6 +167,8 @@
   "com_auth_github_login": "Inloggen met Github",
   "com_auth_google_login": "Inloggen met Google",
   "com_auth_here": "HIER",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "Inloggen",
   "com_auth_login_with_new_password": "Je kunt nu inloggen met je nieuwe wachtwoord.",
   "com_auth_name_max_length": "Naam mag niet langer zijn dan 80 tekens",

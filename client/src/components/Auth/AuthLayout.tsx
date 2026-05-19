@@ -6,6 +6,9 @@ import SocialLoginRender from './SocialLoginRender';
 import { BlinkAnimation } from './BlinkAnimation';
 import { Banner } from '../Banners';
 import Footer from './Footer';
+import AuthHero from './hero';
+import NeuralBackground from './background';
+import { authCardClass, authLinkClass, authPanelClass } from './styles';
 
 function AuthLayout({
   children,
@@ -25,30 +28,33 @@ function AuthLayout({
   error: TranslationKeys | null;
 }) {
   const localize = useLocalize();
+  const appTitle = startupConfig?.appTitle ?? DEFAULT_APP_TITLE;
 
   const hasStartupConfigError = startupConfigError !== null && startupConfigError !== undefined;
   const DisplayError = () => {
     if (hasStartupConfigError) {
       return (
-        <div className="mx-auto sm:max-w-sm">
+        <div className="mx-auto mb-4 w-full">
           <ErrorMessage>{localize('com_auth_error_login_server')}</ErrorMessage>
         </div>
       );
-    } else if (error === 'com_auth_error_invalid_reset_token') {
+    }
+    if (error === 'com_auth_error_invalid_reset_token') {
       return (
-        <div className="mx-auto sm:max-w-sm">
+        <div className="mx-auto mb-4 w-full">
           <ErrorMessage>
             {localize('com_auth_error_invalid_reset_token')}{' '}
-            <a className="font-semibold text-green-600 hover:underline" href="/forgot-password">
+            <a className={`font-semibold ${authLinkClass}`} href="/forgot-password">
               {localize('com_auth_click_here')}
             </a>{' '}
             {localize('com_auth_to_try_again')}
           </ErrorMessage>
         </div>
       );
-    } else if (error != null && error) {
+    }
+    if (error != null && error) {
       return (
-        <div className="mx-auto sm:max-w-sm">
+        <div className="mx-auto mb-4 w-full">
           <ErrorMessage>{localize(error)}</ErrorMessage>
         </div>
       );
@@ -57,40 +63,55 @@ function AuthLayout({
   };
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-white dark:bg-gray-900">
+    <div className="relative flex min-h-screen">
       <Banner />
-      <BlinkAnimation active={isFetching}>
-        <div className="mt-6 h-10 w-full bg-cover">
-          <img
-            src="assets/logo.svg"
-            className="h-full w-full object-contain"
-            alt={localize('com_ui_logo', { 0: startupConfig?.appTitle ?? DEFAULT_APP_TITLE })}
-          />
-        </div>
-      </BlinkAnimation>
-      <DisplayError />
-      <div className="absolute bottom-0 left-0 md:m-4">
-        <ThemeSelector />
-      </div>
+      <AuthHero />
 
-      <main className="flex flex-grow items-center justify-center">
-        <div className="w-authPageWidth overflow-hidden bg-white px-6 py-4 dark:bg-gray-900 sm:max-w-md sm:rounded-lg">
-          {!hasStartupConfigError && !isFetching && header && (
-            <h1
-              className="mb-4 text-center text-3xl font-semibold text-black dark:text-white"
-              style={{ userSelect: 'none' }}
-            >
-              {header}
-            </h1>
-          )}
-          {children}
-          {!pathname.includes('2fa') &&
-            (pathname.includes('login') || pathname.includes('register')) && (
-              <SocialLoginRender startupConfig={startupConfig} />
-            )}
+      <div className={authPanelClass}>
+        <div className="absolute inset-0 overflow-hidden opacity-40 lg:hidden">
+          <NeuralBackground />
         </div>
-      </main>
-      <Footer startupConfig={startupConfig} />
+        <div className="absolute bottom-4 left-4 z-20 md:m-4">
+          <ThemeSelector />
+        </div>
+
+        <main className="relative z-10 flex flex-grow items-center justify-center px-4 py-10 sm:px-6">
+          <div className={authCardClass}>
+            <BlinkAnimation active={isFetching}>
+              <div className="mb-6 flex flex-col items-center gap-3">
+                <img
+                  src="assets/logo-icon.svg"
+                  className="h-14 w-14 shrink-0"
+                  alt={localize('com_ui_logo', { 0: appTitle })}
+                />
+                <span className="bg-gradient-to-r from-sky-500 to-indigo-500 bg-clip-text text-2xl font-bold tracking-tight text-transparent">
+                  {appTitle}
+                </span>
+              </div>
+            </BlinkAnimation>
+
+            <DisplayError />
+
+            {!hasStartupConfigError && !isFetching && header && (
+              <h1
+                className="mb-6 text-center text-2xl font-semibold text-gray-900 dark:text-white"
+                style={{ userSelect: 'none' }}
+              >
+                {header}
+              </h1>
+            )}
+
+            {children}
+
+            {!pathname.includes('2fa') &&
+              (pathname.includes('login') || pathname.includes('register')) && (
+                <SocialLoginRender startupConfig={startupConfig} />
+              )}
+          </div>
+        </main>
+
+        <Footer startupConfig={startupConfig} />
+      </div>
     </div>
   );
 }

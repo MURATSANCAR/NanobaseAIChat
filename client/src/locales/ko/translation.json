@@ -107,6 +107,8 @@
   "com_auth_github_login": "Github으로 로그인",
   "com_auth_google_login": "Google로 로그인",
   "com_auth_here": "여기",
+  "com_auth_hero_subtitle": "Your AI workspace for teams and creators.",
+  "com_auth_hero_title": "Intelligence, connected.",
   "com_auth_login": "로그인",
   "com_auth_login_with_new_password": "새로운 비밀번호로 로그인할 수 있습니다.",
   "com_auth_name_max_length": "이름은 80자를 초과할 수 없습니다",
