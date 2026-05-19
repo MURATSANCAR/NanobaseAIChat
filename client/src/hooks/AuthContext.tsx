@@ -45,12 +45,12 @@ const AuthContextProvider = ({
   authConfig?: TAuthConfig;
   children: ReactNode;
 }) => {
+  const devMockAuth = isDevMockAuthEnabled();
   const isExternalRedirectRef = useRef(false);
   const [user, setUser] = useRecoilState(store.user);
   const logoutRedirectRef = useRef<string | undefined>(undefined);
   const [token, setToken] = useState<string | undefined>(devMockAuth ? DEV_MOCK_TOKEN : undefined);
   const [error, setError] = useState<string | undefined>(undefined);
-  const devMockAuth = isDevMockAuthEnabled();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(devMockAuth);
   const setQueriesEnabled = useSetRecoilState<boolean>(store.queriesEnabled);
 

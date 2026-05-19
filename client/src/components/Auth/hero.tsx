@@ -17,11 +17,8 @@ function AuthHero() {
           {DEFAULT_APP_TITLE}
         </p>
         <h2 className="mt-4 text-4xl font-bold leading-tight text-white">
-          {localize('com_auth_hero_title')}
+          {localize('com_auth_welcome')}
         </h2>
-        <p className="mt-4 text-lg leading-relaxed text-slate-400">
-          {localize('com_auth_hero_subtitle')}
-        </p>
       </div>
       <AuthHeroPartners />
     </aside>
