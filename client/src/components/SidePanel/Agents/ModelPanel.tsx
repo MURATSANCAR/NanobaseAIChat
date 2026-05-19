@@ -19,6 +19,7 @@ import { useLiveAnnouncer } from '~/Providers';
 import { useLocalize } from '~/hooks';
 import { Panel } from '~/common';
 import { cn } from '~/utils';
+import { nbForgeLabel, nbForgeRequired } from '~/components/Theme';
 
 export default function ModelPanel({
   providers,
@@ -121,10 +122,10 @@ export default function ModelPanel({
         <div className="mb-4">
           <label
             id="provider-label"
-            className="text-token-text-primary model-panel-label mb-2 block text-sm font-medium"
+            className={cn(nbForgeLabel, 'model-panel-label')}
             htmlFor="provider"
           >
-            {localize('com_ui_provider')} <span className="text-red-500">*</span>
+            {localize('com_ui_provider')} <span className={nbForgeRequired}>*</span>
           </label>
           <Controller
             name="provider"
@@ -171,13 +172,10 @@ export default function ModelPanel({
         <div className="model-panel-section mb-4">
           <label
             id="model-label"
-            className={cn(
-              'text-token-text-primary model-panel-label mb-2 block text-sm font-medium',
-              !provider && 'text-gray-500 dark:text-gray-400',
-            )}
+            className={cn(nbForgeLabel, 'model-panel-label', !provider && 'text-slate-500')}
             htmlFor="model"
           >
-            {localize('com_ui_model')} <span className="text-red-500">*</span>
+            {localize('com_ui_model')} <span className={nbForgeRequired}>*</span>
           </label>
           <Controller
             name="model"

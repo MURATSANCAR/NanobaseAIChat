@@ -72,7 +72,10 @@ export default function Root() {
           <AgentsMapContext.Provider value={agentsMap}>
             <PromptGroupsProvider>
               <Banner onHeightChange={setBannerHeight} />
-              <div className="flex" style={{ height: `calc(100dvh - ${bannerHeight}px)` }}>
+              <div
+                className="nb-colorful-app dark flex"
+                style={{ height: `calc(100dvh - ${bannerHeight}px)` }}
+              >
                 <div className="relative z-0 flex h-full w-full overflow-hidden">
                   <UnifiedSidebar />
                   <ColorfulShell>

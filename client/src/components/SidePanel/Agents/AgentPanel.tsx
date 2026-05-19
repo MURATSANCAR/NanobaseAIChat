@@ -22,7 +22,7 @@ import {
   useGetExpandedAgentByIdQuery,
   useUploadAgentAvatarMutation,
 } from '~/data-provider';
-import { createProviderOption, getDefaultAgentFormValues } from '~/utils';
+import { createProviderOption, getDefaultAgentFormValues, cn } from '~/utils';
 import { useResourcePermissions } from '~/hooks/useResourcePermissions';
 import { useSelectAgent, useLocalize, useAuthContext } from '~/hooks';
 import { useAgentPanelContext } from '~/Providers/AgentPanelContext';
@@ -33,6 +33,7 @@ import AgentConfig from './AgentConfig';
 import AgentSelect from './AgentSelect';
 import AgentFooter from './AgentFooter';
 import ModelPanel from './ModelPanel';
+import { nbForgePanel } from '~/components/Theme';
 
 /* Helpers */
 function getUpdateToastMessage(
@@ -486,7 +487,10 @@ export default function AgentPanel() {
     <FormProvider {...methods}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="scrollbar-gutter-stable flex flex-1 flex-col px-3 pb-3 pt-2"
+        className={cn(
+          nbForgePanel,
+          'scrollbar-gutter-stable flex flex-1 flex-col gap-3 px-4 pb-4 pt-3',
+        )}
         aria-label="Agent configuration form"
       >
         <div className="flex-1">

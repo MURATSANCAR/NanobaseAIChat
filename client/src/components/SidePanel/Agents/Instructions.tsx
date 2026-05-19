@@ -6,14 +6,9 @@ import { specialVariables } from 'librechat-data-provider';
 import { Controller, useFormContext } from 'react-hook-form';
 import type { TSpecialVarLabel } from 'librechat-data-provider';
 import type { AgentForm } from '~/common';
-import { cn, defaultTextProps, removeFocusOutlines } from '~/utils';
+import { cn } from '~/utils';
+import { nbForgeInput, nbForgeLabel } from '~/components/Theme';
 import { useLocalize } from '~/hooks';
-
-const inputClass = cn(
-  defaultTextProps,
-  'flex w-full px-3 py-2 border-border-light bg-surface-secondary focus-visible:ring-2 focus-visible:ring-ring-primary',
-  removeFocusOutlines,
-);
 
 interface VariableOption {
   label: TSpecialVarLabel;
@@ -44,10 +39,7 @@ export default function Instructions() {
   return (
     <div className="mb-4">
       <div className="mb-2 flex items-center">
-        <label
-          className="text-token-text-primary flex-grow text-sm font-medium"
-          htmlFor="instructions"
-        >
+        <label className={cn(nbForgeLabel, 'mb-0 flex-grow')} htmlFor="instructions">
           {localize('com_ui_instructions')}
         </label>
         <div className="ml-auto" title="Add variables to instructions">
@@ -62,7 +54,7 @@ export default function Instructions() {
               <Menu.MenuButton
                 id="variables-menu-button"
                 aria-label="Add variable to instructions"
-                className="flex h-7 items-center gap-1 rounded-md border border-border-medium bg-surface-secondary px-2 py-0 text-sm text-text-primary transition-colors duration-200 hover:bg-surface-tertiary"
+                className="flex h-7 items-center gap-1 rounded-md border border-orange-500/20 bg-[rgba(15,29,50,0.92)] px-2 py-0 text-sm text-slate-200 transition-colors duration-200 hover:border-sky-400/30 hover:bg-[rgba(21,34,56,0.95)]"
               >
                 <PlusCircle className="mr-1 h-3 w-3 text-text-secondary" aria-hidden={true} />
                 {localize('com_ui_variables')}
@@ -85,7 +77,7 @@ export default function Instructions() {
             <textarea
               {...field}
               value={field.value ?? ''}
-              className={cn(inputClass, 'min-h-[100px] resize-y')}
+              className={cn(nbForgeInput, 'min-h-[100px] resize-y')}
               id="instructions"
               placeholder={localize('com_agents_instructions_placeholder')}
               rows={3}

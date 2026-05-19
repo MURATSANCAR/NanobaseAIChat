@@ -9,14 +9,8 @@ import {
   getEndpointField,
 } from 'librechat-data-provider';
 import type { AgentForm, IconComponentTypes } from '~/common';
-import {
-  removeFocusOutlines,
-  processAgentOption,
-  defaultTextProps,
-  validateEmail,
-  getIconKey,
-  cn,
-} from '~/utils';
+import { processAgentOption, validateEmail, getIconKey, cn } from '~/utils';
+import { nbForgeInput, nbForgeLabel, nbForgeRequired } from '~/components/Theme';
 import { ToolSelectDialog, MCPToolSelectDialog } from '~/components/Tools';
 import { SkillSelectDialog } from '~/components/Skills/dialogs';
 import useAgentCapabilities from '~/hooks/Agents/useAgentCapabilities';
@@ -37,12 +31,8 @@ import AgentTool from './AgentTool';
 import CodeForm from './Code/Form';
 import MCPTools from './MCPTools';
 
-const labelClass = 'mb-2 text-token-text-primary block text-sm font-medium';
-const inputClass = cn(
-  defaultTextProps,
-  'flex w-full px-3 py-2 border-border-light bg-surface-secondary focus-visible:ring-2 focus-visible:ring-ring-primary',
-  removeFocusOutlines,
-);
+const labelClass = nbForgeLabel;
+const inputClass = nbForgeInput;
 
 export default function AgentConfig() {
   const localize = useLocalize();
@@ -222,7 +212,7 @@ export default function AgentConfig() {
           <AgentAvatar avatar={agent?.['avatar'] ?? null} />
           <label className={labelClass} htmlFor="name">
             {localize('com_ui_name')}
-            <span className="text-red-500">*</span>
+            <span className={nbForgeRequired}>*</span>
           </label>
           <Controller
             name="name"
@@ -289,7 +279,7 @@ export default function AgentConfig() {
         {/* Category */}
         <div className="mb-4">
           <label className={labelClass} htmlFor="category-selector">
-            {localize('com_ui_category')} <span className="text-red-500">*</span>
+            {localize('com_ui_category')} <span className={nbForgeRequired}>*</span>
           </label>
           <AgentCategorySelector className="w-full" />
         </div>
@@ -298,7 +288,7 @@ export default function AgentConfig() {
         {/* Model and Provider */}
         <div className="mb-4">
           <label className={labelClass} htmlFor="provider">
-            {localize('com_ui_model')} <span className="text-red-500">*</span>
+            {localize('com_ui_model')} <span className={nbForgeRequired}>*</span>
           </label>
           <button
             type="button"
