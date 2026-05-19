@@ -17,7 +17,7 @@ export const nbGlassCard =
 export const nbStandaloneCenter = 'flex min-h-screen flex-1 flex-col items-center justify-center p-8';
 
 export const nbLandingPanel =
-  'nb-landing-panel nb-forge-landing flex w-full max-w-sm flex-col items-center gap-2 rounded-2xl border border-orange-500/20 px-4 py-3 text-center shadow-md backdrop-blur-md sm:max-w-md sm:px-5 sm:py-4';
+  'nb-landing-panel nb-forge-landing flex w-full max-w-2xl flex-col items-start gap-2 rounded-2xl border border-orange-500/20 px-3 py-2.5 text-left shadow-md backdrop-blur-md sm:px-4 sm:py-3';
 
 export const nbForgeLabel = 'mb-2 block text-sm font-medium text-slate-200';
 

@@ -73,7 +73,11 @@ function ChatView({ index = 0 }: { index?: number }) {
   } else if (!isLandingPage) {
     content = <MessagesView messagesTree={messagesTree} />;
   } else {
-    content = <Landing centerFormOnLanding={centerFormOnLanding} />;
+    content = (
+      <div className="mx-auto w-full max-w-3xl px-2 sm:px-2 xl:max-w-4xl">
+        <Landing centerFormOnLanding={centerFormOnLanding} />
+      </div>
+    );
   }
 
   return (
@@ -88,7 +92,7 @@ function ChatView({ index = 0 }: { index?: number }) {
                   className={cn(
                     'flex flex-col',
                     isLandingPage
-                      ? 'min-h-0 flex-1 items-center justify-end'
+                      ? 'min-h-0 flex-1 items-stretch justify-start'
                       : 'h-full overflow-y-auto',
                   )}
                 >
@@ -97,7 +101,7 @@ function ChatView({ index = 0 }: { index?: number }) {
                     className={cn(
                       'w-full',
                       isLandingPage &&
-                        'mt-auto max-w-3xl flex-1 basis-0 transition-all duration-200 sm:flex sm:min-h-0 sm:flex-col sm:justify-end xl:max-w-4xl',
+                        'mt-1 max-w-3xl shrink-0 transition-all duration-200 sm:mt-2 xl:max-w-4xl',
                     )}
                   >
                     <ChatForm index={index} />

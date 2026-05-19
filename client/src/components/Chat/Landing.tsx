@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useState, useRef } from 'react';
+import { useMemo, useCallback, useRef } from 'react';
 import { easings } from '@react-spring/web';
 import { EModelEndpoint } from 'librechat-data-provider';
 import { BirthdayIcon, TooltipAnchor, SplitText } from '@librechat/client';
@@ -38,7 +38,6 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
   const { user } = useAuthContext();
   const localize = useLocalize();
 
-  const [lineCount, setLineCount] = useState(1);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const endpointType = useMemo(() => {
@@ -93,10 +92,6 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
     return localize('com_ui_good_evening');
   }, [localize, startupConfig?.interface?.customWelcome, user?.name]);
 
-  const handleLineCountChange = useCallback((count: number) => {
-    setLineCount(count);
-  }, []);
-
   const greetingText =
     typeof startupConfig?.interface?.customWelcome === 'string'
       ? getGreeting()
@@ -109,36 +104,19 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
     showColorfulOrb ? nbRainbowText : 'text-text-primary',
   );
 
-  const showAgentStatus = showColorfulOrb && lineCount <= 2;
-
   return (
     <div
       className={cn(
-        'flex w-full shrink-0 flex-col items-center justify-center px-3 pt-2 pb-1 sm:px-4',
-        centerFormOnLanding ? 'sm:pt-3' : 'sm:pb-2',
+        'flex w-full shrink-0 flex-col items-start justify-start px-3 pt-1 pb-0 sm:px-4',
+        centerFormOnLanding ? 'sm:pt-2' : 'sm:pb-1',
       )}
     >
       <div ref={contentRef} className={nbLandingPanel}>
-        <div className="flex w-full flex-col items-center gap-2">
+        <div className="flex w-full flex-row items-center gap-3 sm:gap-4">
           {showColorfulOrb ? (
-            <LandingAgentVisual>
-              <div className="nb-landing-orb">
-                <div className="nb-landing-orb-inner">
-                  <ConvoIcon
-                    agentsMap={agentsMap}
-                    assistantMap={assistantMap}
-                    conversation={conversation}
-                    endpointsConfig={endpointsConfig}
-                    containerClassName={containerClassName}
-                    context="landing"
-                    className="h-2/3 w-2/3 text-text-primary"
-                    size={24}
-                  />
-                </div>
-              </div>
-            </LandingAgentVisual>
+            <LandingAgentVisual />
           ) : (
-            <div className="relative flex size-10 items-center justify-center sm:size-11">
+            <div className="relative flex size-12 shrink-0 items-center justify-center sm:size-14">
               <ConvoIcon
                 agentsMap={agentsMap}
                 assistantMap={assistantMap}
@@ -161,27 +139,19 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
             </div>
           )}
 
-          <div className="flex w-full flex-col items-center gap-1 px-0.5">
-            {showAgentStatus && (
-              <p className="nb-landing-agent-status text-[10px] font-medium tracking-wide text-slate-400 sm:text-xs">
-                <span className="auth-ai-status-dot mr-2 inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 align-middle" />
-                {localize('com_ui_landing_agent_status')}
-              </p>
-            )}
-
+          <div className="flex min-w-0 flex-1 flex-col items-start gap-0.5">
             {((isAgent || isAssistant) && name) || name ? (
               <SplitText
                 key={`split-text-${name}`}
                 text={name}
                 className={cn(getTextSizeClass(name), 'font-medium text-text-primary')}
                 delay={50}
-                textAlign="center"
-                animationFrom={{ opacity: 0, transform: 'translate3d(0,24px,0)' }}
+                textAlign="left"
+                animationFrom={{ opacity: 0, transform: 'translate3d(0,16px,0)' }}
                 animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                 easing={easings.easeOutCubic}
                 threshold={0}
                 rootMargin="0px"
-                onLineCountChange={handleLineCountChange}
               />
             ) : (
               <SplitText
@@ -189,20 +159,19 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
                 text={greetingText}
                 className={greetingClassName}
                 delay={50}
-                textAlign="center"
-                animationFrom={{ opacity: 0, transform: 'translate3d(0,24px,0)' }}
+                textAlign="left"
+                animationFrom={{ opacity: 0, transform: 'translate3d(0,16px,0)' }}
                 animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                 easing={easings.easeOutCubic}
                 threshold={0}
                 rootMargin="0px"
-                onLineCountChange={handleLineCountChange}
               />
             )}
           </div>
         </div>
 
         {description && (
-          <p className="animate-fadeIn max-w-xs text-xs font-normal leading-snug text-text-secondary sm:max-w-sm sm:text-sm">
+          <p className="animate-fadeIn mt-2 max-w-md text-left text-xs font-normal leading-snug text-text-secondary sm:text-sm">
             {description}
           </p>
         )}
