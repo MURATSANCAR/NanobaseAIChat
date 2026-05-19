@@ -39,7 +39,7 @@ function AuthPartnerCard({ className }: { className?: string }) {
   return (
     <section
       className={cn(
-        'auth-partner-banner w-full overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-sky-500/10 via-violet-500/10 to-indigo-500/5 px-5 py-3 shadow-xl backdrop-blur-md lg:hidden',
+        'auth-partner-banner w-full overflow-hidden rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-500/12 via-sky-500/8 to-orange-600/5 px-5 py-3 shadow-xl backdrop-blur-md lg:hidden',
         className,
       )}
       aria-label={brandLocalize('com_ui_partner_footer_aria')}

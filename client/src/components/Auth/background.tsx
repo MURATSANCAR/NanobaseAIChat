@@ -45,8 +45,8 @@ const edges: ReadonlyArray<[number, number]> = [
 function NeuralBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(14,165,233,0.18),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(99,102,241,0.14),transparent_45%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(249,115,22,0.14),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_80%,rgba(56,189,248,0.1),transparent_45%)]" />
       <svg
         className="absolute inset-0 h-full w-full opacity-70"
         viewBox="0 0 800 600"
@@ -55,8 +55,8 @@ function NeuralBackground() {
       >
         <defs>
           <linearGradient id="nbLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0.4" />
+            <stop offset="0%" stopColor="#f97316" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.4" />
           </linearGradient>
         </defs>
         {edges.map(([from, to], index) => {
@@ -84,7 +84,7 @@ function NeuralBackground() {
             cx={node.cx}
             cy={node.cy}
             r={node.r}
-            fill="#0ea5e9"
+            fill="#f97316"
             className="auth-neural-node"
             style={{ animationDelay: `${node.delay}s` }}
           />
@@ -94,7 +94,7 @@ function NeuralBackground() {
         {Array.from({ length: 24 }, (_, index) => (
           <span
             key={`particle-${index}`}
-            className="auth-particle absolute block h-1 w-1 rounded-full bg-sky-400"
+            className="auth-particle absolute block h-1 w-1 rounded-full bg-orange-400"
             style={{
               left: `${(index * 17) % 100}%`,
               top: `${(index * 23) % 100}%`,

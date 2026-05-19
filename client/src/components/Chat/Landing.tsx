@@ -7,7 +7,7 @@ import { useGetEndpointsQuery, useGetStartupConfig } from '~/data-provider';
 import ConvoIcon from '~/components/Endpoints/ConvoIcon';
 import { useLocalize, useAuthContext } from '~/hooks';
 import { getIconEndpoint, getEntity, cn } from '~/utils';
-import { nbRainbowText } from '~/components/Theme/styles';
+import { nbLandingPanel, nbRainbowText } from '~/components/Theme/styles';
 
 const containerClassName =
   'shadow-stroke relative flex h-full items-center justify-center rounded-full bg-surface-primary text-text-primary dark:after:shadow-none';
@@ -151,7 +151,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
     >
       <div
         ref={contentRef}
-        className="nb-landing-panel flex flex-col items-center gap-0 rounded-3xl border border-white/10 bg-[rgba(12,10,20,0.65)] p-6 backdrop-blur-md sm:p-8"
+        className={nbLandingPanel}
       >
         <div
           className={`flex ${textHasMultipleLines ? 'flex-col' : 'flex-col md:flex-row'} items-center justify-center gap-2`}

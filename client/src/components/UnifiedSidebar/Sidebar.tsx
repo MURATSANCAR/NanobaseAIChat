@@ -30,7 +30,7 @@ function Sidebar({
         />
         <nav
           className={cn(
-            'nb-colorful-sidebar min-h-0 flex-1 overflow-hidden bg-[rgba(20,16,36,0.94)] backdrop-blur-xl',
+            'nb-colorful-sidebar nb-forge-sidebar min-h-0 flex-1 overflow-hidden backdrop-blur-xl',
             expanded ? 'opacity-100' : 'pointer-events-none opacity-0',
           )}
           style={{ transition: expanded ? 'opacity 200ms ease 80ms' : 'opacity 150ms ease' }}

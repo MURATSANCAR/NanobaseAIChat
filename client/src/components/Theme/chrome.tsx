@@ -2,7 +2,7 @@ import { PartnerSupportFooter } from '~/components/Branding';
 
 function AppChromeFooter() {
   return (
-    <PartnerSupportFooter className="shrink-0 border-t border-white/10 bg-[rgba(12,10,20,0.65)] backdrop-blur-md" />
+    <PartnerSupportFooter className="shrink-0 border-t border-orange-500/15 bg-[rgba(21,34,56,0.88)] backdrop-blur-md" />
   );
 }
 

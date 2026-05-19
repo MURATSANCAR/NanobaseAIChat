@@ -5,7 +5,7 @@ import AuthAiVisual from './visual';
 function AuthHero() {
   return (
     <aside
-      className="relative hidden min-h-screen w-[55%] flex-col overflow-hidden bg-[#070b14] lg:flex"
+      className="relative hidden min-h-screen w-[55%] flex-col overflow-hidden bg-[#0a1628] lg:flex"
       aria-hidden="true"
     >
       <NeuralBackground />

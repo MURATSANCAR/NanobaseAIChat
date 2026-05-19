@@ -9,7 +9,7 @@ type LogoProps = {
 const NVIDIA_LOGO = 'assets/partners/nvidia.svg';
 
 const nvidiaLogoPlateClass =
-  'inline-flex items-center justify-center rounded-lg bg-[#070b14] px-3 py-1.5';
+  'inline-flex items-center justify-center rounded-lg bg-[#0a1628] px-3 py-1.5';
 
 type NvidiaLogoProps = LogoProps & {
   /** White wordmark on NVIDIA dark plate — for light page backgrounds */
