@@ -14,6 +14,7 @@ import MessagesView from './Messages/MessagesView';
 import Presentation from './Presentation';
 import ChatForm from './Input/ChatForm';
 import Landing from './Landing';
+import CornerAiVisual from './CornerAiVisual';
 import Header from './Header';
 import Footer from './Footer';
 import { cn } from '~/utils';
@@ -87,6 +88,11 @@ function ChatView({ index = 0 }: { index?: number }) {
           <Presentation>
             <div className="relative flex h-full w-full flex-col">
               <Header />
+              {isLandingPage && (
+                <div className="pointer-events-none absolute right-3 top-[3.75rem] z-[9] sm:right-5">
+                  <CornerAiVisual />
+                </div>
+              )}
               <>
                 <div
                   className={cn(

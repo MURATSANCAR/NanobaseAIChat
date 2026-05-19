@@ -8,7 +8,6 @@ import ConvoIcon from '~/components/Endpoints/ConvoIcon';
 import { useLocalize, useAuthContext } from '~/hooks';
 import { getIconEndpoint, getEntity, cn } from '~/utils';
 import { nbLandingPanel, nbRainbowText } from '~/components/Theme/styles';
-import LandingAgentVisual from './LandingAgentVisual';
 
 const containerClassName =
   'shadow-stroke relative flex h-full items-center justify-center rounded-full bg-surface-primary text-text-primary dark:after:shadow-none';
@@ -97,26 +96,26 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
       ? getGreeting()
       : getGreeting() + (user?.name ? ', ' + user.name : '');
 
-  const showColorfulOrb = !((isAgent || isAssistant) && name) && !name;
+  const showDefaultGreeting = !((isAgent || isAssistant) && name) && !name;
   const greetingClassName = cn(
     getTextSizeClass(greetingText),
     'font-medium leading-snug',
-    showColorfulOrb ? nbRainbowText : 'text-text-primary',
+    showDefaultGreeting ? nbRainbowText : 'text-text-primary',
   );
+
+  const showEntityIcon = (isAgent || isAssistant) && name;
 
   return (
     <div
       className={cn(
-        'flex w-full shrink-0 flex-col items-start justify-start px-3 pt-1 pb-0 sm:px-4',
-        centerFormOnLanding ? 'sm:pt-2' : 'sm:pb-1',
+        'flex w-full shrink-0 flex-col items-start justify-start px-3 pt-2 pb-0 sm:px-4',
+        centerFormOnLanding ? 'sm:pt-3' : 'sm:pb-1',
       )}
     >
       <div ref={contentRef} className={nbLandingPanel}>
-        <div className="flex w-full flex-row items-center gap-3 sm:gap-4">
-          {showColorfulOrb ? (
-            <LandingAgentVisual />
-          ) : (
-            <div className="relative flex size-12 shrink-0 items-center justify-center sm:size-14">
+        <div className="flex w-full flex-row items-center gap-3">
+          {showEntityIcon && (
+            <div className="relative flex size-10 shrink-0 items-center justify-center sm:size-11">
               <ConvoIcon
                 agentsMap={agentsMap}
                 assistantMap={assistantMap}
@@ -125,7 +124,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
                 containerClassName={containerClassName}
                 context="landing"
                 className="h-2/3 w-2/3 text-text-primary"
-                size={32}
+                size={28}
               />
               {startupConfig?.showBirthdayIcon && (
                 <TooltipAnchor
@@ -139,15 +138,15 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
             </div>
           )}
 
-          <div className="flex min-w-0 flex-1 flex-col items-start gap-0.5">
-            {((isAgent || isAssistant) && name) || name ? (
+          <div className="flex min-w-0 flex-1 flex-col items-start pr-16 sm:pr-20">
+            {name ? (
               <SplitText
                 key={`split-text-${name}`}
                 text={name}
                 className={cn(getTextSizeClass(name), 'font-medium text-text-primary')}
                 delay={50}
                 textAlign="left"
-                animationFrom={{ opacity: 0, transform: 'translate3d(0,16px,0)' }}
+                animationFrom={{ opacity: 0, transform: 'translate3d(0,12px,0)' }}
                 animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                 easing={easings.easeOutCubic}
                 threshold={0}
@@ -160,7 +159,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
                 className={greetingClassName}
                 delay={50}
                 textAlign="left"
-                animationFrom={{ opacity: 0, transform: 'translate3d(0,16px,0)' }}
+                animationFrom={{ opacity: 0, transform: 'translate3d(0,12px,0)' }}
                 animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
                 easing={easings.easeOutCubic}
                 threshold={0}
@@ -171,7 +170,7 @@ export default function Landing({ centerFormOnLanding }: { centerFormOnLanding: 
         </div>
 
         {description && (
-          <p className="animate-fadeIn mt-2 max-w-md text-left text-xs font-normal leading-snug text-text-secondary sm:text-sm">
+          <p className="animate-fadeIn mt-2 max-w-md pr-16 text-left text-xs font-normal leading-snug text-text-secondary sm:pr-20 sm:text-sm">
             {description}
           </p>
         )}

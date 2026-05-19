@@ -3568,6 +3568,77 @@ html {
   }
 }
 
+@keyframes nb-corner-ai-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nb-corner-ai-spin-reverse {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes nb-corner-ai-breathe {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes nb-corner-ai-status {
+  0%,
+  100% {
+    opacity: 0.75;
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.35);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 6px 1px rgba(52, 211, 153, 0.55);
+  }
+}
+
+.nb-corner-ai-orbit {
+  transform-origin: 32px 32px;
+  animation: nb-corner-ai-spin 14s linear infinite;
+}
+
+.nb-corner-ai-orbit-reverse {
+  transform-origin: 32px 32px;
+  animation: nb-corner-ai-spin-reverse 20s linear infinite;
+}
+
+.nb-corner-ai-glow {
+  animation: nb-corner-ai-breathe 3s ease-in-out infinite;
+}
+
+.nb-corner-ai-status {
+  animation: nb-corner-ai-status 2.2s ease-in-out infinite;
+}
+
+.nb-corner-ai-plate {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.nb-corner-ai:hover .nb-corner-ai-plate {
+  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(249, 115, 22, 0.12);
+}
+
 .nb-forge-landing.nb-landing-panel {
   background-color: rgba(15, 29, 50, 0.82);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
