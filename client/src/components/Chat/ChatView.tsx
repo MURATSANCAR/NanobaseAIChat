@@ -89,7 +89,7 @@ function ChatView({ index = 0 }: { index?: number }) {
             <div className="relative flex h-full w-full flex-col">
               <Header />
               {isLandingPage && (
-                <div className="pointer-events-none absolute right-3 top-[3.75rem] z-[9] sm:right-5">
+                <div className="pointer-events-none absolute right-2 top-[3.5rem] z-[9] sm:right-4 sm:top-[3.6rem]">
                   <CornerAiVisual />
                 </div>
               )}
