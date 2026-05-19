@@ -1316,8 +1316,8 @@
   "com_ui_zoom_level": "Масштаб",
   "com_ui_zoom_out": "Уменьшить",
   "com_user_message": "Вы",
-  "com_ui_partner_footer_aria": "Technology partners",
-  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
-  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
-  "com_ui_partner_supported_by": "Supported by"
+  "com_ui_partner_footer_aria": "Стратегические технологические партнёры",
+  "com_ui_partner_nvidia_corner": "Ускорено с помощью NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Корпоративный ИИ — разработан в Кремниевой долине, Соединённые Штаты Америки",
+  "com_ui_partner_supported_by": "В стратегическом партнёрстве с NVIDIA, Microsoft и Google"
 }

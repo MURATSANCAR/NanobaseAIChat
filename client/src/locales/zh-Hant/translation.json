@@ -877,8 +877,8 @@
   "com_ui_yes": "是",
   "com_ui_zoom": "縮放",
   "com_user_message": "您",
-  "com_ui_partner_footer_aria": "Technology partners",
-  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
-  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
-  "com_ui_partner_supported_by": "Supported by"
+  "com_ui_partner_footer_aria": "戰略技術合作夥伴",
+  "com_ui_partner_nvidia_corner": "由 NVIDIA AI 加速",
+  "com_ui_partner_silicon_valley": "企業級 AI — 美國矽谷匠心打造",
+  "com_ui_partner_supported_by": "與 NVIDIA、Microsoft 和 Google 策略合作"
 }

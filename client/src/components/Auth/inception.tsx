@@ -1,15 +1,17 @@
 import { NvidiaLogo } from '~/components/Branding/logos';
-import { useLocalize } from '~/hooks';
 import { cn } from '~/utils';
+import useAuthBrandLocalize from './brand';
 
 function AuthInceptionBadge({
   className,
   large = false,
+  onDarkBackground = false,
 }: {
   className?: string;
   large?: boolean;
+  onDarkBackground?: boolean;
 }) {
-  const localize = useLocalize();
+  const localize = useAuthBrandLocalize();
 
   return (
     <div
@@ -26,10 +28,11 @@ function AuthInceptionBadge({
         {localize('com_auth_nvidia_inception')}
       </p>
       <NvidiaLogo
+        onPlate={!onDarkBackground}
         title="NVIDIA"
         className={cn(
-          'w-auto object-contain',
           large ? 'h-12 max-w-[220px] sm:h-16 sm:max-w-[280px]' : 'h-8 max-w-[140px] sm:h-10 sm:max-w-[180px]',
+          !onDarkBackground && 'px-4 py-2.5',
         )}
       />
     </div>

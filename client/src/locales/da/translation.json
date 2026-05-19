@@ -875,8 +875,8 @@
   "com_ui_yes": "Ja",
   "com_ui_zoom": "Zoom",
   "com_user_message": "Du",
-  "com_ui_partner_footer_aria": "Technology partners",
-  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
-  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
-  "com_ui_partner_supported_by": "Supported by"
+  "com_ui_partner_footer_aria": "Strategiske teknologipartnere",
+  "com_ui_partner_nvidia_corner": "Accelereret med NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Enterprise AI — udviklet i Silicon Valley, Amerikas Forenede Stater",
+  "com_ui_partner_supported_by": "I strategisk partnerskab med NVIDIA, Microsoft og Google"
 }

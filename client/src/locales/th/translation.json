@@ -827,8 +827,8 @@
   "com_ui_zoom_level": "ระดับการซูม",
   "com_ui_zoom_out": "ซูมออก",
   "com_user_message": "คุณ",
-  "com_ui_partner_footer_aria": "Technology partners",
-  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
-  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
-  "com_ui_partner_supported_by": "Supported by"
+  "com_ui_partner_footer_aria": "พันธมิตรเทคโนโลยีเชิงกลยุทธ์",
+  "com_ui_partner_nvidia_corner": "เร่งด้วย NVIDIA AI",
+  "com_ui_partner_silicon_valley": "AI ระดับองค์กร — ออกแบบในซิลิกอนวัลเลย์ สหรัฐอเมริกา",
+  "com_ui_partner_supported_by": "พันธมิตรเชิงกลยุทธ์กับ NVIDIA, Microsoft และ Google"
 }

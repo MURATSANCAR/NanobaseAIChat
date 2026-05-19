@@ -8,17 +8,37 @@ type LogoProps = {
 
 const NVIDIA_LOGO = 'assets/partners/nvidia.svg';
 
-/** Official NVIDIA wordmark + eye symbol (green #76B900, wordmark for dark backgrounds). */
-export function NvidiaLogo({ className, title = 'NVIDIA' }: LogoProps) {
-  return (
+const nvidiaLogoPlateClass =
+  'inline-flex items-center justify-center rounded-lg bg-[#070b14] px-3 py-1.5';
+
+type NvidiaLogoProps = LogoProps & {
+  /** White wordmark on NVIDIA dark plate — for light page backgrounds */
+  onPlate?: boolean;
+};
+
+/** Official NVIDIA wordmark + eye symbol (green #76B900, white wordmark). */
+export function NvidiaLogo({ className, title = 'NVIDIA', onPlate = false }: NvidiaLogoProps) {
+  const image = (
     <img
       src={NVIDIA_LOGO}
       alt={title}
-      className={cn('h-[18px] w-auto max-w-[88px] object-contain object-center sm:h-5 sm:max-w-[100px]', className)}
+      className={cn(
+        'w-auto object-contain object-center',
+        onPlate
+          ? 'h-full max-h-full max-w-full'
+          : 'h-[18px] max-w-[88px] sm:h-5 sm:max-w-[100px]',
+        !onPlate && className,
+      )}
       loading="lazy"
       decoding="async"
     />
   );
+
+  if (!onPlate) {
+    return image;
+  }
+
+  return <span className={cn(nvidiaLogoPlateClass, className)}>{image}</span>;
 }
 
 export function MicrosoftLogo({ className, title = 'Microsoft', variant = 'brand' }: LogoProps) {
@@ -110,9 +130,11 @@ const logoSlotClass = 'flex h-6 shrink-0 items-center justify-center sm:h-7';
 export function PartnerLogoRow({
   className,
   variant = 'brand',
+  nvidiaOnPlate = false,
 }: {
   className?: string;
   variant?: 'brand' | 'mono';
+  nvidiaOnPlate?: boolean;
 }) {
   const mono = variant === 'mono';
 
@@ -125,7 +147,11 @@ export function PartnerLogoRow({
       )}
     >
       <div className={cn(logoSlotClass, 'min-w-[72px] sm:min-w-[88px]')}>
-        <NvidiaLogo title="NVIDIA" className="!h-5 !max-w-none sm:!h-6" />
+        <NvidiaLogo
+          onPlate={nvidiaOnPlate}
+          title="NVIDIA"
+          className={cn('!h-5 !max-w-none sm:!h-6', nvidiaOnPlate && '!h-4 sm:!h-5')}
+        />
       </div>
       <div className={cn(logoSlotClass, 'w-6 sm:w-7')}>
         <MicrosoftLogo variant={variant} className="h-5 w-5 sm:h-6 sm:w-6" title="Microsoft" />

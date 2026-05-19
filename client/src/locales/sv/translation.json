@@ -521,8 +521,8 @@
   "com_ui_unarchive": "Avarkivera",
   "com_ui_unarchive_error": "Kunde inte avarkivera chatt",
   "com_ui_upload_success": "Uppladdningen av filen lyckades",
-  "com_ui_partner_footer_aria": "Technology partners",
-  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
-  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
-  "com_ui_partner_supported_by": "Supported by"
+  "com_ui_partner_footer_aria": "Strategiska teknikpartners",
+  "com_ui_partner_nvidia_corner": "Accelererad med NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Enterprise AI — utvecklad i Silicon Valley, Amerikas förenta stater",
+  "com_ui_partner_supported_by": "I strategiskt partnerskap med NVIDIA, Microsoft och Google"
 }

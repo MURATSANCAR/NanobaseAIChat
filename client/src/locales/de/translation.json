@@ -1612,8 +1612,8 @@
   "com_ui_zoom_level": "Zoomstufe",
   "com_ui_zoom_out": "Herauszoomen",
   "com_user_message": "Du",
-  "com_ui_partner_footer_aria": "Technology partners",
-  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
-  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
-  "com_ui_partner_supported_by": "Supported by"
+  "com_ui_partner_footer_aria": "Strategische Technologiepartner",
+  "com_ui_partner_nvidia_corner": "Beschleunigt mit NVIDIA AI",
+  "com_ui_partner_silicon_valley": "Unternehmens-KI — entwickelt im Silicon Valley, Vereinigte Staaten von Amerika",
+  "com_ui_partner_supported_by": "In strategischer Partnerschaft mit NVIDIA, Microsoft und Google"
 }

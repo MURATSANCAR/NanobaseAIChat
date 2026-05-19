@@ -1203,8 +1203,8 @@
   "com_ui_yes": "Sim",
   "com_ui_zoom": "Ampliar",
   "com_user_message": "Você",
-  "com_ui_partner_footer_aria": "Technology partners",
-  "com_ui_partner_nvidia_corner": "Accelerated with NVIDIA AI",
-  "com_ui_partner_silicon_valley": "Engineered in Silicon Valley, California",
-  "com_ui_partner_supported_by": "Supported by"
+  "com_ui_partner_footer_aria": "Parceiros tecnológicos estratégicos",
+  "com_ui_partner_nvidia_corner": "Acelerado com IA NVIDIA",
+  "com_ui_partner_silicon_valley": "IA empresarial — concebida no Vale do Silício, Estados Unidos da América",
+  "com_ui_partner_supported_by": "Em parceria estratégica com NVIDIA, Microsoft e Google"
 }

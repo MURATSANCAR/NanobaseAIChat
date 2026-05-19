@@ -10,7 +10,7 @@ import AuthHero from './hero';
 import NeuralBackground from './background';
 import { authCardClass, authLinkClass, authPanelClass } from './styles';
 import AuthInceptionBadge from './inception';
-import { AuthPartnerBanner } from './partners';
+import { AuthPartnerCard } from './partners';
 
 function AuthLayout({
   children,
@@ -31,7 +31,10 @@ function AuthLayout({
 }) {
   const localize = useLocalize();
   const appTitle = startupConfig?.appTitle ?? DEFAULT_APP_TITLE;
-  const isLoginPage = pathname.includes('login') && !pathname.includes('2fa');
+  const isRegisterPage = pathname.includes('register') && !pathname.includes('2fa');
+  const showPartnerCard =
+    !pathname.includes('2fa') &&
+    (pathname.includes('login') || pathname.includes('register'));
 
   const hasStartupConfigError = startupConfigError !== null && startupConfigError !== undefined;
   const DisplayError = () => {
@@ -93,7 +96,9 @@ function AuthLayout({
               </div>
             </BlinkAnimation>
 
-            {isLoginPage && <AuthInceptionBadge className="mb-6" />}
+            {isRegisterPage && <AuthInceptionBadge className="mb-6" />}
+
+            {showPartnerCard && <AuthPartnerCard className="mb-6" />}
 
             <DisplayError />
 
@@ -113,7 +118,6 @@ function AuthLayout({
                 <SocialLoginRender startupConfig={startupConfig} />
               )}
 
-            <AuthPartnerBanner />
           </div>
         </main>
 
