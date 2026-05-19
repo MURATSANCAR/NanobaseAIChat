@@ -1,4 +1,5 @@
 import { DEFAULT_APP_TITLE } from 'librechat-data-provider';
+import { NanobaseLogo } from '~/components/Branding';
 import { useLocalize } from '~/hooks';
 import NeuralBackground from './background';
 import { AuthHeroPartners } from './partners';
@@ -13,9 +14,7 @@ function AuthHero() {
     >
       <NeuralBackground />
       <div className="relative z-10 max-w-lg pt-4">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-400">
-          {DEFAULT_APP_TITLE}
-        </p>
+        <NanobaseLogo variant="hero" alt={DEFAULT_APP_TITLE} />
         <h2 className="mt-8 text-4xl font-bold leading-tight text-white">
           {localize('com_auth_welcome')}
         </h2>

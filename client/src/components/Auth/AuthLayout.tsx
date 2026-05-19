@@ -2,15 +2,14 @@ import { ThemeSelector } from '@librechat/client';
 import { DEFAULT_APP_TITLE, TStartupConfig } from 'librechat-data-provider';
 import { ErrorMessage } from '~/components/Auth/ErrorMessage';
 import { TranslationKeys, useLocalize } from '~/hooks';
-import SocialLoginRender from './SocialLoginRender';
 import { BlinkAnimation } from './BlinkAnimation';
 import { Banner } from '../Banners';
 import Footer from './Footer';
 import AuthHero from './hero';
 import NeuralBackground from './background';
 import { authCardClass, authLinkClass, authPanelClass } from './styles';
+import { NanobaseLogo } from '~/components/Branding';
 import AuthInceptionBadge from './inception';
-import { AuthPartnerCard } from './partners';
 
 function AuthLayout({
   children,
@@ -31,7 +30,6 @@ function AuthLayout({
 }) {
   const localize = useLocalize();
   const appTitle = startupConfig?.appTitle ?? DEFAULT_APP_TITLE;
-  const isRegisterPage = pathname.includes('register') && !pathname.includes('2fa');
   const showPartnerCard =
     !pathname.includes('2fa') &&
     (pathname.includes('login') || pathname.includes('register'));
@@ -84,21 +82,15 @@ function AuthLayout({
         <main className="relative z-10 flex flex-grow items-center justify-center px-4 py-10 sm:px-6">
           <div className={authCardClass}>
             <BlinkAnimation active={isFetching}>
-              <div className="mb-6 flex flex-col items-center gap-3">
-                <img
-                  src="assets/logo-icon.svg"
-                  className="h-14 w-14 shrink-0"
+              <div className="mb-6 flex flex-col items-center">
+                <NanobaseLogo
+                  variant="auth"
                   alt={localize('com_ui_logo', { 0: appTitle })}
                 />
-                <span className="bg-gradient-to-r from-sky-500 to-indigo-500 bg-clip-text text-2xl font-bold tracking-tight text-transparent">
-                  {appTitle}
-                </span>
               </div>
             </BlinkAnimation>
 
-            {isRegisterPage && <AuthInceptionBadge className="mb-6" />}
-
-            {showPartnerCard && <AuthPartnerCard className="mb-6" />}
+            {showPartnerCard && <AuthInceptionBadge className="mb-6" />}
 
             <DisplayError />
 
@@ -112,11 +104,6 @@ function AuthLayout({
             )}
 
             {children}
-
-            {!pathname.includes('2fa') &&
-              (pathname.includes('login') || pathname.includes('register')) && (
-                <SocialLoginRender startupConfig={startupConfig} />
-              )}
 
           </div>
         </main>

@@ -9,6 +9,8 @@ import type { TRegisterUser, TError } from 'librechat-data-provider';
 import type { TLoginLayoutContext } from '~/common';
 import { useLocalize, TranslationKeys } from '~/hooks';
 import { ErrorMessage } from './ErrorMessage';
+import { AuthPartnerCard } from './partners';
+import SocialLoginRender from './SocialLoginRender';
 import {
   authInputClass,
   authLabelClass,
@@ -218,6 +220,8 @@ const Registration: React.FC = () => {
             </div>
           </form>
 
+          <SocialLoginRender startupConfig={startupConfig} />
+
           <p className="my-4 text-center text-sm font-light text-gray-700 dark:text-white">
             {localize('com_auth_already_have_account')}{' '}
             <a
@@ -228,6 +232,7 @@ const Registration: React.FC = () => {
               {localize('com_auth_login')}
             </a>
           </p>
+          <AuthPartnerCard className="mt-2" />
         </>
       )}
     </>

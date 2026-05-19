@@ -8,7 +8,9 @@ import { ErrorMessage } from '~/components/Auth/ErrorMessage';
 import SocialButton from '~/components/Auth/SocialButton';
 import { useAuthContext } from '~/hooks/AuthContext';
 import { useLocalize } from '~/hooks';
+import { AuthPartnerCard } from './partners';
 import LoginForm from './LoginForm';
+import SocialLoginRender from './SocialLoginRender';
 import { authLinkClass } from './styles';
 
 interface LoginLocationState {
@@ -110,6 +112,7 @@ function Login() {
           setError={setError}
         />
       )}
+      <SocialLoginRender startupConfig={startupConfig} />
       {startupConfig?.registrationEnabled === true && (
         <p className="my-4 text-center text-sm font-light text-gray-700 dark:text-white">
           {' '}
@@ -122,6 +125,9 @@ function Login() {
           </a>
         </p>
       )}
+      <AuthPartnerCard
+        className={startupConfig?.registrationEnabled ? 'mt-2' : 'mt-6'}
+      />
     </>
   );
 }
