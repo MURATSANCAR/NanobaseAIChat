@@ -17,6 +17,9 @@ const nvidiaLogoPlateClass =
 const partnerWordmarkClass =
   'block h-7 w-auto max-w-none shrink-0 object-contain object-center sm:h-8';
 
+/** Brand SVG marks — fixed square bounds so flex rows cannot blow up layout. */
+const partnerIconClass = 'block h-7 w-7 shrink-0 sm:h-8 sm:w-8';
+
 type NvidiaLogoProps = LogoProps & {
   onPlate?: boolean;
 };
@@ -46,7 +49,7 @@ export function NvidiaLogo({ className, title = 'NVIDIA', onPlate = false }: Nvi
     <PartnerWordmarkImg
       src={NVIDIA_LOGO}
       title={title}
-      className={cn(onPlate && 'h-full max-h-full', className)}
+      className={cn(!className && !onPlate && partnerWordmarkClass, onPlate && 'h-full max-h-full', className)}
     />
   );
 
@@ -64,7 +67,7 @@ export function MicrosoftLogo({ className, title = 'Microsoft', variant = 'brand
 
   return (
     <svg
-      className={className}
+      className={cn(partnerIconClass, className)}
       viewBox="0 0 23 23"
       role="img"
       aria-label={title}
@@ -85,7 +88,7 @@ export function GoogleLogo({ className, title = 'Google', variant = 'brand' }: L
 
   return (
     <svg
-      className={className}
+      className={cn(partnerIconClass, className)}
       viewBox="0 0 24 24"
       role="img"
       aria-label={title}
@@ -132,10 +135,22 @@ export function PartnerLogoRow({
       <NvidiaLogo
         onPlate={nvidiaOnPlate}
         title="NVIDIA"
-        className={cn(useWordmarks && 'h-7 sm:h-8', nvidiaOnPlate && 'h-6 sm:h-7')}
+        className={cn(
+          useWordmarks && partnerWordmarkClass,
+          !useWordmarks && !nvidiaOnPlate && partnerWordmarkClass,
+          nvidiaOnPlate && 'h-6 sm:h-7',
+        )}
       />
-      <MicrosoftLogo variant={variant} title="Microsoft" />
-      <GoogleLogo variant={variant} title="Google" />
+      <MicrosoftLogo
+        variant={variant}
+        title="Microsoft"
+        className={useWordmarks ? partnerWordmarkClass : partnerIconClass}
+      />
+      <GoogleLogo
+        variant={variant}
+        title="Google"
+        className={useWordmarks ? partnerWordmarkClass : partnerIconClass}
+      />
     </div>
   );
 }
