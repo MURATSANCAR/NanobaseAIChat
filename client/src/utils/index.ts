@@ -22,6 +22,7 @@ export * from './textarea';
 export * from './messages';
 export * from './redirect';
 export * from './languages';
+export * from './conversation';
 export * from './endpoints';
 export * from './nanobase';
 export * from './resources';
