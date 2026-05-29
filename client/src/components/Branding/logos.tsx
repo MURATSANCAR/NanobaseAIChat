@@ -1,18 +1,18 @@
 import { cn } from '~/utils';
 
+export type PartnerSurface = 'light' | 'dark';
+
 type LogoProps = {
   className?: string;
   title?: string;
   variant?: 'brand' | 'mono';
+  surface?: PartnerSurface;
 };
 
-const NVIDIA_LOGO = 'assets/partners/nvidia.svg';
-const NVIDIA_LOGO_LIGHT = 'assets/partners/nvidia-light.svg';
-const MICROSOFT_LOGO = 'assets/partners/microsoft.svg';
+const NVIDIA_LOGO_DARK_BG = 'assets/partners/nvidia.svg';
+const NVIDIA_LOGO_LIGHT_BG = 'assets/partners/nvidia-light.svg';
+const MICROSOFT_LOGO_DARK_BG = 'assets/partners/microsoft.svg';
 const GOOGLE_LOGO = 'assets/partners/google.svg';
-
-const nvidiaLogoPlateClass =
-  'inline-flex items-center justify-center rounded-lg bg-[#0a1628] px-3 py-1.5';
 
 /** Footer wordmarks — preserve aspect ratio (never force square dimensions). */
 const partnerWordmarkClass =
@@ -20,10 +20,6 @@ const partnerWordmarkClass =
 
 /** Brand SVG marks — fixed square bounds so flex rows cannot blow up layout. */
 const partnerIconClass = 'block h-7 w-7 shrink-0 sm:h-8 sm:w-8';
-
-type NvidiaLogoProps = LogoProps & {
-  onPlate?: boolean;
-};
 
 function PartnerWordmarkImg({
   src,
@@ -45,33 +41,7 @@ function PartnerWordmarkImg({
   );
 }
 
-export function NvidiaLogo({
-  className,
-  title = 'NVIDIA',
-  onPlate = false,
-  onDarkBackground = false,
-}: NvidiaLogoProps & { onDarkBackground?: boolean }) {
-  const src = onDarkBackground || onPlate ? NVIDIA_LOGO : NVIDIA_LOGO_LIGHT;
-  const image = (
-    <PartnerWordmarkImg
-      src={src}
-      title={title}
-      className={cn(!className && !onPlate && partnerWordmarkClass, onPlate && 'h-full max-h-full', className)}
-    />
-  );
-
-  if (!onPlate) {
-    return image;
-  }
-
-  return <span className={cn(nvidiaLogoPlateClass, className)}>{image}</span>;
-}
-
-export function MicrosoftLogo({ className, title = 'Microsoft', variant = 'brand' }: LogoProps) {
-  if (variant === 'mono') {
-    return <PartnerWordmarkImg src={MICROSOFT_LOGO} title={title} className={className} />;
-  }
-
+function MicrosoftBrandIcon({ className, title }: { className?: string; title: string }) {
   return (
     <svg
       className={cn(partnerIconClass, className)}
@@ -88,11 +58,7 @@ export function MicrosoftLogo({ className, title = 'Microsoft', variant = 'brand
   );
 }
 
-export function GoogleLogo({ className, title = 'Google', variant = 'brand' }: LogoProps) {
-  if (variant === 'mono') {
-    return <PartnerWordmarkImg src={GOOGLE_LOGO} title={title} className={className} />;
-  }
-
+function GoogleBrandIcon({ className, title }: { className?: string; title: string }) {
   return (
     <svg
       className={cn(partnerIconClass, className)}
@@ -121,18 +87,58 @@ export function GoogleLogo({ className, title = 'Google', variant = 'brand' }: L
   );
 }
 
+export function NvidiaLogo({
+  className,
+  title = 'NVIDIA',
+  surface = 'light',
+}: LogoProps) {
+  const src = surface === 'dark' ? NVIDIA_LOGO_DARK_BG : NVIDIA_LOGO_LIGHT_BG;
+
+  return (
+    <PartnerWordmarkImg
+      src={src}
+      title={title}
+      className={cn(partnerWordmarkClass, className)}
+    />
+  );
+}
+
+export function MicrosoftLogo({
+  className,
+  title = 'Microsoft',
+  variant = 'brand',
+  surface = 'light',
+}: LogoProps) {
+  if (variant === 'mono' && surface === 'dark') {
+    return <PartnerWordmarkImg src={MICROSOFT_LOGO_DARK_BG} title={title} className={className} />;
+  }
+
+  return <MicrosoftBrandIcon className={className} title={title} />;
+}
+
+export function GoogleLogo({
+  className,
+  title = 'Google',
+  variant = 'brand',
+}: LogoProps) {
+  if (variant === 'mono') {
+    return <PartnerWordmarkImg src={GOOGLE_LOGO} title={title} className={className} />;
+  }
+
+  return <GoogleBrandIcon className={className} title={title} />;
+}
+
 export function PartnerLogoRow({
   className,
   variant = 'brand',
-  nvidiaOnPlate = false,
-  nvidiaOnDarkBackground = false,
+  surface = 'light',
 }: {
   className?: string;
   variant?: 'brand' | 'mono';
-  nvidiaOnPlate?: boolean;
-  nvidiaOnDarkBackground?: boolean;
+  surface?: PartnerSurface;
 }) {
   const useWordmarks = variant === 'mono';
+  const wordmarkClass = useWordmarks ? partnerWordmarkClass : partnerIconClass;
 
   return (
     <div
@@ -141,26 +147,14 @@ export function PartnerLogoRow({
         className,
       )}
     >
-      <NvidiaLogo
-        onPlate={nvidiaOnPlate}
-        onDarkBackground={nvidiaOnDarkBackground}
-        title="NVIDIA"
-        className={cn(
-          useWordmarks && partnerWordmarkClass,
-          !useWordmarks && !nvidiaOnPlate && partnerWordmarkClass,
-          nvidiaOnPlate && 'h-6 sm:h-7',
-        )}
-      />
+      <NvidiaLogo surface={surface} title="NVIDIA" className={wordmarkClass} />
       <MicrosoftLogo
+        surface={surface}
         variant={variant}
         title="Microsoft"
-        className={useWordmarks ? partnerWordmarkClass : partnerIconClass}
+        className={wordmarkClass}
       />
-      <GoogleLogo
-        variant={variant}
-        title="Google"
-        className={useWordmarks ? partnerWordmarkClass : partnerIconClass}
-      />
+      <GoogleLogo variant={variant} title="Google" className={wordmarkClass} />
     </div>
   );
 }

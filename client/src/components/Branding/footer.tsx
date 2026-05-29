@@ -20,7 +20,7 @@ function PartnerSupportFooter({ className }: { className?: string }) {
       <p className="text-[10px] font-medium tracking-wide text-slate-400 sm:text-xs">
         {brandLocalize('com_ui_partner_supported_by')}
       </p>
-      <PartnerLogoRow variant="mono" className="mt-2" />
+      <PartnerLogoRow variant="mono" surface="dark" className="mt-2" />
     </div>
   );
 }

@@ -1,15 +1,16 @@
-import { GoogleLogo, MicrosoftLogo, NvidiaLogo, PartnerLogoRow } from '~/components/Branding/logos';
+import type { PartnerSurface } from '~/components/Branding';
+import { PartnerLogoRow } from '~/components/Branding/logos';
 import { cn } from '~/utils';
 import useBrandLocalize from '~/components/Branding/brand';
 
 function PartnerTrustBlock({
   className,
   logoVariant = 'brand',
-  nvidiaOnPlate = false,
+  surface = 'dark',
 }: {
   className?: string;
   logoVariant?: 'brand' | 'mono';
-  nvidiaOnPlate?: boolean;
+  surface?: PartnerSurface;
 }) {
   const brandLocalize = useBrandLocalize();
 
@@ -24,12 +25,7 @@ function PartnerTrustBlock({
       <p className="mt-1.5 text-center text-[10px] font-medium tracking-wide text-slate-400 dark:text-slate-500 sm:text-xs">
         {brandLocalize('com_ui_partner_supported_by')}
       </p>
-      <PartnerLogoRow
-        variant={logoVariant}
-        nvidiaOnPlate={nvidiaOnPlate}
-        nvidiaOnDarkBackground
-        className="mt-5"
-      />
+      <PartnerLogoRow variant={logoVariant} surface={surface} className="mt-5" />
     </section>
   );
 }
@@ -51,11 +47,7 @@ function AuthPartnerCard({ className }: { className?: string }) {
       <p className="mt-2 text-center text-sm font-semibold text-gray-800 dark:text-white">
         {brandLocalize('com_ui_partner_supported_by')}
       </p>
-      <div className="mt-3 flex items-center justify-center gap-5">
-        <NvidiaLogo onPlate className="h-6 w-auto px-3 py-1.5" title="NVIDIA" />
-        <MicrosoftLogo className="h-7 w-7" title="Microsoft" />
-        <GoogleLogo className="h-7 w-7" title="Google" />
-      </div>
+      <PartnerLogoRow variant="brand" surface="light" className="mt-3" />
     </section>
   );
 }
@@ -65,6 +57,7 @@ function AuthHeroPartners() {
     <PartnerTrustBlock
       className="relative z-10 mt-auto w-full max-w-lg border-white/10 [&_p]:text-slate-400"
       logoVariant="brand"
+      surface="dark"
     />
   );
 }

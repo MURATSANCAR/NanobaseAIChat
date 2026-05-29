@@ -30,6 +30,6 @@ if ! curl -sf "http://localhost:3080/health" >/dev/null 2>&1; then
   done
 fi
 
-echo "==> Starting frontend (http://localhost:3090)..."
+echo "==> Starting frontend (http://localhost:${FRONTEND_PORT:-3090})..."
 echo "    Press Ctrl+C to stop both servers."
-npm run frontend:dev
+FRONTEND_PORT="${FRONTEND_PORT:-3090}" npm run frontend:dev

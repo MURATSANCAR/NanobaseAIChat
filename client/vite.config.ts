@@ -30,6 +30,7 @@ const NODE_POLYFILL_SHIMS: Record<string, string> = {
 
 // https://vitejs.dev/config/
 const backendPort = (process.env.BACKEND_PORT && Number(process.env.BACKEND_PORT)) || 3080;
+const frontendPort = (process.env.FRONTEND_PORT && Number(process.env.FRONTEND_PORT)) || 3090;
 const backendURL = process.env.HOST
   ? `http://${process.env.HOST}:${backendPort}`
   : `http://localhost:${backendPort}`;
@@ -40,8 +41,8 @@ export default defineConfig(({ command }) => ({
     allowedHosts:
       (process.env.VITE_ALLOWED_HOSTS && process.env.VITE_ALLOWED_HOSTS.split(',')) || [],
     host: process.env.HOST || 'localhost',
-    port: (process.env.PORT && Number(process.env.PORT)) || 3090,
-    strictPort: false,
+    port: frontendPort,
+    strictPort: true,
     proxy: {
       '/api': {
         target: backendURL,
