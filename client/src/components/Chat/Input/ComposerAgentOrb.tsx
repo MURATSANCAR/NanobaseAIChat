@@ -170,7 +170,7 @@ function ComposerAgentOrb({ active = true, className, variant = 'send' }: Compos
       <div
         className={cn(
           'nb-corner-ai-glow absolute inset-[16%] rounded-full blur-md',
-          isStop ? 'bg-red-400/35' : 'bg-orange-400/30',
+          isStop ? 'bg-red-400/35' : 'bg-orange-300/50',
         )}
       />
       {!isStop && (

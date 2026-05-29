@@ -9,9 +9,9 @@ function AuthHero() {
       aria-hidden="true"
     >
       <NeuralBackground />
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-12 pb-6">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 px-10 pb-8 pt-6 xl:px-12">
         <AuthAiVisual />
-        <AuthHeroPartners className="mt-2 w-full max-w-lg -translate-y-6 border-t-0 pt-4" />
+        <AuthHeroPartners className="w-full max-w-lg shrink-0 border-t border-white/10 pt-6" />
       </div>
     </aside>
   );

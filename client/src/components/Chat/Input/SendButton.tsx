@@ -27,11 +27,10 @@ const SubmitButton = React.memo(
             disabled={props.disabled}
             className={cn(
               'nb-send-agent group relative flex size-12 shrink-0 items-center justify-center rounded-full outline-offset-4 transition-all duration-200',
-              'bg-[rgba(15,29,50,0.95)] shadow-[0_4px_16px_rgba(0,0,0,0.35)]',
-              'border border-orange-500/25',
-              'hover:border-orange-400/45 hover:shadow-[0_4px_20px_rgba(249,115,22,0.2)]',
-              'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-orange-500/25 disabled:hover:shadow-[0_4px_16px_rgba(0,0,0,0.35)]',
-              isActive && 'nb-send-agent--ready',
+              isActive
+                ? 'nb-send-agent--ready border border-orange-200/90 bg-gradient-to-br from-orange-500 via-orange-500 to-amber-600 shadow-[0_4px_22px_rgba(249,115,22,0.55)] hover:border-white/70 hover:shadow-[0_6px_28px_rgba(249,115,22,0.72)]'
+                : 'border border-orange-500/35 bg-[rgba(15,29,50,0.95)] shadow-[0_4px_16px_rgba(0,0,0,0.35)] hover:border-orange-400/55 hover:shadow-[0_4px_20px_rgba(249,115,22,0.28)]',
+              'disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-orange-500/35 disabled:hover:shadow-[0_4px_16px_rgba(0,0,0,0.35)]',
             )}
             data-testid="send-button"
             type="submit"
@@ -40,7 +39,9 @@ const SubmitButton = React.memo(
             <span
               className={cn(
                 'relative z-[2] flex items-center justify-center rounded-full transition-colors duration-200',
-                isActive ? 'text-orange-100' : 'text-slate-500',
+                isActive
+                  ? 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]'
+                  : 'text-slate-400',
               )}
             >
               <SendIcon size={22} />

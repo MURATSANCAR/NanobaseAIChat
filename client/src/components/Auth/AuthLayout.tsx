@@ -7,6 +7,7 @@ import { Banner } from '../Banners';
 import Footer from './Footer';
 import AuthHero from './hero';
 import NeuralBackground from './background';
+import { cn } from '~/utils';
 import { authCardClass, authLinkClass, authPanelClass } from './styles';
 import { NanobaseLogo } from '~/components/Branding';
 import AuthInceptionBadge from './inception';
@@ -67,7 +68,7 @@ function AuthLayout({
   };
 
   return (
-    <div className="relative flex min-h-screen">
+    <div className="relative flex min-h-screen min-w-0">
       <Banner />
       <AuthHero />
 
@@ -79,8 +80,8 @@ function AuthLayout({
           <ThemeSelector />
         </div>
 
-        <main className="relative z-10 flex flex-grow items-center justify-center px-4 py-10 sm:px-6">
-          <div className={authCardClass}>
+        <main className="relative z-10 flex w-full min-w-0 flex-grow items-center justify-center overflow-y-auto px-4 py-10 sm:px-6">
+          <div className={cn(authCardClass, 'mx-auto w-full min-w-0 max-w-md')}>
             <BlinkAnimation active={isFetching}>
               <div className="mb-6 flex flex-col items-center">
                 <NanobaseLogo

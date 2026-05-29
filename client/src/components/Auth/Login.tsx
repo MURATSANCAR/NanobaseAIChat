@@ -103,7 +103,6 @@ function Login() {
 
   return (
     <>
-      {error != null && <ErrorMessage>{localize(getLoginError(error))}</ErrorMessage>}
       {startupConfig?.emailLoginEnabled === true && (
         <LoginForm
           onSubmit={login}
@@ -111,6 +110,9 @@ function Login() {
           error={error}
           setError={setError}
         />
+      )}
+      {error != null && (
+        <ErrorMessage className="mt-4">{localize(getLoginError(error))}</ErrorMessage>
       )}
       <SocialLoginRender startupConfig={startupConfig} />
       {startupConfig?.registrationEnabled === true && (

@@ -324,7 +324,7 @@ const ContentParts = memo(function ContentParts({
   }
 
   const safeContent = content ?? [];
-  const showEmptyCursor = safeContent.length === 0 && effectiveIsSubmitting;
+  const showEmptyCursor = effectiveIsSubmitting && !hasRealContent;
   const lastContentIdx = safeContent.length - 1;
 
   // Parallel content: use dedicated renderer with columns (TMessageContentParts includes ContentMetadata)

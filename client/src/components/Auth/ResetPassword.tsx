@@ -50,7 +50,6 @@ function ResetPassword() {
             <Button
               onClick={() => navigate('/login')}
               aria-label={localize('com_auth_sign_in')}
-              variant="submit"
               className={authSubmitClass}
             >
               {localize('com_auth_continue')}
@@ -157,7 +156,6 @@ function ResetPassword() {
           type="submit"
           aria-label={localize('com_auth_submit_registration')}
           disabled={!!errors.password || !!errors.confirm_password || isSubmitting}
-          variant="submit"
           className={authSubmitClass}
         >
           {isSubmitting ? <Spinner /> : localize('com_auth_continue')}

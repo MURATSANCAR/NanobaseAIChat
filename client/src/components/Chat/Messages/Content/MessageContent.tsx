@@ -11,6 +11,7 @@ import Thinking from './Parts/Thinking';
 import { useLocalize } from '~/hooks';
 import Container from './Container';
 import Markdown from './Markdown';
+import TypingPlaceholder from './Parts/TypingPlaceholder';
 import { cn } from '~/utils';
 import store from '~/store';
 
@@ -100,6 +101,11 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
     [showCursor, isSubmitting],
   );
 
+  const showTypingPlaceholder = useMemo(
+    () => !isCreatedByUser && isSubmitting && text.trim().length === 0,
+    [isCreatedByUser, isSubmitting, text],
+  );
+
   const content = useMemo(() => {
     if (!isCreatedByUser) {
       return <Markdown content={text} isLatestMessage={isLatestMessage} />;
@@ -109,6 +115,14 @@ const DisplayMessage = ({ text, isCreatedByUser, message, showCursor }: TDisplay
     }
     return <>{text}</>;
   }, [isCreatedByUser, enableUserMsgMarkdown, text, isLatestMessage]);
+
+  if (showTypingPlaceholder) {
+    return (
+      <Container message={message}>
+        <TypingPlaceholder />
+      </Container>
+    );
+  }
 
   return (
     <Container message={message}>

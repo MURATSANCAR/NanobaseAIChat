@@ -2005,6 +2005,23 @@ html {
     transform: scale3d(1.25, 1.25, 1);
   }
 }
+.nb-typing-cursor::after {
+  content: '▋';
+  animation: nb-typing-blink 1s step-end infinite;
+  color: rgba(249, 115, 22, 0.85);
+}
+
+@keyframes nb-typing-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
 .submitting .result-thinking:empty:last-child:after {
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-animation: pulseSize 1.25s ease-in-out infinite;
@@ -3501,6 +3518,27 @@ html {
   box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
 }
 
+/* Auth — submit label visibility + form contrast on light/dark cards */
+.auth-page .auth-submit-btn {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
+}
+
+.auth-page .auth-submit-btn:disabled {
+  color: rgba(255, 255, 255, 0.85) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.85);
+}
+
+.auth-page .auth-form-input {
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.dark .auth-page .auth-form-input {
+  background-color: rgba(15, 23, 42, 0.9);
+  color: #f1f5f9;
+}
+
 .nb-landing-orb {
   width: 4.5rem;
   height: 4.5rem;
@@ -3823,6 +3861,15 @@ html {
 
 .nb-send-agent--ready .nb-corner-ai-glow {
   animation-duration: 1.8s;
+  background-color: rgba(253, 186, 116, 0.55) !important;
+}
+
+.nb-send-agent--ready .nb-corner-ai-core-pulse {
+  fill-opacity: 0.28;
+}
+
+.nb-send-agent--ready .nb-corner-ai-core-ring {
+  stroke-opacity: 1;
 }
 
 .nb-stop-agent--active .nb-corner-ai-orbit {
