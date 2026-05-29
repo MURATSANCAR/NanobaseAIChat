@@ -132,6 +132,14 @@ function UnifiedSidebar() {
     return () => document.removeEventListener('keydown', handler);
   }, [isSmallScreen, expanded, handleCollapse]);
 
+  const wasSmallScreen = useRef(isSmallScreen);
+  useEffect(() => {
+    if (isSmallScreen && !wasSmallScreen.current && expanded) {
+      setExpanded(false);
+    }
+    wasSmallScreen.current = isSmallScreen;
+  }, [isSmallScreen, expanded, setExpanded]);
+
   if (isSmallScreen) {
     return (
       <>
