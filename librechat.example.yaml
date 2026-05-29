@@ -70,7 +70,7 @@ interface:
   fileSearch: true
   # Privacy policy settings
   privacyPolicy:
-    externalUrl: 'https://librechat.ai/privacy-policy'
+    externalUrl: 'https://www.nanobase.ai'
     openNewTab: true
 
   # Terms of service
@@ -78,43 +78,46 @@ interface:
     externalUrl: 'https://www.nanobase.ai'
     openNewTab: true
     modalAcceptance: true
-    modalTitle: 'Terms of Service for NanobaseAI'
+    modalTitle: 'NanobaseAI Terms of Service'
     modalContent: |
-      # Terms and Conditions for NanobaseAI
+      # NanobaseAI Terms of Service
 
-      *Effective Date: February 18, 2024*
+      *Last updated: 29 May 2026*
 
-      Welcome to NanobaseAI, your AI chat platform. These Terms of Service ("Terms") govern your use of our website and the services we offer. By accessing or using the Website, you agree to be bound by these Terms and our Privacy Policy.
+      By clicking **Accept**, you agree to these Terms and our [Privacy Policy](https://www.nanobase.ai). The full Terms are available at [https://www.nanobase.ai](https://www.nanobase.ai).
 
-      ## 1. Service
+      ## 1. The Service
 
-      NanobaseAI provides an AI chat and agent platform. Your organization may configure models, connectors, and access policies through your administrator.
+      NanobaseAI provides an enterprise AI workspace, including conversational AI, agents, file features, integrations, and the **NanobaseAI Operation Center** for governed operational workflows. Available features depend on your organization's configuration.
 
-      ## 2. User Data
+      ## 2. Your responsibilities
 
-      We collect personal data, such as your name, email address, and payment information, as described in our Privacy Policy. This information is collected to provide and improve our services, process transactions, and communicate with you.
+      - Keep your account credentials secure and use the Service lawfully.
+      - Review AI-generated outputs before relying on them for important decisions.
+      - Do not submit sensitive personal data unless your organization authorizes it.
+      - Follow your administrator's policies and any acceptable-use rules.
 
-      ## 3. Non-Personal Data Collection
+      ## 3. Acceptable use
 
-      The Website uses cookies to enhance user experience, analyze site usage, and facilitate certain functionalities. By using the Website, you consent to the use of cookies in accordance with our Privacy Policy.
+      You may not misuse the Service, attempt unauthorized access, infringe others' rights, or use outputs to violate law. We may suspend access to protect the Service and users.
 
-      ## 4. Use of the Website
+      ## 4. Privacy
 
-      You agree to use the Website only for lawful purposes and in a manner that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the Website. Prohibited behavior includes harassing or causing distress or inconvenience to any person, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within the Website.
+      We process personal data as described in our Privacy Policy. Enterprise customers may also be subject to a data processing agreement with their organization.
 
-      ## 5. Governing Law
+      ## 5. Disclaimers and liability
 
-      These Terms shall be governed by and construed in accordance with the laws of the United States, without giving effect to any principles of conflicts of law.
+      The Service is provided **"as is"**. To the extent permitted by law, NanobaseAI disclaims warranties and limits liability as set out in the full Terms.
 
-      ## 6. Changes to the Terms
+      ## 6. Governing law
 
-      We reserve the right to modify these Terms at any time. We will notify users of any changes by email. Your continued use of the Website after such changes have been notified will constitute your consent to such changes.
+      These Terms are governed by the laws of the **Republic of Türkiye**, with courts in **Istanbul** having jurisdiction unless mandatory local law provides otherwise.
 
-      ## 7. Contact Information
+      ## 7. Contact
 
-      If you have any questions about these Terms, please visit https://www.nanobase.ai.
+      Questions: [legal@nanobase.ai](mailto:legal@nanobase.ai) · [https://www.nanobase.ai](https://www.nanobase.ai)
 
-      By using the Website, you acknowledge that you have read these Terms of Service and agree to be bound by them.
+      By accepting, you confirm that you have read and agree to the NanobaseAI Terms of Service and Privacy Policy.
 
   modelSelect: false
   parameters: true

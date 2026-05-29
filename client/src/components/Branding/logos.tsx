@@ -7,6 +7,7 @@ type LogoProps = {
 };
 
 const NVIDIA_LOGO = 'assets/partners/nvidia.svg';
+const NVIDIA_LOGO_LIGHT = 'assets/partners/nvidia-light.svg';
 const MICROSOFT_LOGO = 'assets/partners/microsoft.svg';
 const GOOGLE_LOGO = 'assets/partners/google.svg';
 
@@ -44,10 +45,16 @@ function PartnerWordmarkImg({
   );
 }
 
-export function NvidiaLogo({ className, title = 'NVIDIA', onPlate = false }: NvidiaLogoProps) {
+export function NvidiaLogo({
+  className,
+  title = 'NVIDIA',
+  onPlate = false,
+  onDarkBackground = false,
+}: NvidiaLogoProps & { onDarkBackground?: boolean }) {
+  const src = onDarkBackground || onPlate ? NVIDIA_LOGO : NVIDIA_LOGO_LIGHT;
   const image = (
     <PartnerWordmarkImg
-      src={NVIDIA_LOGO}
+      src={src}
       title={title}
       className={cn(!className && !onPlate && partnerWordmarkClass, onPlate && 'h-full max-h-full', className)}
     />
@@ -118,10 +125,12 @@ export function PartnerLogoRow({
   className,
   variant = 'brand',
   nvidiaOnPlate = false,
+  nvidiaOnDarkBackground = false,
 }: {
   className?: string;
   variant?: 'brand' | 'mono';
   nvidiaOnPlate?: boolean;
+  nvidiaOnDarkBackground?: boolean;
 }) {
   const useWordmarks = variant === 'mono';
 
@@ -134,6 +143,7 @@ export function PartnerLogoRow({
     >
       <NvidiaLogo
         onPlate={nvidiaOnPlate}
+        onDarkBackground={nvidiaOnDarkBackground}
         title="NVIDIA"
         className={cn(
           useWordmarks && partnerWordmarkClass,

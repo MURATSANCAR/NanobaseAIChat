@@ -27,6 +27,7 @@ function PartnerTrustBlock({
       <PartnerLogoRow
         variant={logoVariant}
         nvidiaOnPlate={nvidiaOnPlate}
+        nvidiaOnDarkBackground
         className="mt-5"
       />
     </section>

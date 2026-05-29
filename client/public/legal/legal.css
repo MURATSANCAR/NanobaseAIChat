@@ -1,0 +1,112 @@
+:root {
+  color-scheme: light dark;
+  --bg: #0f1419;
+  --text: #e8eaed;
+  --muted: #9aa0a6;
+  --accent: #3b82f6;
+  --border: #2d333b;
+  --card: #161b22;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f8fafc;
+    --text: #0f172a;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --card: #ffffff;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.wrap {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.meta {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+nav.links {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+nav.links a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+nav.links a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.125rem;
+  margin: 2rem 0 0.75rem;
+}
+
+p,
+li {
+  font-size: 0.9375rem;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
